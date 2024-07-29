@@ -1,0 +1,28 @@
+<p>user works!</p>
+
+Username: {{ username }}
+<p>The user's name is {{ occupation }}</p>
+<p>The user's name is {{ name }}</p>
+
+<hr />
+
+<button (click)="onClick()">Increment</button>
+<p>{{ count }}</p>
+
+<button (click)="addItem()">Add Item</button>
+
+<hr />
+
+<ul>
+  <li>
+    Static Image:
+    <img ngSrc="favicon.ico" alt="Angular logo" width="16" height="16" />
+  </li>
+  <li>
+    Dynamic Image:
+    <img [ngSrc]="logoUrl" [alt]="logoAlt" width="16" height="16" />
+  </li>
+</ul>
+
+<!-- <div><img [ngSrc]="logoUrl" [alt]="logoAlt" fill /></div> -->
+<img [ngSrc]="logoUrl" height="500" width="500" priority />
