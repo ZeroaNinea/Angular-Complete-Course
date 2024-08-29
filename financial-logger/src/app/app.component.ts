@@ -14,3 +14,5 @@ import { provideStore } from "@ngrx/store";
 export class AppComponent {
   title = "financial-logger";
 }
+
+// Catgirl!
