@@ -1,7 +1,9 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
 
 import { provideStore } from "@ngrx/store";
+
+import { addCategory } from "./state/actions";
 
 @Component({
   selector: "app-root",
@@ -14,5 +16,3 @@ import { provideStore } from "@ngrx/store";
 export class AppComponent {
   title = "financial-logger";
 }
-
-// Catgirl!
