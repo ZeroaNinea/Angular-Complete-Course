@@ -13,6 +13,9 @@ import { addCategory } from "./state/actions";
   styleUrl: "./app.component.css",
   // providers: [provideStore()],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = "financial-logger";
+  ngOnInit() {
+    console.log(addCategory({ category: { name: "Food" } }));
+  }
 }
