@@ -1,9 +1,5 @@
 import { createAction, props } from "@ngrx/store";
-// import { Category } from "./state";
-
-interface Category {
-  name: string;
-}
+import { Category } from "./Category";
 
 export const addCategory = createAction(
   "[Category List] Add Category",
