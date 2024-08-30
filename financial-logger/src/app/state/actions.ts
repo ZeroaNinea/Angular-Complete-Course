@@ -1,5 +1,5 @@
 import { createAction, createActionGroup, props } from "@ngrx/store";
-import { Category } from "./Category";
+import { Category } from "./state";
 
 export const addCategory = createAction(
   "[Category List] Add Category",
