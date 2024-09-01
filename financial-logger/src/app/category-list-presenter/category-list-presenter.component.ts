@@ -1,8 +1,4 @@
-import {
-  Component,
-  Input,
-  // ChangeDetection
-} from "@angular/core";
+import { Component, Input } from "@angular/core";
 
 import { MatListModule } from "@angular/material/list";
 
