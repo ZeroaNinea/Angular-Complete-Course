@@ -1,1 +1,6 @@
-<p>category-list-presenter works!</p>
+<mat-list>
+  @for (category of categories; track category) {
+    <mat-list-item>{{ category.name }}</mat-list-item>
+  }
+</mat-list>
+<p>Catgirl works!</p>
