@@ -3,12 +3,19 @@ import { RouterOutlet } from "@angular/router";
 
 import { provideStore } from "@ngrx/store";
 
+// import { MatListModule } from "@angular/material";
+
+// import { CategoryListPresenterComponent } from "./category-list-presenter/category-list-presenter";
+
 import { addCategory, categoryActions } from "./state/actions";
 
 @Component({
   selector: "app-root",
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [
+    RouterOutlet,
+    // MatListModule
+  ],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.css",
   // providers: [provideStore()],
