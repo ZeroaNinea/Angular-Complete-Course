@@ -1,4 +1,10 @@
 import { AppState } from "./state";
+import { createSelector } from "@ngrx/store";
 
-export const categories = (state: { categories: AppState }) =>
-  state.categories.categories;
+export const selectCategories = (state: { categories: AppState }) =>
+  state.categories;
+
+export const getCategories = createSelector(
+  selectCategories,
+  (state: AppState) => state.categories,
+);
