@@ -24,7 +24,7 @@ export const categoryActions = createActionGroup({
 // Delete Category
 export const deleteCategory = createAction(
   "[Category List] Delete Category",
-  props<{ category: Category }>(),
+  props<{ name: string }>(),
 );
 
 // Update Category
@@ -34,7 +34,7 @@ export const updateCategory = createAction(
   props<{ category: Category }>(),
 );
 
-export const deletCategories = createActionGroup({
+export const deleteCategories = createActionGroup({
   source: "Category List",
   events: {
     "Add Category": props<{ category: Category }>(),
@@ -42,3 +42,8 @@ export const deletCategories = createActionGroup({
     "Update Category": props<{ category: Category }>(),
   },
 });
+
+export const deleteAllCategories = createAction(
+  "[Category List] Delete All Categories",
+  props<{ categories: [] }>,
+);
