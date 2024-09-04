@@ -10,7 +10,7 @@ import { provideStore } from "@ngrx/store";
 
 import { provideEffects } from "@ngrx/effects";
 
-import { categoriesReducer } from "./state/categories.reducer";
+// import { categoriesReducer } from "./state/categories.reducer";
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -22,7 +22,8 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     provideAnimationsAsync(),
     // provideState("category", { categories: categoriesReducer }),
-    provideStore({ categories: categoriesReducer }),
+    // provideStore({ categories: categoriesReducer }),
+    provideStore({}),
     provideEffects([]),
   ],
 };
