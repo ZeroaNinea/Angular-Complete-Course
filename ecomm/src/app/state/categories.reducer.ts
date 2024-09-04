@@ -1,6 +1,10 @@
 import { createReducer, on } from "@ngrx/store";
-import { categoryActions } from "./categories.actions";
-import { initialCategoriesState } from "./state";
+import {
+  categoryActions,
+  categoryActionsFailure,
+  categoryActionsSuccess,
+} from "./categories.actions";
+import { initialState } from "./state";
 
 // export const categoriesReducer = createReducer(
 //   initialCategoriesState,
@@ -22,3 +26,21 @@ import { initialCategoriesState } from "./state";
 //     data: ["bunnygirl"],
 //   })),
 // );
+
+export const categoryReducer = createReducer(
+  initialState,
+  on(categoryActionsSuccess, (state, action) => {
+    return {
+      ...state,
+      categories: action.categories,
+      error: "",
+    };
+  }),
+  on(categoryActionsFailure, (state, action) => {
+    return {
+      ...state,
+      categories: [],
+      error: action.error,
+    };
+  }),
+);
