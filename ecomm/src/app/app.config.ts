@@ -8,6 +8,8 @@ import { provideAnimationsAsync } from "@angular/platform-browser/animations/asy
 import { provideState } from "@ngrx/store";
 import { provideStore } from "@ngrx/store";
 
+import { provideEffects } from "@ngrx/effects";
+
 import { categoriesReducer } from "./state/categories.reducer";
 
 export const appConfig: ApplicationConfig = {
@@ -19,7 +21,8 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     provideAnimationsAsync(),
     provideAnimationsAsync(),
-    // provideState("category", {}),
+    // provideState("category", { categories: categoriesReducer }),
     provideStore({ categories: categoriesReducer }),
+    provideEffects([]),
   ],
 };
