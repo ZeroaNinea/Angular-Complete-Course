@@ -9,6 +9,7 @@ import { provideState } from "@ngrx/store";
 import { provideStore } from "@ngrx/store";
 
 import { provideEffects } from "@ngrx/effects";
+import { provideHttpClient, withFetch } from "@angular/common/http";
 
 import { categoryReducer } from "./state/categories.reducer";
 
@@ -25,5 +26,6 @@ export const appConfig: ApplicationConfig = {
     provideStore({ category: categoryReducer }),
     // provideStore({}),
     provideEffects([]),
+    provideHttpClient(withFetch()),
   ],
 };
