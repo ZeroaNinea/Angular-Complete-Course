@@ -12,6 +12,7 @@ import { provideEffects } from "@ngrx/effects";
 import { provideHttpClient, withFetch } from "@angular/common/http";
 
 import { categoryReducer } from "./state/categories.reducer";
+import { CategoryEffects } from "./state/category.effects";
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -25,7 +26,7 @@ export const appConfig: ApplicationConfig = {
     // provideState("category", { categories: categoriesReducer }),
     provideStore({ category: categoryReducer }),
     // provideStore({}),
-    provideEffects([]),
+    provideEffects([CategoryEffects]),
     provideHttpClient(withFetch()),
   ],
 };

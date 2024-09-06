@@ -37,5 +37,9 @@ export class AppComponent {
   ngOnInit(): void {
     this.categories$ = this.categoryService.getCategories();
     // console.log(this.categories$);
+    // this.categories$.subscribe({
+    //   next: (data) => console.log("Categories data: ", data),
+    //   error: (err) => console.error("Error: ", err),
+    // });
   }
 }
