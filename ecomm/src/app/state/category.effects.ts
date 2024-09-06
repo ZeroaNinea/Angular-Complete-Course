@@ -2,7 +2,7 @@ import { Injectable, inject } from "@angular/core";
 import { Actions } from "@ngrx/effects";
 import { createEffect, ofType } from "@ngrx/effects";
 import { EMPTY } from "rxjs";
-import { map, exhaustMap, catchError } from "rxjs/operators";
+import { map, exhaustMap, catchError, switchMap } from "rxjs/operators";
 
 import {
   categoryActions,
@@ -23,13 +23,29 @@ import { Observable, Subject } from "rxjs";
 
 @Injectable()
 export class CategoryEffects {
-  constructor(
-    private readonly categoryService: CategoryService,
-    private actions$: Actions,
-  ) {
-    console.log(this.actions$);
-    this.actions$.subscribe(console.log);
-  }
+  // constructor(
+  //   private readonly categoryService: CategoryService,
+  //   private actions$: Actions,
+  // ) {
+  //   console.log(this.actions$);
+  //   this.actions$.subscribe(console.log);
+  // }
+
+  private actions$ = inject(Actions);
+
+  constructor(private readonly categoryService: CategoryService) {}
+
+  loadCategories$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(categoryActions),
+      switchMap(() =>
+        this.categoryService.getCategories().pipe(
+          map((categories) => categoryActionsSuccess({ categories })),
+          catchError(() => EMPTY),
+        ),
+      ),
+    ),
+  );
 
   // loadCategories$ = createEffect(() =>
   //   this.actions$.pipe(
