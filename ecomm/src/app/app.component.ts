@@ -9,6 +9,13 @@ import { CategoryService } from "./state/category.service";
 import { HomeComponent } from "./home/home.component";
 import { MainNavComponent } from "./main-nav/main-nav.component";
 
+import { Store } from "@ngrx/store";
+import {
+  categoryActions,
+  categoryActionsFailure,
+  categoryActionsSuccess,
+} from "./state/categories.actions";
+
 @Component({
   selector: "app-root",
   standalone: true,
@@ -32,10 +39,14 @@ export class AppComponent {
   title = "ecomm";
   categories$!: Observable<string[]>;
 
-  constructor(private readonly categoryService: CategoryService) {}
+  constructor(
+    private readonly categoryService: CategoryService,
+    private store: Store,
+  ) {}
 
   ngOnInit(): void {
     this.categories$ = this.categoryService.getCategories();
+    this.store.dispatch(categoryActions());
     // console.log(this.categories$);
     // this.categories$.subscribe({
     //   next: (data) => console.log("Categories data: ", data),
