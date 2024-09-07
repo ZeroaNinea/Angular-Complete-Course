@@ -24,8 +24,9 @@ export class CategoryEffects {
   // }
 
   private actions$ = inject(Actions);
+  private readonly categoryService = inject(CategoryService);
 
-  constructor(private readonly categoryService: CategoryService) {}
+  // constructor(private readonly categoryService: CategoryService) {}
 
   loadCategories$ = createEffect(() =>
     this.actions$.pipe(
