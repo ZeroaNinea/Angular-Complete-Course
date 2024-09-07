@@ -15,6 +15,8 @@ import {
   categoryActionsFailure,
   categoryActionsSuccess,
 } from "./state/categories.actions";
+import { selectCategories } from "./state/category.selector";
+import { CategoryState } from "./state/state";
 
 @Component({
   selector: "app-root",
@@ -33,20 +35,22 @@ import {
   //   <app-home></app-home>
   //   <app-main-nav></app-main-nav>
   // `,
-  styleUrl: "./app.component.scss",
+  styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
   title = "ecomm";
   categories$!: Observable<string[]>;
+  // categoriesSelector$!: Observable<any>;
 
   constructor(
     private readonly categoryService: CategoryService,
-    private store: Store,
+    private store: Store<CategoryState>,
   ) {}
 
   ngOnInit(): void {
-    this.categories$ = this.categoryService.getCategories();
+    // this.categories$ = this.categoryService.getCategories();
     this.store.dispatch(categoryActions());
+    this.categories$ = this.store.select(selectCategories);
     // console.log(this.categories$);
     // this.categories$.subscribe({
     //   next: (data) => console.log("Categories data: ", data),

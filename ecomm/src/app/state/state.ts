@@ -12,8 +12,8 @@
 
 export interface CategoryState {
   categories: string[];
-  currentCategory: string;
-  error: string;
+  currentCategory: string | null;
+  error: string | null;
 }
 
 export const initialState: CategoryState = {
