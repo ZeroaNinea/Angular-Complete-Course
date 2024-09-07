@@ -13,14 +13,6 @@ import { CategoryService } from "./category.service";
 
 import { Observable, Subject } from "rxjs";
 
-// interface Action {
-//   type: string;
-// }
-
-// interface Actions {
-//   type: Action<string>;
-// }
-
 @Injectable()
 export class CategoryEffects {
   // constructor(
@@ -38,7 +30,7 @@ export class CategoryEffects {
   loadCategories$ = createEffect(() =>
     this.actions$.pipe(
       ofType(categoryActions),
-      switchMap(() =>
+      exhaustMap(() =>
         this.categoryService.getCategories().pipe(
           map((categories) => categoryActionsSuccess({ categories })),
           catchError(() => EMPTY),
@@ -46,18 +38,4 @@ export class CategoryEffects {
       ),
     ),
   );
-
-  // loadCategories$ = createEffect(() =>
-  //   this.actions$.pipe(
-  //     ofType(categoryActions),
-  //     exhaustMap(() =>
-  //       this.categoryService.getCategories().pipe(
-  //         map((categories) => categoryActionsSuccess({ categories })),
-  //         catchError((error) => EMPTY),
-  //       ),
-  //     ),
-  //   ),
-  // );
-
-  // loadCategories$ = createEffect(() => this.actions$.pipe()); // I've already checked everything. The error occurs because of this line.
 }
