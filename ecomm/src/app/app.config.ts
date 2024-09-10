@@ -7,12 +7,15 @@ import { provideAnimationsAsync } from "@angular/platform-browser/animations/asy
 
 import { provideState } from "@ngrx/store";
 import { provideStore } from "@ngrx/store";
-
 import { provideEffects } from "@ngrx/effects";
+import { provideStoreDevtools } from "@ngrx/store-devtools";
+
+import { isDevMode } from "@angular/core";
 import { provideHttpClient, withFetch } from "@angular/common/http";
 
 import { categoryReducer } from "./state/categories.reducer";
 import { CategoryEffects } from "./state/category.effects";
+import { categoryFeature } from "./state/category.selector";
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -25,8 +28,10 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     // provideState("category", { categories: categoriesReducer }),
     provideStore({ category: categoryReducer }),
+    provideState(categoryFeature),
     // provideStore({}),
     provideEffects([CategoryEffects]),
     provideHttpClient(withFetch()),
+    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
   ],
 };

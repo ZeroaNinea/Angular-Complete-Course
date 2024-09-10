@@ -40,7 +40,6 @@ import { CategoryState } from "./state/state";
 export class AppComponent {
   title = "ecomm";
   categories$!: Observable<string[]>;
-  // categoriesSelector$!: Observable<any>;
 
   constructor(
     private readonly categoryService: CategoryService,
@@ -50,7 +49,7 @@ export class AppComponent {
   ngOnInit(): void {
     // this.categories$ = this.categoryService.getCategories();
     this.store.dispatch(categoryActions());
-    this.categories$ = this.store.select(selectCategories);
+    // this.categories$ = this.store.select(selectCategories);
     // console.log(this.categories$);
     // this.categories$.subscribe({
     //   next: (data) => console.log("Categories data: ", data),
