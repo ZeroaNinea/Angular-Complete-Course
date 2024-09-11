@@ -7,9 +7,12 @@ import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatListModule } from "@angular/material/list";
 import { MatIconModule } from "@angular/material/icon";
 import { RouterModule } from "@angular/router";
+import { RouterOutlet } from "@angular/router";
 
 import { Observable } from "rxjs";
 import { map, shareReplay } from "rxjs/operators";
+
+import ProductComponent from "../product/product.component";
 
 import { CategoryService } from "../state/category.service";
 
@@ -36,6 +39,8 @@ import { CategoryState } from "../state/state";
     AsyncPipe,
     CommonModule,
     RouterModule,
+    RouterOutlet,
+    ProductComponent,
   ],
 })
 export class MainNavComponent {

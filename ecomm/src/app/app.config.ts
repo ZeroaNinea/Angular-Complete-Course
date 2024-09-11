@@ -1,5 +1,9 @@
 import { ApplicationConfig, provideZoneChangeDetection } from "@angular/core";
-import { provideRouter } from "@angular/router";
+import {
+  provideRouter,
+  withEnabledBlockingInitialNavigation,
+  withComponentInputBinding,
+} from "@angular/router";
 
 import { routes } from "./app.routes";
 import { provideClientHydration } from "@angular/platform-browser";
@@ -20,7 +24,11 @@ import { categoryFeature } from "./state/category.selector";
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes),
+    provideRouter(
+      routes,
+      withEnabledBlockingInitialNavigation(),
+      withComponentInputBinding(),
+    ),
     provideClientHydration(),
     provideAnimationsAsync(),
     provideAnimationsAsync(),
