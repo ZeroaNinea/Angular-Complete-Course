@@ -10,4 +10,5 @@ import { CommonModule } from "@angular/common";
 })
 export default class ProductComponent {
   @Input() categoryName: string = "";
+  @Input() animation: any;
 }

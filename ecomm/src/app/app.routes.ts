@@ -22,7 +22,16 @@ export const routes: Routes = [
     component: MainNavComponent,
     children: [
       { path: "", component: ProductComponent },
-      { path: "category/:categoryName", component: ProductComponent },
+      {
+        path: "category/:categoryName",
+        component: ProductComponent,
+        data: {
+          animation: "CategoryPage",
+        },
+      },
     ],
+    // data: {
+    //   animation: "CategoryPage",
+    // },
   },
 ];
