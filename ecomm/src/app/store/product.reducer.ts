@@ -2,6 +2,7 @@ import { createReducer, on } from "@ngrx/store";
 
 import { Product, ProductState } from "./product.state";
 import { productActions } from "./product.action";
+import { initialState } from "./product.state";
 
 export const productReducer = createReducer(
   initialState,

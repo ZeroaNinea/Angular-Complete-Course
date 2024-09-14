@@ -1,11 +1,11 @@
-import { createAction, createActionGroup } from "@ngrx/store";
+import { createAction, createActionGroup, props } from "@ngrx/store";
 
-import { Product } from "./.product.state";
+import { Product } from "./product.state";
 
 export const productActions = createActionGroup({
   source: "Product",
   events: {
-    "Load Product": props<{ name: string }>(),
+    // "Load Product": emptyProps(),
     "Product Success": props<{ products: Product[] }>(),
     "Product Failure": props<{ error: string }>(),
   },

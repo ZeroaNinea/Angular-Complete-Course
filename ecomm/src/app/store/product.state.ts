@@ -12,3 +12,9 @@ export interface ProductState {
   productCount: number;
   error: string;
 }
+
+export const initialState: ProductState = {
+  products: [],
+  productCount: 0,
+  error: "",
+};
