@@ -2,9 +2,37 @@
 <h1>{{ categoryName }}</h1>
 <hr />
 <!-- {{ animation }} -->
-{{ products$ | async | json }}
+<!-- {{ products$ | async | json }} -->
 
-<mat-card class="example-card" appearance="outlined">
+<ng-container *ngIf="products$ | async as products">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let product of products$ | async">
+      <mat-card class="example-card" appearance="outlined">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{ product.title }}</mat-card-title>
+          <mat-card-subtitle>{{ product.price }}</mat-card-subtitle>
+        </mat-card-header>
+        <img
+          mat-card-image
+          src="{{ product.image }}"
+          alt="Photo of a Shiba Inu"
+        />
+        <mat-card-content>
+          <p>
+            {{ product.description }}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</ng-container>
+
+<!-- <mat-card class="example-card" appearance="outlined">
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
     <mat-card-title>Shiba Inu</mat-card-title>
@@ -26,4 +54,4 @@
     <button mat-button>LIKE</button>
     <button mat-button>SHARE</button>
   </mat-card-actions>
-</mat-card>
+</mat-card> -->
