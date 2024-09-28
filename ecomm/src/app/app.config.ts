@@ -20,6 +20,8 @@ import { provideHttpClient, withFetch } from "@angular/common/http";
 import { categoryReducer } from "./state/categories.reducer";
 import { CategoryEffects } from "./state/category.effects";
 import { categoryFeature } from "./state/category.selector";
+import { productFeature } from "./store/product.selector";
+import { loadProducts } from "./store/product.effects";
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -39,6 +41,9 @@ export const appConfig: ApplicationConfig = {
     provideState(categoryFeature),
     // provideStore({}),
     provideEffects([CategoryEffects]),
+    provideStore({ product: productFeature.reducer }),
+    provideState(productFeature),
+    provideEffects([{ loadProducts }]),
     provideHttpClient(withFetch()),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
   ],

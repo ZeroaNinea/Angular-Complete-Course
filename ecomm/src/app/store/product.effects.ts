@@ -3,8 +3,11 @@ import { Actions, createEffect, ofType } from "@ngrx/effects";
 
 import { mergeMap, exhaustMap } from "rxjs";
 
-import { Product, productActions } from "./product.action";
+import { productActions } from "./product.action";
+import { Product } from "./product.state";
 import { ProductService } from "./product.service";
+
+import { map, of, catchError } from "rxjs";
 
 export const loadProducts = createEffect(
   (actions$ = inject(Actions), productService = inject(ProductService)) => {
@@ -13,7 +16,10 @@ export const loadProducts = createEffect(
       exhaustMap((action) =>
         productService.getProductByCategory("jewelery").pipe(
           map((products) => productActions.productSuccess({ products })),
-          catchError(() => of(productActions.productFailure("Error Occured"))),
+          // catchError(() => of(productActions.productFailure("Error Occured"))),
+          catchError(() =>
+            of(productActions.productFailure({ error: "Error Occured" })),
+          ),
         ),
       ),
     );
