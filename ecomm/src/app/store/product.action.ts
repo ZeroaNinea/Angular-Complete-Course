@@ -11,6 +11,7 @@ export const productActions = createActionGroup({
   source: "Product",
   events: {
     "Load Product": emptyProps(),
+    "Load Products By Category": emptyProps(),
     "Product Success": props<{ products: Product[] }>(),
     "Product Failure": props<{ error: string }>(),
   },

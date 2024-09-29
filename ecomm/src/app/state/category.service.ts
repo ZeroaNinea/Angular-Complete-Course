@@ -27,6 +27,11 @@ export class CategoryService {
   //     );
   // }
   getCategories(): Observable<string[]> {
-    return of(["electronics", "jewelery", "men clothing", "women clothing"]);
+    return of([
+      "electronics",
+      "jewelery",
+      "men's clothing",
+      "women's clothing",
+    ]);
   }
 }

@@ -6,7 +6,7 @@ import { AppComponent } from "./app.component";
 import { MainNavComponent } from "./main-nav/main-nav.component";
 import ProductComponent from "./product/product.component";
 import { productFeature } from "./store/product.selector";
-import { loadProducts } from "./store/product.effects";
+import { loadProducts, loadProductsByCategory } from "./store/product.effects";
 
 export const routes: Routes = [
   // {
@@ -25,16 +25,16 @@ export const routes: Routes = [
     path: "",
     component: MainNavComponent,
     children: [
-      { path: "", component: ProductComponent },
+      { path: "product", component: ProductComponent },
       {
-        path: "category/:categoryName",
+        path: "product/:categoryName",
         component: ProductComponent,
         data: {
           animation: "CategoryPage",
         },
         // providers: [
         //   provideState(productFeature),
-        //   provideEffects({ loadProducts }),
+        //   provideEffects({ loadProducts, loadProductsByCategory }),
         // ],
       },
     ],

@@ -20,6 +20,11 @@ export const selectProducts = createSelector(
   (state: ProductState) => state.products,
 );
 
+export const selectProductsByCategory = (category: string) =>
+  createSelector(selectProductState, (state: ProductState) =>
+    state.products.filter((product) => product.category === category),
+  );
+
 export const selectError = createSelector(
   selectProductState,
   (state: ProductState) => state.error,

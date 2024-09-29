@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, Input, OnInit, OnChanges } from "@angular/core";
 import { CommonModule } from "@angular/common";
 
 import { Store } from "@ngrx/store";
@@ -9,7 +9,10 @@ import { MatButtonModule } from "@angular/material/button";
 import { Observable } from "rxjs";
 
 import { productActions } from "../store/product.action";
-import { selectProducts } from "../store/product.selector";
+import {
+  selectProducts,
+  selectProductsByCategory,
+} from "../store/product.selector";
 import { Product } from "../store/product.state";
 
 @Component({
@@ -19,7 +22,7 @@ import { Product } from "../store/product.state";
   templateUrl: "./product.component.html",
   styleUrl: "./product.component.scss",
 })
-export default class ProductComponent implements OnInit {
+export default class ProductComponent implements OnInit, OnChanges {
   @Input() categoryName: string = "";
   @Input() animation: any;
 
@@ -29,6 +32,15 @@ export default class ProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(productActions.loadProduct());
-    this.products$ = this.store.select(selectProducts);
+    // console.log(this.categoryName);
+    // this.products$ = this.categoryName
+    //   ? this.store.select(selectProductsByCategory(this.categoryName))
+    //   : this.store.select(selectProducts);
+  }
+
+  ngOnChanges(): void {
+    this.products$ = this.categoryName
+      ? this.store.select(selectProductsByCategory(this.categoryName))
+      : this.store.select(selectProducts);
   }
 }
