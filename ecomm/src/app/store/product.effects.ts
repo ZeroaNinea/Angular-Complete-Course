@@ -13,13 +13,11 @@ export const loadProductsByCategory = createEffect(
   (actions$ = inject(Actions), productService = inject(ProductService)) => {
     return actions$.pipe(
       ofType(productActions.loadProductsByCategory),
-      exhaustMap(() =>
-        productService.getProductByCategory("jewelery").pipe(
+      exhaustMap((action) =>
+        productService.getProductByCategory(action.category).pipe(
           map((products) => productActions.productSuccess({ products })),
           // catchError(() => of(productActions.productFailure("Error Occured"))),
-          catchError(() =>
-            of(productActions.productFailure({ error: "Error Occured" })),
-          ),
+          catchError((error) => of(productActions.productFailure({ error }))),
         ),
       ),
     );

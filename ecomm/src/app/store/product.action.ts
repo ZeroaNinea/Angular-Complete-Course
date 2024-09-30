@@ -10,9 +10,9 @@ import { Product } from "./product.state";
 export const productActions = createActionGroup({
   source: "Product",
   events: {
-    "Load Product": emptyProps(),
-    "Load Products By Category": emptyProps(),
-    "Product Success": props<{ products: Product[] }>(),
-    "Product Failure": props<{ error: string }>(),
+    loadProduct: emptyProps(),
+    loadProductsByCategory: props<{ category: string }>(),
+    productSuccess: props<{ products: Product[] }>(),
+    productFailure: props<{ error: string }>(),
   },
 });

@@ -23,7 +23,16 @@ import { Product } from "../store/product.state";
   styleUrl: "./product.component.scss",
 })
 export default class ProductComponent implements OnInit, OnChanges {
-  @Input() categoryName: string = "";
+  // @Input() categoryName: string = "";
+  @Input() set categoryName(name: string) {
+    if (name) {
+      this.store.dispatch(
+        productActions.loadProductsByCategory({ category: name }),
+      );
+    } else {
+      this.store.dispatch(productActions.loadProduct());
+    }
+  }
   @Input() animation: any;
 
   products$!: Observable<Product[]>;
@@ -31,7 +40,7 @@ export default class ProductComponent implements OnInit, OnChanges {
   constructor(private readonly store: Store) {}
 
   ngOnInit(): void {
-    this.store.dispatch(productActions.loadProduct());
+    // this.store.dispatch(productActions.loadProduct());
     // console.log(this.categoryName);
     // this.products$ = this.categoryName
     //   ? this.store.select(selectProductsByCategory(this.categoryName))
@@ -39,8 +48,9 @@ export default class ProductComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(): void {
-    this.products$ = this.categoryName
-      ? this.store.select(selectProductsByCategory(this.categoryName))
-      : this.store.select(selectProducts);
+    // this.products$ = this.categoryName
+    //   ? this.store.select(selectProductsByCategory(this.categoryName))
+    //   : this.store.select(selectProducts);
+    this.products$ = this.store.select(selectProducts);
   }
 }
