@@ -5,6 +5,7 @@ import { provideEffects } from "@ngrx/effects";
 import { AppComponent } from "./app.component";
 import { MainNavComponent } from "./main-nav/main-nav.component";
 import ProductComponent from "./product/product.component";
+import { CartComponent } from "./cart/cart.component";
 import { productFeature } from "./store/product.selector";
 import { loadProducts, loadProductsByCategory } from "./store/product.effects";
 
@@ -36,6 +37,10 @@ export const routes: Routes = [
         //   provideState(productFeature),
         //   provideEffects({ loadProducts, loadProductsByCategory }),
         // ],
+      },
+      {
+        path: "cart",
+        component: CartComponent,
       },
     ],
     // data: {

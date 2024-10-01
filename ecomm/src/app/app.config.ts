@@ -22,6 +22,9 @@ import { CategoryEffects } from "./state/category.effects";
 import { categoryFeature } from "./state/category.selector";
 import { productFeature } from "./store/product.selector";
 import { loadProducts, loadProductsByCategory } from "./store/product.effects";
+import { loadCart } from "./cart/store/cart.effects";
+import { cartFeature } from "./cart/store/cart.selector";
+import { cartReducer } from "./cart/store/cart.reducer";
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -36,14 +39,23 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     provideAnimationsAsync(),
     provideAnimationsAsync(),
+    // Category
     // provideState("category", { categories: categoriesReducer }),
     provideStore({ category: categoryReducer }),
     provideState(categoryFeature),
     // provideStore({}),
     provideEffects([CategoryEffects]),
+    // /Category
+    // Product
     provideStore({ product: productFeature.reducer }),
     provideState(productFeature),
     provideEffects([{ loadProducts, loadProductsByCategory }]),
+    // /Product
+    // Cart
+    provideStore({ cart: cartReducer }),
+    provideState(cartFeature),
+    provideEffects([{ loadCart }]),
+    // /Cart
     provideHttpClient(withFetch()),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
   ],
