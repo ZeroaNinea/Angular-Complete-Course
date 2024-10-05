@@ -7,6 +7,7 @@ import { MainNavComponent } from "./main-nav/main-nav.component";
 import ProductComponent from "./product/product.component";
 import { CartComponent } from "./cart/cart.component";
 import { LoginComponent } from "./login/login.component";
+import { authGuard } from "./login/login.guard";
 
 import { productFeature } from "./store/product.selector";
 import { loadProducts, loadProductsByCategory } from "./store/product.effects";
@@ -28,7 +29,7 @@ export const routes: Routes = [
     path: "",
     component: MainNavComponent,
     children: [
-      { path: "product", component: ProductComponent },
+      { path: "product", component: ProductComponent, canMatch: [authGuard] },
       {
         path: "product/:categoryName",
         component: ProductComponent,
@@ -39,6 +40,7 @@ export const routes: Routes = [
         //   provideState(productFeature),
         //   provideEffects({ loadProducts, loadProductsByCategory }),
         // ],
+        canMatch: [authGuard],
       },
       {
         path: "cart",

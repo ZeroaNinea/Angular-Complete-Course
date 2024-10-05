@@ -1,11 +1,14 @@
 import { Component, inject } from "@angular/core";
 import { BreakpointObserver, Breakpoints } from "@angular/cdk/layout";
 import { AsyncPipe, CommonModule } from "@angular/common";
+
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatButtonModule } from "@angular/material/button";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatListModule } from "@angular/material/list";
 import { MatIconModule } from "@angular/material/icon";
+import { MatMenuModule } from "@angular/material/menu";
+
 import { RouterModule } from "@angular/router";
 import { RouterOutlet } from "@angular/router";
 
@@ -41,6 +44,7 @@ import { CategoryState } from "../state/state";
     RouterModule,
     RouterOutlet,
     ProductComponent,
+    MatMenuModule,
   ],
 })
 export class MainNavComponent {

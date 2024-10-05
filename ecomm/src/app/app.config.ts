@@ -25,6 +25,7 @@ import { loadProducts, loadProductsByCategory } from "./store/product.effects";
 import { loadCart } from "./cart/store/cart.effects";
 import { cartFeature } from "./cart/store/cart.selector";
 import { cartReducer } from "./cart/store/cart.reducer";
+import { authGuard } from "./login/login.guard";
 
 export const appConfig: ApplicationConfig = {
   providers: [
