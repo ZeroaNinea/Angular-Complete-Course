@@ -19,8 +19,11 @@ import { provideHttpClient, withFetch } from "@angular/common/http";
 
 import { categoryReducer } from "./state/categories.reducer";
 import { CategoryEffects } from "./state/category.effects";
+
 import { categoryFeature } from "./state/category.selector";
 import { productFeature } from "./store/product.selector";
+import { userFeature } from "./login/store/user.state";
+
 import { loadProducts, loadProductsByCategory } from "./store/product.effects";
 import { loadCart } from "./cart/store/cart.effects";
 import { cartFeature } from "./cart/store/cart.selector";
@@ -57,6 +60,9 @@ export const appConfig: ApplicationConfig = {
     provideState(cartFeature),
     provideEffects([{ loadCart }]),
     // /Cart
+    // User
+    provideState(userFeature),
+    // /User
     provideHttpClient(withFetch()),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
   ],

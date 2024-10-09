@@ -7,7 +7,7 @@ import { Observable } from "rxjs";
 
 import { Cart } from "./store/cart.state";
 import { cartActions } from "./store/cart.action";
-import { selectCart } from "./store/cart.selector";
+import { selectCart, userCartSelector } from "./store/cart.selector";
 
 @Component({
   selector: "app-cart",
@@ -17,13 +17,18 @@ import { selectCart } from "./store/cart.selector";
   styleUrl: "./cart.component.scss",
 })
 export class CartComponent implements OnInit {
-  cart$!: Observable<Cart[]>;
+  // cart$!: Observable<Cart[]>;
+  cart$!: any;
 
   constructor(private readonly store: Store) {}
 
   ngOnInit(): void {
-    this.store.dispatch(cartActions.loadCart());
+    // this.store.dispatch(cartActions.loadCart());
+    // this.store.dispatch(cartActions.loadCartById({ id: 3 }));
 
-    this.cart$ = this.store.select(selectCart);
+    // this.cart$ = this.store.select(selectCart);
+    this.cart$ = this.store.select(userCartSelector);
+    // console.log(this.cart$);
+    // console.log(this.cart$.subscribe());
   }
 }

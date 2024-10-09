@@ -6,6 +6,7 @@ export const cartActions = createActionGroup({
   source: "Cart",
   events: {
     loadCart: emptyProps(),
+    loadCartById: props<{ id: number }>(),
     cartSuccess: props<{ cart: Cart[] }>(),
     cartFailure: props<{ error: string }>(),
   },
