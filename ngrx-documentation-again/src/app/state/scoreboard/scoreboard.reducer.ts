@@ -19,5 +19,3 @@ export const scoreboardReducer = createReducer(
     away: game.away,
   })),
 );
-
-export const scoreboardFeatureKey = "game";

@@ -12,3 +12,5 @@ export const initialState: State = {
   home: 0,
   away: 0,
 };
+
+export const scoreboardFeatureKey = "game";

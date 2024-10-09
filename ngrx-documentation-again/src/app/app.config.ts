@@ -8,6 +8,7 @@ import { provideStore, provideState } from "@ngrx/store";
 
 import { counterReducer } from "./state/counter.reducer";
 import { scoreboardReducer } from "./state/scoreboard/scoreboard.reducer";
+import { scoreboardFeatureKey } from "./state/scoreboard/scoreboard.state";
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -21,7 +22,7 @@ export const appConfig: ApplicationConfig = {
     // /Counter
     // Scoreboard
     // provideStore({ game: scoreboardReducer }),
-    provideState({ name: "game", reducer: scoreboardReducer }),
+    provideState({ name: scoreboardFeatureKey, reducer: scoreboardReducer }),
     // /Scoreboard
   ],
 };
