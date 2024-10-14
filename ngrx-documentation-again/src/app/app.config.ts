@@ -3,7 +3,11 @@ import {
   provideZoneChangeDetection,
   isDevMode,
 } from "@angular/core";
-import { provideHttpClient, withFetch } from "@angular/common/http";
+import {
+  provideHttpClient,
+  withFetch,
+  HttpClientModule,
+} from "@angular/common/http";
 import { provideRouter } from "@angular/router";
 
 import { routes } from "./app.routes";
@@ -16,7 +20,7 @@ import { provideEffects } from "@ngrx/effects";
 import { counterReducer } from "./state/counter.reducer";
 import { CounterEffects } from "./state/counter.effect";
 // import { postsReducer } from "./state/posts/posts.reducer";
-import { PostsEffects } from "./state/posts/posts.effects";
+import { PostsEffects } from "./posts/state/post.effects";
 import { postReducer } from "./posts/state/post.reducer";
 // import { PostEffects } from "./posts/state/post.effects";
 
@@ -30,6 +34,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideClientHydration(),
     provideHttpClient(withFetch()),
+    HttpClientModule,
     provideStore(),
     // Counter
     provideStore({ count: counterReducer }),
@@ -47,6 +52,7 @@ export const appConfig: ApplicationConfig = {
     provideStoreDevtools({
       maxAge: 25,
       logOnly: !isDevMode(),
+      // logOnly: environment.production,
       autoPause: true,
       trace: false,
       traceLimit: 75,

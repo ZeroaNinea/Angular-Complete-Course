@@ -1,11 +1,15 @@
 import { createReducer, on } from "@ngrx/store";
 import { createEntityAdapter, EntityState } from "@ngrx/entity";
 import { Post } from "./post.model";
-import { loadPostsSuccess, createPostSuccess } from "./post.actions";
+import {
+  loadPosts,
+  loadPostsSuccess,
+  loadPostsFailure,
+  createPostSuccess,
+} from "./post.actions";
 
 // Define the interface for the Posts state
 export interface PostsState extends EntityState<Post> {
-  // additional entities state properties
   loading: boolean;
   error: any;
 }
@@ -15,7 +19,6 @@ export const postsAdapter = createEntityAdapter<Post>();
 
 // Define the initial state using the adapter's getInitialState method
 export const initialState: PostsState = postsAdapter.getInitialState({
-  // additional entity state properties
   loading: false,
   error: null,
 });
@@ -23,14 +26,23 @@ export const initialState: PostsState = postsAdapter.getInitialState({
 // Create the reducer
 export const postReducer = createReducer(
   initialState,
+  on(loadPosts, (state) => ({
+    ...state,
+    loading: true,
+    error: null,
+  })),
   on(loadPostsSuccess, (state, { posts }) =>
     postsAdapter.setAll(posts, {
       ...state,
-      // loading: false,
-      posts,
+      loading: false,
       error: null,
     }),
   ),
+  on(loadPostsFailure, (state, { error }) => ({
+    ...state,
+    loading: false,
+    error,
+  })),
   on(createPostSuccess, (state, { post }) =>
     postsAdapter.addOne(post, {
       ...state,
@@ -38,8 +50,10 @@ export const postReducer = createReducer(
       error: null,
     }),
   ),
-  // You can add more handlers here, such as for error handling
 );
 
+// Export selectors
 export const { selectAll, selectEntities, selectIds, selectTotal } =
   postsAdapter.getSelectors();
+
+// console.log(postsAdapter.getSelectors());

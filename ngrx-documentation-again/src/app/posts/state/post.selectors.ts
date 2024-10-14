@@ -1,8 +1,13 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
+import { PostsState } from "./post.reducer";
+import {
+  selectAll,
+  selectEntities,
+  selectTotal,
+  selectIds,
+} from "./post.reducer";
 
-import { PostState } from "./post.state";
-import { selectAll, selectTotal } from "./post.reducer";
+// Feature selector for the 'posts' feature
+export const selectPostsState = createFeatureSelector<PostsState>("posts");
 
-export const selectPostState = createFeatureSelector<PostState>("posts");
-
-export const selectPosts = createSelector(selectPostState, selectAll);
+export const selectPosts = createSelector(selectPostsState, selectAll);
