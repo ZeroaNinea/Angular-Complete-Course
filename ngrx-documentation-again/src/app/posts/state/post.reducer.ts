@@ -55,5 +55,3 @@ export const postReducer = createReducer(
 // Export selectors
 export const { selectAll, selectEntities, selectIds, selectTotal } =
   postsAdapter.getSelectors();
-
-// console.log(postsAdapter.getSelectors());

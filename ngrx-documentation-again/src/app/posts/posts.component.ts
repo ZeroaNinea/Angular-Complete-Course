@@ -17,10 +17,9 @@ import { PostsService } from "./state/posts.service";
   templateUrl: "./posts.component.html",
   styleUrl: "./posts.component.scss",
 })
-export class PostsComponent implements OnInit {
+export class PostsComponent {
   private store = inject(Store);
 
-  // posts$!: Post[];
   posts$: Observable<Post[]> = this.store.select(selectPosts);
 
   constructor(/* private postsService: PostsService */) {
@@ -32,11 +31,5 @@ export class PostsComponent implements OnInit {
     //   console.log("Fetched posts from service directly:", posts);
     // });
     // this.posts$.subscribe(console.log); // Output: [] // Just empty arrray.
-  }
-
-  ngOnInit(): void {
-    // this.postsService.getPosts().subscribe((data) => {
-    //   this.posts$ = data;
-    // });
   }
 }

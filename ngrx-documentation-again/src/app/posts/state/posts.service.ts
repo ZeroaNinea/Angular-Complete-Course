@@ -9,7 +9,7 @@ import { Post } from "./post.model";
   providedIn: "root",
 })
 export class PostsService {
-  private apiUrl = "https://jsonplaceholder.typicode.com/posts"; // A mock API for posts
+  private apiUrl = "https://jsonplaceholder.typicode.com/posts";
 
   constructor(private http: HttpClient) {}
 

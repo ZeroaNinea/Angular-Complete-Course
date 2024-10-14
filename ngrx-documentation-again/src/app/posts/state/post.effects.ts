@@ -24,7 +24,7 @@ export class PostsEffects {
       mergeMap(() =>
         this.postsService.getPosts().pipe(
           map((posts) => {
-            console.log("Posts loaded:", posts);
+            // console.log("Posts loaded:", posts);
             return loadPostsSuccess({ posts });
           }),
           catchError((error) => of(loadPostsFailure({ error }))),
