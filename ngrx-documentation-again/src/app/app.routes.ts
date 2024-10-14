@@ -1,3 +1,15 @@
-import { Routes } from '@angular/router';
+import { Routes } from "@angular/router";
 
-export const routes: Routes = [];
+// import { PostsComponent } from "./posts/posts.component";
+
+export const routes: Routes = [
+  // {
+  //   path: "posts",
+  //   component: PostsComponent,
+  // },
+  // {
+  //   path: "",
+  //   redirectTo: "/posts",
+  //   pathMatch: "full",
+  // },
+];
