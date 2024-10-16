@@ -13,6 +13,8 @@ import { provideRouter } from "@angular/router";
 import { routes } from "./app.routes";
 import { provideClientHydration } from "@angular/platform-browser";
 
+// import { provideRouterStore, routerReducer } from "@ngrx/router-store";
+
 import { provideStore, provideState } from "@ngrx/store";
 import { provideEffects } from "@ngrx/effects";
 // import { StoreModule } from "@ngrx/store";
@@ -26,7 +28,9 @@ import { postReducer } from "./posts/state/post.reducer";
 
 import { scoreboardReducer } from "./state/scoreboard/scoreboard.reducer";
 import { scoreboardFeatureKey } from "./state/scoreboard/scoreboard.state";
+
 import { provideStoreDevtools } from "@ngrx/store-devtools";
+import { provideRouterStore, routerReducer } from "@ngrx/router-store";
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -46,17 +50,19 @@ export const appConfig: ApplicationConfig = {
     // provideState({ name: scoreboardFeatureKey, reducer: scoreboardReducer }),
     // /Scoreboard
     // Posts
-    provideStore({ posts: postReducer }),
+    provideState({ name: "posts", reducer: postReducer }),
     provideEffects(PostsEffects),
     // /Posts
     provideStoreDevtools({
       maxAge: 25,
       logOnly: !isDevMode(),
-      // logOnly: environment.production,
       autoPause: true,
       trace: false,
       traceLimit: 75,
       connectInZone: true,
     }),
+    provideRouterStore(),
+    // provideStore({ router: routerReducer }),
+    provideState({ name: "router", reducer: routerReducer }),
   ],
 };
