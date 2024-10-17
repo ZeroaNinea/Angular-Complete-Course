@@ -10,8 +10,11 @@ import {
 
 // Define the interface for the Posts state
 export interface PostsState extends EntityState<Post> {
+  // ids: string[];
+  // entities: { [id: string]: Post };
+  // entities: {};
   loading: boolean;
-  error: any;
+  error: string | null;
 }
 
 // Create an Entity adapter
@@ -19,6 +22,8 @@ export const postsAdapter = createEntityAdapter<Post>();
 
 // Define the initial state using the adapter's getInitialState method
 export const initialState: PostsState = postsAdapter.getInitialState({
+  // ids: [],
+  // entities: {},
   loading: false,
   error: null,
 });
@@ -41,7 +46,7 @@ export const postReducer = createReducer(
   on(loadPostsFailure, (state, { error }) => ({
     ...state,
     loading: false,
-    error,
+    error: null,
   })),
   on(createPostSuccess, (state, { post }) =>
     postsAdapter.addOne(post, {
