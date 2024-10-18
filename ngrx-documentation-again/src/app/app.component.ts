@@ -10,6 +10,7 @@ import { selectPostId, selectUrl } from "./state/router/router.selectors";
 import { MyCounterComponent } from "./my-counter/my-counter.component";
 import { PostsComponent } from "./posts/posts.component";
 import { NavigateComponent } from "./navigate/navigate.component";
+import { ProductComponent } from "./product/product.component";
 
 @Component({
   selector: "app-root",
@@ -19,6 +20,7 @@ import { NavigateComponent } from "./navigate/navigate.component";
     MyCounterComponent,
     PostsComponent,
     NavigateComponent,
+    ProductComponent,
   ],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.scss",

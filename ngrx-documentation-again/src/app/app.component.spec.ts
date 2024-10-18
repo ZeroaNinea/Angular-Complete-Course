@@ -2,8 +2,11 @@ import { TestBed } from "@angular/core/testing";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { StoreModule } from "@ngrx/store";
 import { EffectsModule } from "@ngrx/effects";
+import { provideMockStore } from "@ngrx/store/testing";
+import { EntityCollectionServiceElementsFactory } from "@ngrx/data";
 
 import { AppComponent } from "./app.component";
+import { ProductService } from "./product/state/product.service";
 
 describe("AppComponent", () => {
   beforeEach(async () => {
@@ -13,6 +16,12 @@ describe("AppComponent", () => {
         HttpClientTestingModule,
         StoreModule.forRoot({}), // Provide a root store for NgRx
         EffectsModule.forRoot([]), // Provide effects module if you're using effects
+      ],
+      providers: [
+        // ProductService,
+        { provide: ProductService, useValue: ProductService },
+        provideMockStore(), // Provide a mock Store if required by NgRx
+        EntityCollectionServiceElementsFactory, // Add this to resolve the NullInjectorError
       ],
     }).compileComponents();
   });

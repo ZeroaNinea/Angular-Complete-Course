@@ -31,6 +31,9 @@ import { scoreboardFeatureKey } from "./state/scoreboard/scoreboard.state";
 
 import { provideStoreDevtools } from "@ngrx/store-devtools";
 import { provideRouterStore, routerReducer } from "@ngrx/router-store";
+import { provideEntityData, withEffects } from "@ngrx/data";
+// import { entityConfig } from "./entity-metadata";
+import { entityConfig } from "./product/state/entity-metadata/entity-metadata";
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -64,5 +67,6 @@ export const appConfig: ApplicationConfig = {
     provideRouterStore(),
     // provideStore({ router: routerReducer }),
     provideState({ name: "router", reducer: routerReducer }),
+    provideEntityData(entityConfig, withEffects()),
   ],
 };
