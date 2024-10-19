@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { MatButtonModule } from '@angular/material/button';
+
+import { MaterialModule } from './material/material.module';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MatButtonModule],
+  imports: [RouterOutlet, MaterialModule, CommonModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
   title = 'angular-material-freecodecamp';
