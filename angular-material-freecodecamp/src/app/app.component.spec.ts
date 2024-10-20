@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'angular-material-documentation' title`, () => {
+  it(`should have the 'angular-material-freecodecamp' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('angular-material-documentation');
+    expect(app.title).toEqual('angular-material-freecodecamp');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, angular-material-documentation');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, angular-material-freecodecamp');
   });
 });

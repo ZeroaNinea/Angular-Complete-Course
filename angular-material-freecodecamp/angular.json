@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-material-documentation": {
+    "angular-material-freecodecamp": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/angular-material-documentation",
+            "outputPath": "dist/angular-material-freecodecamp",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -69,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "angular-material-documentation:build:production"
+              "buildTarget": "angular-material-freecodecamp:build:production"
             },
             "development": {
-              "buildTarget": "angular-material-documentation:build:development"
+              "buildTarget": "angular-material-freecodecamp:build:development"
             }
           },
           "defaultConfiguration": "development"

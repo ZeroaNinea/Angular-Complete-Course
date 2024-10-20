@@ -1,5 +1,5 @@
 {
-  "name": "angular-material-documentation",
+  "name": "angular-material-freecodecamp",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:angular-material-documentation": "node dist/angular-material-documentation/server/server.mjs"
+    "serve:ssr:angular-material-freecodecamp": "node dist/angular-material-freecodecamp/server/server.mjs"
   },
   "private": true,
   "dependencies": {
