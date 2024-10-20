@@ -7,7 +7,7 @@
 <!-- * * * * * * * to get started with your project! * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-<style>
+<!-- <style>
   :host {
     --bright-blue: oklch(51.01% 0.274 263.83);
     --electric-violet: oklch(53.18% 0.28 296.97);
@@ -51,9 +51,9 @@
     line-height: 100%;
     letter-spacing: -0.125rem;
     margin: 0;
-    font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
+    font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji",
+      "Segoe UI Emoji", "Segoe UI Symbol";
   }
 
   p {
@@ -231,32 +231,27 @@
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="right-side">
       <div class="pill-group">
-        @for (item of [
-          { title: 'Explore the Docs', link: 'https://angular.dev' },
-          { title: 'Learn with Tutorials', link: 'https://angular.dev/tutorials' },
-          { title: 'CLI Docs', link: 'https://angular.dev/tools/cli' },
-          { title: 'Angular Language Service', link: 'https://angular.dev/tools/language-service' },
-          { title: 'Angular DevTools', link: 'https://angular.dev/tools/devtools' },
-        ]; track item.title) {
-          <a
-            class="pill"
-            [href]="item.link"
-            target="_blank"
-            rel="noopener"
+        @for (item of [ { title: 'Explore the Docs', link: 'https://angular.dev'
+        }, { title: 'Learn with Tutorials', link:
+        'https://angular.dev/tutorials' }, { title: 'CLI Docs', link:
+        'https://angular.dev/tools/cli' }, { title: 'Angular Language Service',
+        link: 'https://angular.dev/tools/language-service' }, { title: 'Angular
+        DevTools', link: 'https://angular.dev/tools/devtools' }, ]; track
+        item.title) {
+        <a class="pill" [href]="item.link" target="_blank" rel="noopener">
+          <span>{{ item.title }}</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="14"
+            viewBox="0 -960 960 960"
+            width="14"
+            fill="currentColor"
           >
-            <span>{{ item.title }}</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="14"
-              viewBox="0 -960 960 960"
-              width="14"
-              fill="currentColor"
-            >
-              <path
-                d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"
-              />
-            </svg>
-          </a>
+            <path
+              d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"
+            />
+          </svg>
+        </a>
         }
       </div>
       <div class="social-links">
@@ -322,7 +317,7 @@
       </div>
     </div>
   </div>
-</main>
+</main> -->
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
@@ -332,5 +327,43 @@
 <!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
+<button mat-raised-button>Hello, World!</button>
+<mat-slide-toggle>Toggle me!</mat-slide-toggle>
+
+<div class="mat-display-large">This is display large.</div>
+<div class="mat-display-medium">This is display medium.</div>
+<div class="mat-display-small">This is display small.</div>
+<hr />
+<div class="mat-headline-large">This is headline large.</div>
+<div class="mat-headline-medium">This is headline medium.</div>
+<div class="mat-headline-small">This is headline small.</div>
+<hr />
+
+<div class="mat-title-large">This is title large.</div>
+<div class="mat-title-medium">This is title medium.</div>
+<div class="mat-title-small">This is title small.</div>
+<hr />
+<div class="mat-body-large">This is body large.</div>
+<div class="mat-body-medium">This is body medium.</div>
+<div class="mat-body-small">This is body small.</div>
+<hr />
+<div class="mat-body-large">This is body large.</div>
+<div class="mat-body-medium">This is body medium.</div>
+<div class="mat-body-small">This is body small.</div>
+<hr />
 
 <router-outlet />
+
+<!-- Top header using M3 display class -->
+<h1 class="mat-display-large">Top header</h1>
+
+<!-- This paragraph will be styled using the 'mat-body' class -->
+<p class="mat-body">Introductory text</p>
+
+<div class="mat-typography">
+  <!-- This header is styled using a medium display size -->
+  <h2 class="mat-display-medium">Inner header</h2>
+
+  <!-- This paragraph will be styled as 'body' because it's inside '.mat-typography' -->
+  <p class="mat-body">Some inner text</p>
+</div>
