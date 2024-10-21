@@ -12,4 +12,6 @@ import { AsyncPipe, JsonPipe } from '@angular/common';
 })
 export class AppComponent {
   title = 'angular-material-freecodecamp';
+
+  notifications: number = 0;
 }
