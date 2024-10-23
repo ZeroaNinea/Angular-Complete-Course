@@ -22,4 +22,10 @@ export class AppComponent {
       this.showSpinner = false;
     }, 5000);
   }
+
+  opened: boolean = false;
+
+  log(state: string) {
+    console.log(state);
+  }
 }

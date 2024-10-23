@@ -465,3 +465,62 @@
 <mat-spinner color="accent"></mat-spinner>
 }
 <button mat-flat-button color="accent" (click)="loadData()">Load Data</button>
+
+<mat-menu #appMenu="matMenu" xPosition="before" yPosition="below">
+  <button mat-menu-item [matMenuTriggerFor]="subMenu">FrontEnd</button>
+  <button mat-menu-item>BackEnd</button>
+</mat-menu>
+
+<button mat-flat-button [matMenuTriggerFor]="appMenu">Menu</button>
+
+<mat-menu #subMenu="matMenu" xPosition="after" yPosition="above">
+  <button mat-menu-item>Angular</button>
+  <button mat-menu-item>React</button>
+  <button mat-menu-item>Vue</button>
+</mat-menu>
+
+<mat-sidenav-container>
+  <mat-sidenav
+    mode="side"
+    #sidenav
+    (opened)="log('Opened.')"
+    (closed)="log('Closed.')"
+    [(opened)]="opened"
+    >Sidenav</mat-sidenav
+  >
+  <mat-sidenav-content>
+    Main
+    <button mat-raised-button (click)="opened = !opened">Toggle Opened</button>
+    <button mat-button (click)="sidenav.open()">Open</button>
+    <button mat-button (click)="sidenav.close()">Close</button>
+    <button mat-button (click)="sidenav.toggle()">Toggle</button>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<mat-menu #lazyMenu="matMenu">
+  <ng-template matMenuContent let-name="name" let-hobby="hobby">
+    <button mat-menu-item>Ultracatgirl!</button>
+    <button mat-menu-item>Settings</button>
+    <button mat-menu-item>Hobby: {{ hobby }}</button>
+    <button mat-menu-item>Log out {{ name }}</button>
+  </ng-template>
+</mat-menu>
+
+<button
+  mat-raised-button
+  [matMenuTriggerData]="{ name: 'Vishwas', hobby: 'football' }"
+  [matMenuTriggerFor]="lazyMenu"
+>
+  Vishwas
+</button>
+<button
+  mat-raised-button
+  [matMenuTriggerData]="{ name: 'Codevolution', hobby: 'teaching' }"
+  [matMenuTriggerFor]="lazyMenu"
+>
+  Codevolution
+</button>
+
+<!-- https://www.classcentral.com/classroom/freecodecamp-learn-angular-material-full-tutorial-105032/6321726911de9 -->
+<!-- https://material.angular.io/components/toolbar/overview -->
+<!-- https://chatgpt.com/c/6713f5f4-64d8-8007-ae76-7e2b877a0b52 -->
