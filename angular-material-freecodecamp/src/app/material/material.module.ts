@@ -9,6 +9,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { FormsModule } from '@angular/forms';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatListModule } from '@angular/material/list';
+import { MatDividerModule } from '@angular/material/divider';
 
 const MaterialComponents = [
   MatButtonModule,
@@ -21,6 +23,8 @@ const MaterialComponents = [
   MatSidenavModule,
   FormsModule,
   MatMenuModule,
+  MatListModule,
+  MatDividerModule,
 ];
 
 @NgModule({
