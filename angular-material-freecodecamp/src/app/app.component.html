@@ -605,6 +605,22 @@
 </mat-tab-group>
 <p>Selected Index: {{ selectedIndex }}</p>
 
+<mat-vertical-stepper linear>
+  <mat-step label="Shipping Address" completed="true">
+    <p>Shipping Address Details</p>
+  </mat-step>
+  <mat-step label="Billing Address" completed="false" optional>
+    <p>Billing Address Details</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+  <mat-step label="Place Order" completed="false">
+    <p>Order Details</p>
+  </mat-step>
+</mat-vertical-stepper>
+
 <!-- https://www.classcentral.com/classroom/freecodecamp-learn-angular-material-full-tutorial-105032/6321726911de9 -->
 <!-- https://material.angular.io/components/toolbar/overview -->
 <!-- https://chatgpt.com/c/6713f5f4-64d8-8007-ae76-7e2b877a0b52 -->
