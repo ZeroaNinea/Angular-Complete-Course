@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, viewChild, ViewChild } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
@@ -12,6 +12,10 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatGridListModule } from '@angular/material/grid-list';
+import {
+  MatExpansionModule,
+  MatExpansionPanel,
+} from '@angular/material/expansion';
 
 const MaterialComponents = [
   MatButtonModule,
@@ -27,10 +31,31 @@ const MaterialComponents = [
   MatListModule,
   MatDividerModule,
   MatGridListModule,
+  MatExpansionModule,
 ];
 
 @NgModule({
   imports: [MaterialComponents],
   exports: [MaterialComponents],
 })
-export class MaterialModule {}
+export class MaterialModule {
+  @ViewChild('panel1') panel1: MatExpansionPanel | undefined;
+  @ViewChild('panel2') panel2: MatExpansionPanel | undefined;
+
+  openPanel(panel: MatExpansionPanel) {
+    panel?.open();
+  }
+
+  closePanel(panel: MatExpansionPanel) {
+    panel?.close();
+  }
+
+  togglePanel(panel: MatExpansionPanel) {
+    panel?.expanded ? panel?.close() : panel?.open();
+  }
+
+  checkPanelStatus(panel: MatExpansionPanel) {
+    const isOpen = panel.expanded;
+    console.log(isOpen ? 'The panel is open.' : 'The panel is closed.');
+  }
+}

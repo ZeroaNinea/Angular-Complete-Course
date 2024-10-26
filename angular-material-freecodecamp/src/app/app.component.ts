@@ -10,7 +10,7 @@ import { AsyncPipe, CommonModule, JsonPipe } from '@angular/common';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
+export class AppComponent extends MaterialModule {
   title = 'angular-material-freecodecamp';
 
   notifications: number = 0;

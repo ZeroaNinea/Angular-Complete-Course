@@ -554,6 +554,33 @@
   <mat-grid-tile>Tile 4</mat-grid-tile>
 </mat-grid-list>
 
+<mat-accordion multi="true" #accordion="matAccordion">
+  <mat-expansion-panel hideToggle disabled #panel1>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Angular Fundamentals</mat-panel-title>
+      <mat-panel-description>Total Duration : 3 hours</mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>This is the panel content. Add course details.</p>
+    <mat-action-row>
+      <button mat-button (click)="closePanel(panel1)">Enroll</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+  <mat-expansion-panel #panel2>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Angular Material</mat-panel-title>
+      <mat-panel-description>Total Duration : 2 hours</mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>This is the panel content. Add course details.</p>
+    <mat-action-row>
+      <button mat-button (click)="closePanel(panel2)">Enroll</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<button mat-flat-button (click)="checkPanelStatus(panel2)">
+  Check Panel Status
+</button>
+
 <!-- https://www.classcentral.com/classroom/freecodecamp-learn-angular-material-full-tutorial-105032/6321726911de9 -->
 <!-- https://material.angular.io/components/toolbar/overview -->
 <!-- https://chatgpt.com/c/6713f5f4-64d8-8007-ae76-7e2b877a0b52 -->
