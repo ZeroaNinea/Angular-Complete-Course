@@ -1,4 +1,4 @@
-import { NgModule, viewChild, ViewChild } from '@angular/core';
+import { AfterViewInit, NgModule, ViewChild } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
@@ -17,7 +17,7 @@ import {
   MatExpansionModule,
   MatExpansionPanel,
 } from '@angular/material/expansion';
-import { MatTabsModule } from '@angular/material/tabs';
+import { MatTabGroup, MatTabsModule } from '@angular/material/tabs';
 
 const MaterialComponents = [
   MatButtonModule,
@@ -42,7 +42,7 @@ const MaterialComponents = [
   imports: [MaterialComponents],
   exports: [MaterialComponents],
 })
-export class MaterialModule {
+export class MaterialModule implements AfterViewInit {
   @ViewChild('panel1') panel1: MatExpansionPanel | undefined;
   @ViewChild('panel2') panel2: MatExpansionPanel | undefined;
 
@@ -61,5 +61,16 @@ export class MaterialModule {
   checkPanelStatus(panel: MatExpansionPanel) {
     const isOpen = panel.expanded;
     console.log(isOpen ? 'The panel is open.' : 'The panel is closed.');
+  }
+
+  @ViewChild('tabRef') tabRef: MatTabGroup | undefined;
+  selectedIndex: number = 0;
+
+  ngAfterViewInit() {
+    this.selectedIndex = this.tabRef?.selectedIndex ?? 0;
+  }
+
+  onTabChange(index: number) {
+    this.selectedIndex = index;
   }
 }

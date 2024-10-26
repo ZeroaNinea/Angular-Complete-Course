@@ -598,6 +598,13 @@
   </mat-card-actions>
 </mat-card>
 
+<mat-tab-group #tabRef (selectedIndexChange)="onTabChange($event)">
+  <mat-tab label="Angular">Angular Content</mat-tab>
+  <mat-tab label="React">React Content</mat-tab>
+  <mat-tab label="Vue">Vue Content</mat-tab>
+</mat-tab-group>
+<p>Selected Index: {{ selectedIndex }}</p>
+
 <!-- https://www.classcentral.com/classroom/freecodecamp-learn-angular-material-full-tutorial-105032/6321726911de9 -->
 <!-- https://material.angular.io/components/toolbar/overview -->
 <!-- https://chatgpt.com/c/6713f5f4-64d8-8007-ae76-7e2b877a0b52 -->
