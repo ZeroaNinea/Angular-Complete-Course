@@ -1,4 +1,5 @@
-import { AfterViewInit, NgModule, ViewChild } from '@angular/core';
+import { AfterViewInit, NgModule, OnInit, ViewChild } from '@angular/core';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
@@ -7,7 +8,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
@@ -22,6 +23,9 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+
+import { map, Observable, startWith } from 'rxjs';
 
 const MaterialComponents = [
   MatButtonModule,
@@ -33,6 +37,7 @@ const MaterialComponents = [
   MatToolbarModule,
   MatSidenavModule,
   FormsModule,
+  ReactiveFormsModule,
   MatMenuModule,
   MatListModule,
   MatDividerModule,
@@ -44,13 +49,14 @@ const MaterialComponents = [
   MatFormFieldModule,
   MatInputModule,
   MatSelectModule,
+  MatAutocompleteModule,
 ];
 
 @NgModule({
   imports: [MaterialComponents],
   exports: [MaterialComponents],
 })
-export class MaterialModule implements AfterViewInit {
+export class MaterialModule implements AfterViewInit, OnInit {
   @ViewChild('panel1') panel1: MatExpansionPanel | undefined;
   @ViewChild('panel2') panel2: MatExpansionPanel | undefined;
 
@@ -83,4 +89,33 @@ export class MaterialModule implements AfterViewInit {
   }
 
   selectedValue!: string;
+
+  options: string[] = ['Angular', 'React', 'Vue'];
+  objectOptions = [
+    { name: 'Angular' },
+    { name: 'Angular Material' },
+    { name: 'React' },
+    { name: 'Vue' },
+  ];
+
+  myControl = new FormControl();
+  filteredOptions!: Observable<string[]>;
+
+  ngOnInit(): void {
+    this.filteredOptions = this.myControl.valueChanges.pipe(
+      startWith(''),
+      map((value) => this._filter(value))
+    );
+  }
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+    return this.options.filter((option) =>
+      option.toLocaleLowerCase().includes(filterValue)
+    );
+  }
+
+  displayFn(subject: any) {
+    return subject ? subject.name : undefined;
+  }
 }

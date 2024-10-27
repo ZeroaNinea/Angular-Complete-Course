@@ -670,6 +670,28 @@
 </mat-form-field>
 <p>{{ selectedValue }}</p>
 
+<form>
+  <mat-form-field>
+    <input
+      type="text"
+      matInput
+      [matAutocomplete]="auto"
+      [formControl]="myControl"
+    />
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+      <!-- @for (option of options; track option) {
+      <mat-option [value]="option">{{ option }}</mat-option>
+      } -->
+      <mat-option
+        *ngFor="let option of filteredOptions | async"
+        [value]="option"
+      >
+        {{ option }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
+
 <!-- https://www.classcentral.com/classroom/freecodecamp-learn-angular-material-full-tutorial-105032/6321726911de9 -->
 <!-- https://material.angular.io/components/toolbar/overview -->
 <!-- https://chatgpt.com/c/6713f5f4-64d8-8007-ae76-7e2b877a0b52 -->
