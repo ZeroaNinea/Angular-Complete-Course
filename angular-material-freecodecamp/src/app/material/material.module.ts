@@ -21,6 +21,7 @@ import { MatTabGroup, MatTabsModule } from '@angular/material/tabs';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 
 const MaterialComponents = [
   MatButtonModule,
@@ -42,6 +43,7 @@ const MaterialComponents = [
   MatStepperModule,
   MatFormFieldModule,
   MatInputModule,
+  MatSelectModule,
 ];
 
 @NgModule({
@@ -79,4 +81,6 @@ export class MaterialModule implements AfterViewInit {
   onTabChange(index: number) {
     this.selectedIndex = index;
   }
+
+  selectedValue!: string;
 }

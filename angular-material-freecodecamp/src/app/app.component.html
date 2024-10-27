@@ -642,6 +642,34 @@
   <mat-hint align="end">Min 5 characters</mat-hint>
 </mat-form-field>
 
+<mat-form-field>
+  <mat-label>Topic</mat-label>
+  <mat-select [(value)]="selectedValue">
+    <mat-option>None</mat-option>
+    <mat-option value="angular">Angular</mat-option>
+    <mat-option value="react">React</mat-option>
+    <mat-option value="vue">Vue</mat-option>
+  </mat-select>
+</mat-form-field>
+<p>{{ selectedValue }}</p>
+
+<mat-form-field>
+  <mat-label>Topic</mat-label>
+  <mat-select [(value)]="selectedValue" multiple>
+    <mat-option>None</mat-option>
+    <mat-optgroup label="Web">
+      <mat-option value="angular">Angular</mat-option>
+      <mat-option value="react">React</mat-option>
+      <mat-option value="vue">Vue</mat-option>
+    </mat-optgroup>
+    <mat-optgroup label="Mobile">
+      <mat-option value="ionic">Ionic</mat-option>
+      <mat-option value="reactnative">React Native</mat-option>
+    </mat-optgroup>
+  </mat-select>
+</mat-form-field>
+<p>{{ selectedValue }}</p>
+
 <!-- https://www.classcentral.com/classroom/freecodecamp-learn-angular-material-full-tutorial-105032/6321726911de9 -->
 <!-- https://material.angular.io/components/toolbar/overview -->
 <!-- https://chatgpt.com/c/6713f5f4-64d8-8007-ae76-7e2b877a0b52 -->
