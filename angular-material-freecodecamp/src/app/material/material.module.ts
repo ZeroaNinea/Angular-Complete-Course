@@ -26,6 +26,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 import { map, Observable, startWith } from 'rxjs';
 
@@ -54,6 +56,8 @@ const MaterialComponents = [
   MatAutocompleteModule,
   MatCheckboxModule,
   MatRadioModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
 ];
 
 @NgModule({
@@ -122,4 +126,13 @@ export class MaterialModule implements AfterViewInit, OnInit {
   displayFn(subject: any) {
     return subject ? subject.name : undefined;
   }
+
+  minDate: Date = new Date(2019, 3, 10);
+  maxDate: Date = new Date();
+
+  dateFilter = (date: Date | null): boolean => {
+    const day: number = (date || new Date()).getDay();
+
+    return day !== 0 && day !== 6;
+  };
 }
