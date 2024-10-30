@@ -1,5 +1,6 @@
 import {
   AfterViewInit,
+  Inject,
   inject,
   NgModule,
   OnInit,
@@ -36,9 +37,18 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import {
+  MAT_DIALOG_DATA,
+  MatDialog,
+  MatDialogContent,
+  MatDialogModule,
+} from '@angular/material/dialog';
 
 import { map, Observable, startWith } from 'rxjs';
+
 import { CustomSnackBarComponent } from '../custom/custom.snackbar';
+import { DialogExampleComponent } from '../dialog-example/dialog-example.component';
+import { consumerPollProducersForChange } from '@angular/core/primitives/signals';
 
 const MaterialComponents = [
   MatButtonModule,
@@ -69,6 +79,7 @@ const MaterialComponents = [
   MatNativeDateModule,
   MatTooltipModule,
   MatSnackBarModule,
+  MatDialogModule,
 ];
 
 @NgModule({
@@ -164,6 +175,18 @@ export class MaterialModule implements AfterViewInit, OnInit {
   openCustomSnackBar() {
     this.snackBar.openFromComponent(CustomSnackBarComponent, {
       duration: 2000,
+    });
+  }
+
+  public dialog = inject(MatDialog);
+
+  openDialog() {
+    let dialogRef = this.dialog.open(DialogExampleComponent, {
+      data: { name: 'Vishwas' },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(`Dialog result: ${result}`);
     });
   }
 }
