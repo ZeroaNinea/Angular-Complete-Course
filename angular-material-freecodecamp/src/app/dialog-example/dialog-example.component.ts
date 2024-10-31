@@ -7,7 +7,6 @@ import {
   MatDialogContent,
   MatDialogTitle,
 } from '@angular/material/dialog';
-import { MaterialModule } from '../material/material.module';
 
 @Component({
   selector: 'app-dialog-example',
@@ -23,7 +22,7 @@ import { MaterialModule } from '../material/material.module';
   styleUrl: './dialog-example.component.scss',
 })
 export class DialogExampleComponent implements OnInit {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: { name: string }) {}
 
   ngOnInit() {}
 }

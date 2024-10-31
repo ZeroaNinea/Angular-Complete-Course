@@ -1,6 +1,5 @@
 import {
   AfterViewInit,
-  Inject,
   inject,
   NgModule,
   OnInit,
@@ -37,18 +36,12 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
-import {
-  MAT_DIALOG_DATA,
-  MatDialog,
-  MatDialogContent,
-  MatDialogModule,
-} from '@angular/material/dialog';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 
 import { map, Observable, startWith } from 'rxjs';
 
 import { CustomSnackBarComponent } from '../custom/custom.snackbar';
 import { DialogExampleComponent } from '../dialog-example/dialog-example.component';
-import { consumerPollProducersForChange } from '@angular/core/primitives/signals';
 
 const MaterialComponents = [
   MatButtonModule,
