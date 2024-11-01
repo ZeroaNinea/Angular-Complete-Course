@@ -38,6 +38,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
 
 import { map, Observable, startWith } from 'rxjs';
 
@@ -75,6 +76,7 @@ const MaterialComponents = [
   MatSnackBarModule,
   MatDialogModule,
   MatTableModule,
+  MatSortModule,
 ];
 
 @NgModule({
