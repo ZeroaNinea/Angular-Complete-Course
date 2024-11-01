@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MaterialModule } from './material/material.module';
 import { AsyncPipe, CommonModule, JsonPipe } from '@angular/common';
+import { MatTableDataSource } from '@angular/material/table';
 
 export interface PeriodicElement {
   name: string;
@@ -50,9 +51,15 @@ export class AppComponent extends MaterialModule {
   }
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+  dataSource = new MatTableDataSource(ELEMENT_DATA);
 
   logData(row: any) {
     console.log(row);
+  }
+
+  applyFilter(filterValue: Event) {
+    this.dataSource.filter = (filterValue.target as HTMLInputElement).value
+      .trim()
+      .toLowerCase();
   }
 }
