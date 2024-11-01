@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { MaterialModule } from './material/material.module';
 import { AsyncPipe, CommonModule, JsonPipe } from '@angular/common';
 import { TableExampleComponent } from './table-example/table-example.component';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,7 @@ import { TableExampleComponent } from './table-example/table-example.component';
     JsonPipe,
     CommonModule,
     TableExampleComponent,
+    ScrollingModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -35,5 +37,14 @@ export class AppComponent extends MaterialModule {
 
   log(state: string) {
     console.log(state);
+  }
+
+  numbers: number[] = [];
+
+  constructor() {
+    super();
+    for (let i: number = 0; i < 100; i++) {
+      this.numbers.push(i);
+    }
   }
 }

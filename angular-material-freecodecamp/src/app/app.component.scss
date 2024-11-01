@@ -35,3 +35,17 @@ mat-grid-tile {
 table {
   width: 100%;
 }
+
+.number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid maroon;
+  box-sizing: border-box;
+  margin: 0;
+  height: 100px;
+}
+
+.container {
+  height: 400px;
+}
