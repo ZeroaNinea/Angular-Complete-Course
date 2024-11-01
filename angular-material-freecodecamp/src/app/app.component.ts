@@ -51,4 +51,8 @@ export class AppComponent extends MaterialModule {
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
+
+  logData(row: any) {
+    console.log(row);
+  }
 }

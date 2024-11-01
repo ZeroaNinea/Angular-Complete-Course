@@ -777,7 +777,11 @@
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  <tr
+    mat-row
+    (click)="logData(row)"
+    *matRowDef="let row; columns: displayedColumns"
+  ></tr>
 </table>
 
 <!-- https://www.classcentral.com/classroom/freecodecamp-learn-angular-material-full-tutorial-105032/6321726911de9 -->
