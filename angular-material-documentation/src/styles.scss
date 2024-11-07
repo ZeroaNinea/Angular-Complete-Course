@@ -9,6 +9,10 @@ $angular-material-documentation-theme: mat.define-theme(
       theme-type: light,
       primary: mat.$azure-palette,
       tertiary: mat.$blue-palette,
+      use-system-variables: true,
+    ),
+    typography: (
+      use-system-variables: true,
     ),
     density: (
       scale: 0,
@@ -18,7 +22,13 @@ $angular-material-documentation-theme: mat.define-theme(
 
 :root {
   // @include mat.all-component-themes($angular-material-documentation-theme);
+  // @include mat.system-level-colors($angular-material-documentation-theme);
+  // @include mat.system-level-typography($angular-material-documentation-theme);
+
   @include mat.all-component-themes(m3-theme.$light-theme);
+  @include mat.system-level-colors(m3-theme.$light-theme);
+  @include mat.system-level-typography(m3-theme.$light-theme);
+  // @include mat.button-theme($angular-material-documentation-theme);
 }
 
 html,
@@ -28,4 +38,9 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.custom-button {
+  --mdc-filled-button-container-color: var(--sys-tertiary);
+  width: 100%;
 }
