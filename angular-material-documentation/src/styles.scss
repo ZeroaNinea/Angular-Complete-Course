@@ -20,7 +20,26 @@ $angular-material-documentation-theme: mat.define-theme(
   )
 );
 
+$dark-theme: mat.define-theme(
+  (
+    color: (
+      theme-type: dark,
+      primary: mat.$violet-palette,
+    ),
+  )
+);
+
+$light-theme: mat.define-theme(
+  (
+    color: (
+      theme-type: light,
+      primary: mat.$violet-palette,
+    ),
+  )
+);
+
 :root {
+  /* Main Themes */
   // @include mat.all-component-themes($angular-material-documentation-theme);
   // @include mat.system-level-colors($angular-material-documentation-theme);
   // @include mat.system-level-typography($angular-material-documentation-theme);
@@ -29,6 +48,17 @@ $angular-material-documentation-theme: mat.define-theme(
   @include mat.system-level-colors(m3-theme.$light-theme);
   @include mat.system-level-typography(m3-theme.$light-theme);
   // @include mat.button-theme($angular-material-documentation-theme);
+
+  /* Light and Dark Themes */
+  // @include mat.core-theme($dark-theme);
+  // @include mat.all-component-themes($dark-theme);
+  // /* // @include mat.button-theme($dark-theme); */
+
+  // @media (prefers-color-scheme: light) {
+  //   @include mat.core-color($light-theme);
+  //   @include mat.all-component-colors($light-theme);
+  //   /* // @include mat.button-color($light-theme); */
+  // }
 }
 
 html,
@@ -43,4 +73,19 @@ body {
 .custom-button {
   --mdc-filled-button-container-color: var(--sys-tertiary);
   width: 100%;
+
+  @include mat.button-density(0);
+}
+
+mat-sidenav {
+  @include mat.all-component-colors($dark-theme);
+}
+
+.danger {
+  --mdc-checkbox-unselected-hover-state-layer-color: red;
+  --mdc-checkbox-unselected-hover-icon-color: red;
+}
+
+.tertiary-checkbox {
+  @include mat.checkbox-color(m3-theme.$light-theme, $color-variant: secondary);
 }

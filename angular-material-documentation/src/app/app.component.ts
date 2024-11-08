@@ -1,12 +1,21 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { AddressFormComponent } from './address-form/address-form.component';
+
 import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, AddressFormComponent, MatButtonModule],
+  imports: [
+    RouterOutlet,
+    AddressFormComponent,
+    MatButtonModule,
+    MatSidenavModule,
+    MatCheckboxModule,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
