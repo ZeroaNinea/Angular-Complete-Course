@@ -1,0 +1,34 @@
+<div [formGroup]="formGroup" (blur)="onBlur()">
+  <input
+    formControlName="area"
+    type="text"
+    (input)="onInputChange()"
+    placeholder="Area code"
+    maxlength="3"
+  />
+  <input
+    formControlName="exchange"
+    type="text"
+    (input)="onInputChange()"
+    placeholder="Exchange"
+    maxlength="3"
+  />
+  <input
+    formControlName="subscriber"
+    type="text"
+    (input)="onInputChange()"
+    placeholder="Subscriber"
+    maxlength="4"
+  />
+</div>
+
+<!-- Displaying validation error messages -->
+<div *ngIf="formGroup.get('area')?.hasError('required')">
+  Area code is required
+</div>
+<div *ngIf="formGroup.get('exchange')?.hasError('required')">
+  Exchange code is required
+</div>
+<div *ngIf="formGroup.get('subscriber')?.hasError('required')">
+  Subscriber number is required
+</div>

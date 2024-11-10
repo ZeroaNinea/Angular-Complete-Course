@@ -345,4 +345,12 @@
   <mat-checkbox />
 </section>
 
+<!-- <app-my-custom-field></app-my-custom-field> -->
+
+<form [formGroup]="form">
+  <app-my-custom-field></app-my-custom-field>
+
+  <button type="submit" [disabled]="form.invalid">Submit</button>
+</form>
+
 <!-- </mat-sidenav-container> -->
