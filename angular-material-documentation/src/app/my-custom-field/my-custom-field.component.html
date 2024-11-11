@@ -1,34 +1,46 @@
-<div [formGroup]="formGroup" (blur)="onBlur()">
-  <input
-    formControlName="area"
-    type="text"
-    (input)="onInputChange()"
-    placeholder="Area code"
-    maxlength="3"
-  />
-  <input
-    formControlName="exchange"
-    type="text"
-    (input)="onInputChange()"
-    placeholder="Exchange"
-    maxlength="3"
-  />
-  <input
-    formControlName="subscriber"
-    type="text"
-    (input)="onInputChange()"
-    placeholder="Subscriber"
-    maxlength="4"
-  />
-</div>
+<mat-form-field appearance="outline" class="custom-field">
+  <!-- MatFormField for a Material Design field appearance -->
+  <div
+    [formGroup]="formGroup"
+    (focusin)="onFocusIn()"
+    (focusout)="onFocusOut()"
+  >
+    <input
+      #areaInput
+      matInput
+      formControlName="area"
+      placeholder="Area"
+      (input)="onInputChange()"
+      maxlength="3"
+    />
+    <span class="separator">-</span>
+    <input
+      #exchangeInput
+      matInput
+      formControlName="exchange"
+      placeholder="Exchange"
+      (input)="onInputChange()"
+      maxlength="3"
+    />
+    <span class="separator">-</span>
+    <input
+      #subscriberInput
+      matInput
+      formControlName="subscriber"
+      placeholder="Subscriber"
+      (input)="onInputChange()"
+      maxlength="4"
+    />
+  </div>
 
-<!-- Displaying validation error messages -->
-<div *ngIf="formGroup.get('area')?.hasError('required')">
-  Area code is required
-</div>
-<div *ngIf="formGroup.get('exchange')?.hasError('required')">
-  Exchange code is required
-</div>
-<div *ngIf="formGroup.get('subscriber')?.hasError('required')">
-  Subscriber number is required
-</div>
+  <!-- Error Messages -->
+  <mat-error *ngIf="formGroup.get('area')?.hasError('required')">
+    Area code is required
+  </mat-error>
+  <mat-error *ngIf="formGroup.get('exchange')?.hasError('required')">
+    Exchange code is required
+  </mat-error>
+  <mat-error *ngIf="formGroup.get('subscriber')?.hasError('required')">
+    Subscriber number is required
+  </mat-error>
+</mat-form-field>

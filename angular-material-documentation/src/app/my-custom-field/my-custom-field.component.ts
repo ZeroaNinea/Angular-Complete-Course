@@ -1,10 +1,12 @@
 import {
   Component,
+  ElementRef,
   forwardRef,
   Input,
   OnDestroy,
   Optional,
   Self,
+  ViewChild,
 } from '@angular/core';
 import {
   ControlValueAccessor,
@@ -52,12 +54,12 @@ export class MyTel {
   ],
   imports: [
     CommonModule,
-    FormsModule,
-    MatFormFieldModule,
+    // FormsModule,
+    // MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatLabel,
-    MatIconModule,
+    // MatLabel,
+    // MatIconModule,
   ],
   templateUrl: './my-custom-field.component.html',
   styleUrl: './my-custom-field.component.scss',
@@ -76,6 +78,10 @@ export class MyCustomFieldComponent
     - Properties: `placeholder`, `required`, `disabled`, `stateChanges`, `focused`, `touched`, `id`, `errorState`.
   */
 
+  @ViewChild('areaInput') areaInput!: ElementRef<HTMLInputElement>;
+  @ViewChild('exchangeInput') exchangeInput!: ElementRef<HTMLInputElement>;
+  @ViewChild('subscriberInput') subscriberInput!: ElementRef<HTMLInputElement>;
+
   static nextId = 0;
   @Input() placeholder: string = ''; // Display placeholder as an empty string in the form.
   @Input() required: boolean = false; // The initial value the form must be filled is `false`.
@@ -88,8 +94,9 @@ export class MyCustomFieldComponent
   id = `my-custom-field-${MyCustomFieldComponent.nextId++}`;
   errorState = false; // The form control is not in an error state.
 
-  private innerValue: MyTel = new MyTel('', '', '');
+  private innerValue: MyTel = new MyTel('', '', ''); // Internal storage for form data.
 
+  // Creating a form group with validators.
   formGroup = new FormGroup({
     area: new FormControl('', [
       Validators.required,
@@ -144,7 +151,9 @@ export class MyCustomFieldComponent
   }
 
   setDisabledState(isDisabled: boolean): void {
-    // Implement logic if needed
+    // If the form is disabled.
+    this.disabled = isDisabled;
+    this.stateChanges.next();
   }
 
   onInputChange(): void {
@@ -200,7 +209,12 @@ export class MyCustomFieldComponent
 
   onContainerClick(event: MouseEvent): void {
     // A a method that determines behavior when the container is clicked.
-    // Logic to handle container click.
+    const targetElement = event.target as Element;
+
+    // Only set focus if the click is outside the inputs
+    if (!['input', 'textarea'].includes(targetElement.tagName.toLowerCase())) {
+      this.areaInput.nativeElement.focus();
+    }
   }
 
   ngOnDestroy(): void {
