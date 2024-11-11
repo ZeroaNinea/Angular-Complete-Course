@@ -1,0 +1,13 @@
+<div
+  class="example-container"
+  [class.mat-elevation-z2]="!isActive"
+  [class.mat-elevation-z8]="isActive"
+>
+  Example
+</div>
+
+<button mat-button (click)="isActive = !isActive">Toggle Elevation</button>
+
+<div class="my-class-with-default-shadow">my-class-with-default-shadow</div>
+<div class="my-class-with-custom-shadow">my-class-with-custom-shadow</div>
+<div class="my-class-with-animated-shadow">my-class-with-animated-shadow</div>

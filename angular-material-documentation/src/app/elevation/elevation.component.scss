@@ -1,0 +1,31 @@
+@use "@angular/material" as mat;
+
+.example-container {
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.my-class-with-default-shadow {
+  padding: 16px;
+  margin-bottom: 16px;
+  @include mat.elevation(2);
+  // @include mat.overridable-elevation(4);
+}
+
+.my-class-with-custom-shadow {
+  padding: 16px;
+  margin-bottom: 16px;
+  background-color: var(--sys-surface-container-low);
+  @include mat.elevation(4, #e91e63, 0.8);
+}
+
+.my-class-with-animated-shadow {
+  padding: 16px;
+  margin-bottom: 16px;
+  @include mat.elevation-transition();
+  @include mat.elevation(2);
+
+  &:hover {
+    @include mat.elevation(8);
+  }
+}

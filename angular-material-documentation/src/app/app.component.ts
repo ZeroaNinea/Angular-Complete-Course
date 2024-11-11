@@ -17,6 +17,7 @@ import {
   MyCustomFieldComponent,
   MyTel,
 } from './my-custom-field/my-custom-field.component';
+import { ElevationComponent } from './elevation/elevation.component';
 
 @Component({
   selector: 'app-root',
@@ -29,6 +30,7 @@ import {
     MatSidenavModule,
     MatCheckboxModule,
     MyCustomFieldComponent,
+    ElevationComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

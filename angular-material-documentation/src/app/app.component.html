@@ -350,7 +350,11 @@
 <form [formGroup]="form">
   <app-my-custom-field></app-my-custom-field>
 
-  <button type="submit" [disabled]="form.invalid">Submit</button>
+  <button mat-raised-button type="submit" [disabled]="form.invalid">
+    Submit
+  </button>
 </form>
+
+<app-elevation></app-elevation>
 
 <!-- </mat-sidenav-container> -->
