@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, forwardRef } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { AddressFormComponent } from './address-form/address-form.component';
 
@@ -18,6 +18,9 @@ import {
   MyTel,
 } from './my-custom-field/my-custom-field.component';
 import { ElevationComponent } from './elevation/elevation.component';
+import { CustomStepperComponent } from './custom-stepper/custom-stepper.component';
+import { CdkStepperModule } from '@angular/cdk/stepper';
+import { NgTemplateOutlet } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -31,6 +34,8 @@ import { ElevationComponent } from './elevation/elevation.component';
     MatCheckboxModule,
     MyCustomFieldComponent,
     ElevationComponent,
+    CustomStepperComponent,
+    CdkStepperModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

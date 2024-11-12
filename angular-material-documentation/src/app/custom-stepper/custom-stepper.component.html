@@ -1,0 +1,26 @@
+<section class="example-container">
+  <header>
+    <h2>Step {{ selectedIndex + 1 }}/{{ steps.length }}</h2>
+  </header>
+
+  <ng-container [ngTemplateOutlet]="selected!.content"></ng-container>
+
+  <footer class="example-step-navigation-bar">
+    <button mat-raised-button class="example-nav-button" cdkStepperPrevious>
+      &larr;
+    </button>
+    @for (step of steps; track step; let i = $index) {
+    <button
+      mat-raised-button
+      class="example-step"
+      [class.example-active]="selectedIndex === i"
+      (click)="selectStepByIndex(i)"
+    >
+      Step {{ i + 1 }}
+    </button>
+    }
+    <button mat-raised-button class="example-nav-button" cdkStepperNext>
+      &rarr;
+    </button>
+  </footer>
+</section>
