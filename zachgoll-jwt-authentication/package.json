@@ -4,10 +4,10 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.ts"
+    "start": "nodemon app.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "0a9a",
   "license": "ISC",
   "dependencies": {
     "bson": "^6.10.0",
