@@ -1,4 +1,4 @@
-const { Model, NUMBER, STRING } = require("sequelize");
+const { Model, NUMBER, STRING, INTEGER } = require("sequelize");
 
 const sequelize = require("../config/database");
 
@@ -7,7 +7,7 @@ class User extends Model {}
 User.init(
   {
     id: {
-      type: NUMBER,
+      type: INTEGER,
       autoIncrement: true,
       primaryKey: true,
     },
@@ -30,5 +30,7 @@ User.init(
   },
   { sequelize, modelName: "User" }
 );
+
+sequelize.sync();
 
 module.exports = User;
