@@ -24,7 +24,11 @@ export class LoginComponent implements OnInit {
     const username = this.loginForm.value.username;
     const password = this.loginForm.value.password;
 
-    const headers = new HttpHeaders({ 'Content-type': 'application/json' });
+    const token = localStorage.getItem('id_token');
+
+    const headers = new HttpHeaders()
+      .set('Authorization', token!)
+      .set('Content-Type', 'application/json');
 
     const reqObject = {
       username: username,
@@ -32,27 +36,26 @@ export class LoginComponent implements OnInit {
     };
 
     this.http
-      .post('http://localhost:5000/users/login', reqObject, {
-        headers: headers,
-      })
-      .subscribe(
+      .post('http://localhost:5000/users/login', reqObject, { headers })
+      .subscribe({
         // The response data
-        (response) => {
+        next: (response) => {
           // If the user authenticates successfully, we need to store the JWT returned in localStorage
           this.authService.setLocalStorage(response);
+          console.log(response);
         },
 
         // If there is an error
-        (error) => {
+        error: (error) => {
           console.log(error);
         },
 
         // When observable completes
-        () => {
+        complete: () => {
           console.log('done!');
           this.router.navigate(['protected']);
-        }
-      );
+        },
+      });
   }
 
   ngOnInit(): void {}

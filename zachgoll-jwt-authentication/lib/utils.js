@@ -78,30 +78,33 @@ function issueJWT(user) {
 }
 
 function authMiddleware(req, res, next) {
-  const tokenParts = req.headers.authorization.split(" ");
+  // console.log(req.headers);
+  // console.log(req.headers.authorization);
 
-  if (
-    tokenParts[0] === "Bearer" &&
-    tokenParts[1].match(/\S+\.\S+\.\S+/) !== null
-  ) {
-    try {
-      const verification = jsonwebtoken.verify(tokenParts[1], PUB_KEY, {
-        algorithms: ["RS256"],
-      });
-      req.jwt = verification;
-
-      next();
-    } catch (err) {
-      res.status(401).json({
-        success: false,
-        msg: "You are not authorized to visit this route.",
-      });
+  if (req.headers.authorization) {
+    const tokenParts = req.headers.authorization.split(" ");
+    if (
+      tokenParts[0] === "Bearer" &&
+      tokenParts[1].match(/\S+\.\S+\.\S+/) !== null
+    ) {
+      try {
+        const verification = jsonwebtoken.verify(tokenParts[1], PUB_KEY, {
+          algorithms: ["RS256"],
+        });
+        req.jwt = verification;
+        next();
+      } catch (err) {
+        res
+          .status(401)
+          .json({ success: false, msg: "Token verification failed." });
+      }
+    } else {
+      res.status(401).json({ success: false, msg: "Malformed token." });
     }
   } else {
-    res.status(401).json({
-      success: false,
-      msg: "You are not authorized to visit this route.",
-    });
+    res
+      .status(401)
+      .json({ success: false, msg: "Authorization header missing." });
   }
 }
 

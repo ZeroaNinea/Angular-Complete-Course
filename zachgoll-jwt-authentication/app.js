@@ -32,7 +32,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Allows our Angular application to make HTTP requests to Express application
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:4200",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 
 // Where Angular builds to - In the ./angular/angular.json file, you will find this configuration
 // at the property: projects.angular.architect.build.options.outputPath

@@ -14,14 +14,14 @@ export class ProtectedComponent implements OnInit {
   message!: string;
 
   ngOnInit(): void {
-    this.http.get<any>('http://localhost:5000/users/protected').subscribe(
-      (response) => {
+    this.http.get<any>('http://localhost:5000/users/protected').subscribe({
+      next: (response) => {
         if (response) {
           this.message = response.msg;
         }
       },
 
-      (error) => {
+      error: (error) => {
         if (error.status === 401) {
           this.message =
             'You are not authorized to visit this route.  No data is displayed.';
@@ -30,9 +30,9 @@ export class ProtectedComponent implements OnInit {
         console.log(error);
       },
 
-      () => {
+      complete: () => {
         console.log('HTTP request done');
-      }
-    );
+      },
+    });
   }
 }
