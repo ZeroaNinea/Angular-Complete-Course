@@ -17,5 +17,5 @@ ng s -o
 To run Cypress type:
 
 ```bash
-npm run cy:open
+npm run cypress:open
 ```
