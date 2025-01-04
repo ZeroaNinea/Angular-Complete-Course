@@ -1,6 +1,6 @@
 # CypressDocumentation
 
-This is a project to learn Cypress using Angular.
+This is a project to learn Cypress using Angular with the official [documentatation](https://docs.cypress.io/app/get-started/why-cypress).
 
 To run this projcet type:
 
