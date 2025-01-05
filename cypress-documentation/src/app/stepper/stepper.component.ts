@@ -1,13 +1,13 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { MatButtonModule } from "@angular/material/button";
+import { MatIconModule } from "@angular/material/icon";
 
 @Component({
-  selector: 'app-stepper',
+  selector: "app-stepper",
   standalone: true,
   imports: [MatButtonModule, MatIconModule],
-  templateUrl: './stepper.component.html',
-  styleUrl: './stepper.component.scss',
+  templateUrl: "./stepper.component.html",
+  styleUrl: "./stepper.component.scss",
 })
 export class StepperComponent implements OnInit {
   constructor() {}

@@ -1,7 +1,7 @@
-import { AppComponent } from './app.component';
+import { AppComponent } from "./app.component";
 
-describe('AppComponent', () => {
-  it('mounts', () => {
+describe("AppComponent", () => {
+  it("mounts", () => {
     cy.mount(AppComponent);
   });
 });
