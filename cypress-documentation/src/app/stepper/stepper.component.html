@@ -1,0 +1,19 @@
+<div class="stepper">
+  <button
+    data-test="decrement"
+    mat-icon-button
+    color="primary"
+    (click)="decrement()"
+  >
+    -
+  </button>
+  <span data-test="counter">{{ count }}</span>
+  <button
+    data-test="increment"
+    mat-icon-button
+    color="primary"
+    (click)="increment()"
+  >
+    +
+  </button>
+</div>
