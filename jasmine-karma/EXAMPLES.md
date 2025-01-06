@@ -8,5 +8,6 @@ The Link to the [documentation](https://angular.dev/guide/testing/services).
 
 Implementation:
 
-[`Master` service]()
-[`Value` service]()
+- [`Master` service](./src/app/services/master).
+- [`Value` service](https://github.com/ZeroaNinea/Angular-Complete-Course/tree/main/jasmine-karma/src/app/services/value).
+- [`FakeValue` service](src/app/services/fake-value).
