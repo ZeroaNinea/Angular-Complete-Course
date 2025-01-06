@@ -66,4 +66,4 @@ coverageReporter: {
 }
 ```
 
-See: [`EXAMPLES.md`](https://github.com/ZeroaNinea/Angular-Complete-Course/blob/main/jasmine-karma/EXAMPLES.md).
+See: [`EXAMPLES.md`](./EXAMPLES.md).
