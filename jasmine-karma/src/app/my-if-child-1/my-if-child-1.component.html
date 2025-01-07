@@ -1,0 +1,10 @@
+<h4>MyIfChildComp</h4>
+<div>
+  <label for="child-value"
+    >Child value: <input id="child-value" [(ngModel)]="childValue" />
+  </label>
+</div>
+<p><i>Change log:</i></p>
+@for (log of changeLog; track log; let i = $index) {
+<div>{{ i + 1 }} - {{ log }}</div>
+}`,

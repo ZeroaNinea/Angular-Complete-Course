@@ -1,18 +1,26 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { delay, Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ValueService {
-  private value = 'real value';
+  public value = 'real value';
 
   getValue(): string {
     return this.value;
   }
 
+  setValue(value: string) {
+    this.value = value;
+  }
+
   getObservableValue(): Observable<string> {
     return of('observable value');
+  }
+
+  getObservableDelayValue() {
+    return of('observable delay value').pipe(delay(10));
   }
 
   getPromiseValue(): Promise<string> {

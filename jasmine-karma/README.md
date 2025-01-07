@@ -1,7 +1,6 @@
 # JasmineKarma
 
-This is a project for learning Jasmine and Karma with the official [documentation](https://angular.dev/guide/testing). I implemented everything and added the missing code.
-This is the [documentation](https://jasmine.github.io/pages/getting_started.html) of Jasmine.
+This is a project for learning Jasmine and Karma with the official [documentation](https://angular.dev/guide/testing). I implemented everything and added the missing code. This is the [documentation](https://jasmine.github.io/pages/getting_started.html) of Jasmine.
 
 ## Commands
 

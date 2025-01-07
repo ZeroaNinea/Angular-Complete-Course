@@ -1,0 +1,11 @@
+<h3>MyIfParentComp</h3>
+<label for="parent"
+  >Parent value:
+  <input id="parent" [(ngModel)]="parentValue" />
+</label>
+<button type="button" (click)="clicked()">{{ toggleLabel }} Child</button><br />
+@if (showChild) {
+<div style="margin: 4px; padding: 4px; background-color: aliceblue">
+  <app-my-if-child-1 [(value)]="parentValue"></app-my-if-child-1>
+</div>
+}

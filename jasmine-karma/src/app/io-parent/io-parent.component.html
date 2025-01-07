@@ -1,0 +1,7 @@
+@if (!selectedHero) {
+<p><i>Click to select a hero</i></p>
+} @if (selectedHero) {
+<p>The selected hero is {{ selectedHero.name }}</p>
+} @for (hero of heroes; track hero) {
+<app-io [hero]="hero" (selected)="onSelect($event)"> </app-io>
+}
