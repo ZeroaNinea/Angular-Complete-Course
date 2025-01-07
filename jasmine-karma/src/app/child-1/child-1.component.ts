@@ -9,4 +9,5 @@ import { Component, Input } from '@angular/core';
 })
 export class Child1Component {
   @Input() text = 'Original';
+  @Input() toHaveText = 'Child';
 }

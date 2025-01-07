@@ -3,5 +3,5 @@
 } @if (selectedHero) {
 <p>The selected hero is {{ selectedHero.name }}</p>
 } @for (hero of heroes; track hero) {
-<app-io [hero]="hero" (selected)="onSelect($event)"> </app-io>
+<app-io class="hero" [hero]="hero" (selected)="onSelect($event)"> </app-io>
 }

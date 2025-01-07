@@ -1,15 +1,22 @@
-import { TestBed } from '@angular/core/testing';
+import { inject, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ValueService } from './value.service';
 import { of } from 'rxjs';
 
 describe('ValueService', () => {
   let service: ValueService;
+  let serviceValue: string;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({ providers: [ValueService] });
     service = TestBed.inject(ValueService);
   });
+
+  beforeEach(waitForAsync(
+    inject([ValueService], (service: ValueService) => {
+      service.getPromiseValue().then((value) => (serviceValue = value));
+    })
+  ));
 
   it('should be created', () => {
     expect(service).toBeTruthy();
@@ -30,4 +37,21 @@ describe('ValueService', () => {
       .getPromiseValue()
       .then((data) => expect(data).toBe('promise value'));
   });
+
+  it('should use modified providers', inject(
+    [ValueService],
+    (service: ValueService) => {
+      // Modify `ValueService`.
+      service.setValue('value modified in beforeEach');
+      expect(service.getValue()).toBe('value modified in beforeEach');
+    }
+  ));
+
+  it('should use asynchronously modified value ... in synchronous test', () => {
+    expect(serviceValue).toBe('promise value');
+  });
 });
+
+/*
+1. The `inject` function injects dependencies to tests.
+*/

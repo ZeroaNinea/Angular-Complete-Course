@@ -6,10 +6,18 @@ import { FakeValueService } from '../fake-value/fake-value.service';
 
 describe('MasterService', () => {
   let service: MasterService;
+  let valueServiceSpy: jasmine.SpyObj<ValueService>;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    const spy = jasmine.createSpyObj('ValueService', ['getValue']);
+
+    TestBed.configureTestingModule({
+      providers: [MasterService, { provide: ValueService, useValue: spy }],
+    });
     service = TestBed.inject(MasterService);
+    valueServiceSpy = TestBed.inject(
+      ValueService
+    ) as jasmine.SpyObj<ValueService>;
   });
 
   it('should be created', () => {
@@ -18,7 +26,7 @@ describe('MasterService', () => {
 
   it('#getValue should return real value from the real service', () => {
     service = new MasterService(new ValueService());
-    console.log(service.getValue());
+    // console.log(service.getValue());
 
     expect(service.getValue()).toBe('real value');
   });
