@@ -10,7 +10,11 @@ describe('Child1Component', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [Child1Component],
-    }).compileComponents();
+    })
+      // .overrideComponent(Child1Component, {
+      //   set: { template: '<span>Fake</span>' },
+      // }) // Override component's content.
+      .compileComponents();
 
     fixture = TestBed.createComponent(Child1Component);
     component = fixture.componentInstance;
@@ -28,6 +32,21 @@ describe('Child1Component', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.textContent).toContain('Child'); // The `expect().toContain('Child')` method checks if the text content contains the word `'Child'`.
   });
+
+  // it("should override ChildComp's template", () => {
+  //   // const fixture = TestBed.configureTestingModule({
+  //   //   imports: [Child1Component],
+  //   // })
+  //   //   .overrideComponent(Child1Component, {
+  //   //     set: { template: '<span>Fake</span>' },
+  //   //   })
+  //   //   .createComponent(Child1Component);
+
+  //   // fixture.detectChanges();
+
+  //   const compiled = fixture.nativeElement as HTMLElement;
+  //   expect(compiled.textContent).toContain('Fake');
+  // });
 });
 
 /*
