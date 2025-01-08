@@ -3,7 +3,9 @@ import { TestProvidersComponent } from '../test-providers/test-providers.compone
 
 @Component({
   selector: 'app-test',
-  imports: [TestProvidersComponent],
+  imports: [
+    // TestProvidersComponent
+  ],
   standalone: true,
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss',

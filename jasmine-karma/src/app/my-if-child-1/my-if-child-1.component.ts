@@ -1,6 +1,7 @@
 import {
   Component,
   EventEmitter,
+  input,
   Input,
   OnChanges,
   OnDestroy,
@@ -20,6 +21,9 @@ import { FormsModule } from '@angular/forms';
 export class MyIfChild1Component implements OnInit, OnChanges, OnDestroy {
   @Input() value = '';
   @Output() valueChange = new EventEmitter<string>();
+
+  data = 'initial data';
+
   get childValue() {
     return this.value;
   }

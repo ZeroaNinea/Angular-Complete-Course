@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MyIfChild1Component } from '../my-if-child-1/my-if-child-1.component';
 
@@ -14,10 +14,13 @@ export class MyIfParentComponent implements OnInit {
   parentValue = 'Hello, World';
   showChild = false;
   toggleLabel = 'Unknown';
+  data!: string;
+
   ngOnInit() {
     this.ngOnInitCalled = true;
     this.clicked();
   }
+
   clicked() {
     this.showChild = !this.showChild;
     this.toggleLabel = this.showChild ? 'Close' : 'Show';
