@@ -10,7 +10,7 @@ import { RouterLink } from '@angular/router';
 })
 export class ClicksResultComponent {
   trackOtherUrl = output();
-  clicks = input.required<number>();
+  clicks = input<number>();
 
   onTrackOtherUrl() {
     this.trackOtherUrl.emit();

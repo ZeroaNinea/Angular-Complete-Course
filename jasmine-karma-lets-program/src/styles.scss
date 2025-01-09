@@ -2,16 +2,21 @@
 
 @include mat.core();
 
-$angular-material-documentation-theme: mat.define-theme(
+$theme: mat.define-theme(
   (
     color: (
       theme-type: dark,
       primary: mat.$violet-palette,
       tertiary: mat.$blue-palette,
+      use-system-variables: true,
     ),
     typography: (
+      plain-family: "Roboto",
       brand-family: "Roboto",
-      bold-weight: 400,
+      bold-weight: 900,
+      medium-weight: 500,
+      regular-weight: 300,
+      use-system-variables: true,
     ),
     density: (
       scale: -1,
@@ -20,12 +25,15 @@ $angular-material-documentation-theme: mat.define-theme(
 );
 
 :root {
-  @include mat.all-component-themes($angular-material-documentation-theme);
+  @include mat.all-component-themes($theme);
+  @include mat.system-level-colors($theme);
+  @include mat.system-level-typography($theme);
 }
 
 html,
 body {
   height: 100%;
+  background-color: var(--mat-sys-background);
 }
 
 body {

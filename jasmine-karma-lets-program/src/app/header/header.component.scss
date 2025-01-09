@@ -1,0 +1,33 @@
+header {
+  // Center header items.
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  // Size.
+  width: 100%;
+
+  // Color.
+  background-color: var(--mat-sys-surface-container);
+  color: var(--mat-sys-tertiary-fixed);
+
+  div.header-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 1%;
+  }
+
+  a {
+    color: inherit;
+  }
+}
+
+.logo {
+  font: var(--mat-sys-headline-large);
+  font-weight: var(--mat-sys-display-bold-weight);
+  text-decoration: none;
+}
