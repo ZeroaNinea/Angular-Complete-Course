@@ -1,0 +1,12 @@
+<form (ngSubmit)="onShortUrlSubmit()">
+  <label for="long-url">Shortened URL</label>
+  <div>
+    <input
+      [(ngModel)]="shortenedUrl"
+      [ngModelOptions]="{ standalone: true }"
+      placeholder="Enter your shortened URL"
+      type="text"
+    />
+    <button type="submit">Track clicks</button>
+  </div>
+</form>

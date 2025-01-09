@@ -31,9 +31,11 @@ describe('ClicksResultComponent', () => {
   });
 
   it('should have clicks input as required', () => {
-    fixture.componentRef.setInput('clicks', 10);
-    fixture.detectChanges();
+    // fixture.componentRef.setInput('clicks', 10);
+    // fixture.detectChanges();
 
-    expect(component.clicks()).toBe(10);
+    component.clicks = 10;
+
+    expect(component.clicks).toBe(10);
   });
 });

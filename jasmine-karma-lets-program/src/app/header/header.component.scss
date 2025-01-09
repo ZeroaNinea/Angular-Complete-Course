@@ -13,6 +13,7 @@ header {
   color: var(--mat-sys-tertiary-fixed);
 
   div.header-wrapper {
+    // Center header items.
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -1,4 +1,4 @@
-import { Component, input, output } from '@angular/core';
+import { Component, Input, input, output } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -10,7 +10,8 @@ import { RouterLink } from '@angular/router';
 })
 export class ClicksResultComponent {
   trackOtherUrl = output();
-  clicks = input<number>();
+  // clicks = input<number>();
+  @Input({ required: true }) clicks!: number;
 
   onTrackOtherUrl() {
     this.trackOtherUrl.emit();
