@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:jasmine-karma-lets-program": "node dist/jasmine-karma-lets-program/server/server.mjs"
+    "serve:ssr:jasmine-karma-lets-program": "node dist/jasmine-karma-lets-program/server/server.mjs",
+    "coverage": "ng test --code-coverage"
   },
   "private": true,
   "dependencies": {
