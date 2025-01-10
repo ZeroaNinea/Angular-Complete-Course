@@ -31,11 +31,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let row of tableData()">
-        <td
-          *ngFor="let column of columns(); let i = index"
-          [ngStyle]="{ 'max-width': column.width }"
-        >
+      <!-- *ngFor="let row of tableData()" -->
+      <!-- *ngFor="let column of columns(); let i = index" -->
+      @for (row of tableData(); track row) {
+      <tr>
+        @for (column of columns(); track column.index) {
+        <td [ngStyle]="{ 'max-width': column.width }">
           <div appTooltip>{{ row[column.key] }}</div>
         </td>
         <td>
@@ -43,7 +44,9 @@
             {{ selectedRow() === row.short ? buttonText() : "Copy" }}
           </button>
         </td>
+        }
       </tr>
+      }
     </tbody>
   </table>
 </div>
