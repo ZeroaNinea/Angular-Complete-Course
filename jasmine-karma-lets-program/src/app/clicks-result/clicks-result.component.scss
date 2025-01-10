@@ -26,7 +26,7 @@ mat-panel-description {
   height: 20vh;
 
   :last-child {
-    background-color: var(--mat-sys-surface-container-highest);
+    background-color: var(--mat-sys-surface-container);
     color: var(--mat-sys-headline-large);
 
     cursor: pointer;

@@ -33,7 +33,7 @@
     <tbody>
       <tr *ngFor="let row of tableData()">
         <td
-          *ngFor="let column of colmuns(); let i = index"
+          *ngFor="let column of columns(); let i = index"
           [ngStyle]="{ 'max-width': column.width }"
         >
           <div appTooltip>{{ row[column.key] }}</div>
