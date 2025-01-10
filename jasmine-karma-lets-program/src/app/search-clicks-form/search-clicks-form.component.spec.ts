@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SearchClicksFormComponent } from './search-clicks-form.component';
 import { provideRouter } from '@angular/router';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 describe('SearchClicksFormComponent', () => {
   let component: SearchClicksFormComponent;
@@ -10,7 +11,7 @@ describe('SearchClicksFormComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [SearchClicksFormComponent],
-      providers: [provideRouter([])],
+      providers: [provideRouter([]), provideAnimationsAsync()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(SearchClicksFormComponent);

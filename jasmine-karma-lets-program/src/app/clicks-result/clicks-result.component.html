@@ -1,12 +1,22 @@
-<div>
-  <div>
-    <span>Total URL Clicks</span>
-    <span>clicks{{ clicks }}</span>
-  </div>
-  <div>
-    <div>
-      <button routerLink="/">Trim Another URL</button>
-      <button (click)="onTrackOtherUrl()">Track Other URL</button>
+<div id="expansion-panel-wrapper">
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Check click tracking value</mat-panel-title>
+      <mat-panel-description>
+        your clicks are here! just look at them :3
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div id="click-counter-wrapper">
+      <div>Total URL Clicks:</div>
+      <div>0{{ clicks }}</div>
     </div>
-  </div>
+    <div id="button-wrapper">
+      <div>
+        <button mat-stroked-button routerLink="/">Trim Another URL</button>
+        <button mat-stroked-button (click)="onTrackOtherUrl()">
+          Track Other URL
+        </button>
+      </div>
+    </div>
+  </mat-expansion-panel>
 </div>

@@ -1,12 +1,17 @@
-<form (ngSubmit)="onShortUrlSubmit()">
-  <label for="long-url">Shortened URL</label>
-  <div>
-    <input
-      [(ngModel)]="shortenedUrl"
-      [ngModelOptions]="{ standalone: true }"
-      placeholder="Enter your shortened URL"
-      type="text"
-    />
-    <button type="submit">Track clicks</button>
-  </div>
-</form>
+<div id="form-wrapper">
+  <form (ngSubmit)="onShortUrlSubmit()">
+    <mat-form-field>
+      <mat-label for="long-url">Shortened URL</mat-label>
+      <input
+        matInput
+        [(ngModel)]="shortenedUrl"
+        [ngModelOptions]="{ standalone: true }"
+        placeholder="Enter your shortened URL..."
+        type="text"
+      />
+      <mat-hint>enter a URL to track clicks</mat-hint>
+    </mat-form-field>
+    <button mat-fab extended type="submit">Track Clicks</button>
+  </form>
+</div>
+<app-clicks-result></app-clicks-result>

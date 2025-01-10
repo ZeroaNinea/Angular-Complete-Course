@@ -1,0 +1,41 @@
+mat-panel-title {
+  color: var(--mat-sys-primary-fixed-dim);
+}
+
+mat-panel-description {
+  color: var(--mat-sys-headline-large);
+}
+
+#expansion-panel-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+#button-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#click-counter-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  width: 100%;
+  height: 20vh;
+
+  :last-child {
+    background-color: var(--mat-sys-surface-container-highest);
+    color: var(--mat-sys-headline-large);
+
+    cursor: pointer;
+
+    border-radius: 500px;
+    padding: 1%;
+  }
+}
+
+mat-expansion-panel {
+  width: 95%;
+}
