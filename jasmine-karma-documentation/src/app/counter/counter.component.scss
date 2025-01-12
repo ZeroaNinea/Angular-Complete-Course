@@ -1,0 +1,35 @@
+mat-card {
+  display: block;
+  flex-grow: 1;
+}
+
+mat-card-title {
+  font-size: var(--mat-sys-headline-small-size);
+}
+
+mat-card-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 50vh;
+
+  div {
+    font: var(--mat-sys-display-large);
+    color: var(--mat-sys-inverse-surface);
+    background-color: var(--mat-sys-inverse-on-surface);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 22.5%;
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    span {
+      position: absolute;
+    }
+  }
+}

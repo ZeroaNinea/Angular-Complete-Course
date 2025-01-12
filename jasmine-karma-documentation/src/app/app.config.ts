@@ -12,20 +12,26 @@ import {
 } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
-import { provideStore } from '@ngrx/store';
+import { provideState, provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
+import { provideEffects } from '@ngrx/effects';
+import { counterReducer } from './counter/state/counter.reducer';
+import { CounterEffect } from './counter/state/counter.effect';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideClientHydration(withEventReplay()),
-
     // Angular Material
     provideAnimationsAsync(),
-
     // NgRx
     provideStore(),
+
+    // provideStore({ count: counterReducer }),
+    provideState({ name: 'count', reducer: counterReducer }),
+    provideEffects(CounterEffect),
+
     provideStoreDevtools({
       maxAge: 25,
       logOnly: !isDevMode(),
@@ -34,5 +40,6 @@ export const appConfig: ApplicationConfig = {
       traceLimit: 75,
       connectInZone: true,
     }),
+    provideEffects(),
   ],
 };
