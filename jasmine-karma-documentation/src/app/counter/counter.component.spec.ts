@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CounterComponent } from './counter.component';
+import { provideMockStore } from '@ngrx/store/testing';
 
 describe('CounterComponent', () => {
   let component: CounterComponent;
@@ -9,6 +10,7 @@ describe('CounterComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [CounterComponent],
+      providers: [provideMockStore({})],
     }).compileComponents();
 
     fixture = TestBed.createComponent(CounterComponent);

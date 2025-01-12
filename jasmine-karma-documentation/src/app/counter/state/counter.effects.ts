@@ -4,10 +4,10 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 
 import { delay, filter, map, switchMap, takeUntil } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 import { resetCounter, startCounter, stopCounter } from './counter.actions';
 import { CounterState } from './counter.state';
-import { of } from 'rxjs';
 
 @Injectable()
 export class CounterEffect {

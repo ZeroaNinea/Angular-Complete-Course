@@ -16,7 +16,7 @@ import { provideState, provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { provideEffects } from '@ngrx/effects';
 import { counterReducer } from './counter/state/counter.reducer';
-import { CounterEffect } from './counter/state/counter.effect';
+import { CounterEffect } from './counter/state/counter.effects';
 
 export const appConfig: ApplicationConfig = {
   providers: [
