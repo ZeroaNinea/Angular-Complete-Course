@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { hot, cold, getTestScheduler } from 'jasmine-marbles';
 
 import { CounterEffect } from './counter.effects';
@@ -8,7 +8,6 @@ import { startCounter, stopCounter } from './counter.actions';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { selectIsRunning } from './counter.selector';
 import { CounterState, initialState } from './counter.state';
-import { Actions, CreateEffectMetadata, provideEffects } from '@ngrx/effects';
 
 describe('Counter Effects', () => {
   let actions$!: Observable<any>;
@@ -37,13 +36,18 @@ describe('Counter Effects', () => {
     expect(effects).toBeTruthy();
   });
 
-  it('should repeatedly dispatch startCounter while running and stop on stopCounter', () => {
+  it('should dispatch startCounter while running and stop on stopCounter then again dispatch startConter', () => {
     getTestScheduler().run(() => {
-      actions$ = hot('a 2010ms b', { a: startCounter(), b: stopCounter() });
+      actions$ = hot('a 2005ms b 4ms a 2005ms b', {
+        a: startCounter(),
+        b: stopCounter(),
+      });
 
       store.overrideSelector(selectIsRunning, true);
 
-      const expected = cold('1000ms a 999ms a', { a: startCounter() });
+      const expected = cold('1000ms a 999ms a 1010ms a 999ms a', {
+        a: startCounter(),
+      });
 
       expect(effects.infiniteIncrement$).toBeObservable(expected);
     });
