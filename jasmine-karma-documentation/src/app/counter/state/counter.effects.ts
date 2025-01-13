@@ -3,11 +3,19 @@ import { Injectable, inject } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 
-import { delay, filter, map, switchMap, takeUntil } from 'rxjs/operators';
-import { of } from 'rxjs';
+import {
+  distinctUntilChanged,
+  filter,
+  map,
+  switchMap,
+  takeUntil,
+  tap,
+} from 'rxjs/operators';
+import { interval } from 'rxjs';
 
 import { resetCounter, startCounter, stopCounter } from './counter.actions';
 import { CounterState } from './counter.state';
+import { selectIsRunning } from './counter.selector';
 
 @Injectable()
 export class CounterEffect {
@@ -18,18 +26,22 @@ export class CounterEffect {
     this.actions$.pipe(
       ofType(startCounter),
       switchMap(() =>
-        this.store
-          .select((state) => state.count.isRunning)
-          .pipe(
-            filter((isRunning) => isRunning),
-            switchMap(() =>
-              of(null).pipe(
-                delay(1000),
-                map(() => startCounter()),
-                takeUntil(this.actions$.pipe(ofType(stopCounter, resetCounter)))
+        this.store.select(selectIsRunning).pipe(
+          distinctUntilChanged(),
+          filter((isRunning) => isRunning),
+          switchMap(() =>
+            interval(1000).pipe(
+              map(() => startCounter()),
+              // tap((action) => console.log('Emitted action:', action)),
+              takeUntil(
+                this.actions$.pipe(
+                  ofType(stopCounter, resetCounter)
+                  // tap((action) => console.log('Emitted action:', action))
+                )
               )
             )
           )
+        )
       )
     )
   );

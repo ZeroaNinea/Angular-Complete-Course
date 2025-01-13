@@ -28,8 +28,8 @@ export const appConfig: ApplicationConfig = {
     // NgRx
     provideStore(),
 
-    // provideStore({ count: counterReducer }),
-    provideState({ name: 'count', reducer: counterReducer }),
+    provideStore({ counter: counterReducer }),
+    // provideState({ name: 'counter', reducer: counterReducer }),
     provideEffects(CounterEffect),
 
     provideStoreDevtools({

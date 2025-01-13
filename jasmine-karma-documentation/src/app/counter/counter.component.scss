@@ -30,6 +30,8 @@ mat-card-content {
 
     span {
       position: absolute;
+      user-select: none;
+      cursor: default;
     }
   }
 }
