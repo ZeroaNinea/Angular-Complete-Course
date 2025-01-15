@@ -1,4 +1,4 @@
-import { CustomEqualityTester } from './types/custom-equality-testers';
+import { CustomEqualityTester } from './types/custom-equality-testers.interface';
 
 const customEqualityTester = (
   first: string | CustomEqualityTester,
