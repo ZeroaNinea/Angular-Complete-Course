@@ -30,7 +30,7 @@ describe('Custom Equality Testers', () => {
     expect('abc').not.toEqual('abc');
   });
 
-  it('works even in nested equality tests', function () {
+  it('works even in nested equality tests', () => {
     expect(['abc', '123']).not.toEqual([' a ', ' 1 ']);
   });
 });
