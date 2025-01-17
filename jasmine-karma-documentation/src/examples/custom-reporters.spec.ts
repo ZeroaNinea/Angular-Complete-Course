@@ -31,4 +31,5 @@ class MyCustomReporter implements jasmine.CustomReporter {
   }
 }
 
+// Adding the reporter to Jasmine.
 jasmine.getEnv().addReporter(new MyCustomReporter());
