@@ -5,14 +5,20 @@
   </mat-card-header>
   <mat-card-content>
     <div>
-      <span>
+      <span data-test="count-display">
         {{ count$ | async }}
       </span>
     </div>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button (click)="startCounter()">Start Counter</button>
-    <button mat-button (click)="stopCounter()">Stop Counter</button>
-    <button mat-button (click)="resetCounter()">Reset Counter</button>
+    <button mat-button (click)="startCounter()" data-test="start-button">
+      Start Counter
+    </button>
+    <button mat-button (click)="stopCounter()" data-test="stop-button">
+      Stop Counter
+    </button>
+    <button mat-button (click)="resetCounter()" data-test="reset-button">
+      Reset Counter
+    </button>
   </mat-card-actions>
 </mat-card>
