@@ -8,6 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "test:coverage": "ng test --code-coverage",
+    "test:ci": "set CI=true&& ng test --code-coverage",
     "serve:ssr:jasmine-karma-documentation": "node dist/jasmine-karma-documentation/server/server.mjs"
   },
   "private": true,

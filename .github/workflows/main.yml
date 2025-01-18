@@ -17,4 +17,4 @@ jobs:
         run: npm install
       - name: Run tests
         working-directory: ./jasmine-karma-documentation
-        run: npm run test:coverage
+        run: npm run test:ci
