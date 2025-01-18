@@ -40,7 +40,15 @@ module.exports = function (config) {
       },
     },
     reporters: ["progress", "kjhtml"],
-    browsers: ["Chrome"],
+    browsers: ["ChromeHeadless"],
+    customLaunchers: {
+      ChromeHeadlessNoSandbox: {
+        base: "ChromeHeadless",
+        flags: ["--no-sandbox", "--disable-gpu"],
+      },
+    },
+    browserNoActivityTimeout: 60000,
+    singleRun: true,
     restartOnFileChange: true,
   });
 };
