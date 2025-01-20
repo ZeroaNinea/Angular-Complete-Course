@@ -1,11 +1,11 @@
 name: CI # The name of the workflow.
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀 # Contexts are a way to access information about workflow runs, variables, runner environments, jobs, and steps. They are objects.
 on: # The action trigger: on `push` in this case. Run the actions when the developer pushes to the `main` branch.
   push:
     branches:
       - main
 jobs:
-  build: # Work's name (`build`).
+  install: # Work's name (`install`).
     runs-on: ubuntu-latest # Operating system.
     steps:
       - uses: actions/checkout@v3 # Check out the code for further testing.
@@ -13,6 +13,11 @@ jobs:
         uses: actions/setup-node@v3 # Set up the Node.js environment.
         with:
           node-version: "20" # Node.js version.
+
+  test:
+    needs: install # Needs the `install` job to be completed to run.
+    runs-on: ubuntu-latest
+    steps:
       - name: Install dependencies # The name of the next step.
         working-directory: ./jasmine-karma-documentation # Move to the specified directory.
         run: npm install # Install dependencies.
