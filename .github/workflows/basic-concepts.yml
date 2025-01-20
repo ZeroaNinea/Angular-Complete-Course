@@ -7,3 +7,6 @@ jobs:
       - uses: actions/checkout@v4
       - name: Hello World
         run: echo "Hello, World!"
+
+      - name: Simulating Error
+        run: echo "error taking place"; exit 1
