@@ -12,7 +12,10 @@ import {
 } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
-import { provideState, provideStore } from '@ngrx/store';
+import {
+  // provideState,
+  provideStore,
+} from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { provideEffects } from '@ngrx/effects';
 import { counterReducer } from './counter/state/counter.reducer';

@@ -7,7 +7,9 @@ import { loadClients, networkRequest } from './client.actions';
 import { cold, getTestScheduler, hot } from 'jasmine-marbles';
 
 describe('ClientEffects', () => {
-  let actions$!: Observable<any>;
+  let actions$!: Observable<{
+    a: () => void;
+  }>;
   let effects: ClientEffects;
 
   beforeEach(() => {

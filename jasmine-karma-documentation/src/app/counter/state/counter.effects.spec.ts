@@ -10,7 +10,10 @@ import { selectIsRunning } from './counter.selector';
 import { CounterState, initialState } from './counter.state';
 
 describe('Counter Effects', () => {
-  let actions$!: Observable<any>;
+  let actions$!: Observable<{
+    a: () => void;
+    b: () => void;
+  }>;
   let effects: CounterEffect;
   let store: MockStore<{ count: CounterState }>;
 

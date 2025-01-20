@@ -1,6 +1,6 @@
 describe('Custom Object Formatters', () => {
   beforeEach(() => {
-    jasmine.addCustomObjectFormatter((obj: any) => {
+    jasmine.addCustomObjectFormatter((obj: unknown) => {
       if (obj instanceof MyCustomClass) {
         return `MyCustomClass{name: "${obj.name}", value: ${obj.value}}`;
       }

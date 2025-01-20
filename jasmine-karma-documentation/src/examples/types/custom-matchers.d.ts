@@ -1,5 +1,5 @@
 declare namespace jasmine {
-  interface Matchers<T> {
+  interface Matchers {
     toBeEven(): boolean;
     toBeInRange(min: number, max: number): boolean;
   }

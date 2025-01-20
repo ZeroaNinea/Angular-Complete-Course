@@ -9,7 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './simple-counter.component.scss',
 })
 export class SimpleCounterComponent {
-  @Input() count: number = 0;
+  @Input() count = 0;
   @Output() countChange = new EventEmitter<number>();
 
   increment() {

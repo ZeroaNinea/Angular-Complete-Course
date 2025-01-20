@@ -1,5 +1,5 @@
 class Counter {
-  private _value: number = 0;
+  private _value = 0;
 
   get value() {
     return this._value;

@@ -25,7 +25,8 @@ class MyCustomReporter implements jasmine.CustomReporter {
     console.log(`Suite: ${result.description} was ${result.status}`);
   }
 
-  jasmineDone(result: jasmine.JasmineDoneInfo): void {
+  jasmineDone(): // result: jasmine.JasmineDoneInfo
+  void {
     // `jasmine.JasmineDoneInfo`: Contains metadata when all test execution is complete.
     console.log('All tests are complete.');
   }

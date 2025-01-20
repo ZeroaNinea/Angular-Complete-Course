@@ -21,7 +21,7 @@ import { MatCardModule } from '@angular/material/card';
   styleUrl: './counter.component.scss',
 })
 export class CounterComponent {
-  count$!: Observable<any>;
+  count$!: Observable<number>;
 
   constructor(private store: Store<CounterState>) {
     this.count$ = this.store.select(selectCount);

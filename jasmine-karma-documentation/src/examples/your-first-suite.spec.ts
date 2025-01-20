@@ -2,17 +2,20 @@ import { Foo, Tape } from './types/your-first-suite.interface';
 
 describe('Your First Suite', function () {
   let a: boolean;
-  let value: number = 0;
+  let value = 0;
 
   let foo: Foo;
-  let bar: number | null;
+  // let bar: number | null;
 
   let whatAmI: jasmine.Spy;
 
   let tape: jasmine.SpyObj<Tape>;
 
   const soon = () => {
-    return new Promise<void>(function (resolve, reject) {
+    return new Promise<void>(function (
+      resolve
+      // reject
+    ) {
       setTimeout(function () {
         resolve();
       }, 1);
@@ -34,7 +37,8 @@ describe('Your First Suite', function () {
 
     foo = {
       setBar: jasmine.createSpy('setBar').and.callFake((value: number) => {
-        bar = value;
+        const bar = value;
+        console.log(bar);
       }),
     };
 
