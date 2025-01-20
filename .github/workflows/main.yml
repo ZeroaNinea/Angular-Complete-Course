@@ -8,9 +8,9 @@ jobs:
   build: # Work's name (`build`).
     runs-on: ubuntu-latest # Operating system.
     steps:
-      - uses: actions/checkout@v3 # Check out the code for further testing.
+      - uses: actions/checkout@v4 # Check out the code for further testing.
       - name: Set up Node.js # The name of the step.
-        uses: actions/setup-node@v3 # Set up the Node.js environment.
+        uses: actions/setup-node@v4 # Set up the Node.js environment.
         with:
           node-version: "20" # Node.js version.
       - name: Install dependencies # The next step name.
