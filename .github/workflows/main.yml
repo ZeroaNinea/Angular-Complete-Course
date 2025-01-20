@@ -18,7 +18,7 @@ jobs:
         run: npm install # Install dependencies.
       - name: Lint code
         working-directory: ./jasmine-karma-documentation
-        run: npm run lint
+        run: npm run lint # Check data types and unused variables.
       - name: Run tests
         working-directory: ./jasmine-karma-documentation
         run: npm run test:ci # Run tests.
