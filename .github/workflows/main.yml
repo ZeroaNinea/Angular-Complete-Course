@@ -1,20 +1,21 @@
-name: CI
-on:
+name: CI # The name of the workflow.
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: # The action trigger: on `push` in this case. Run the actions when the developer pushes to the `main` branch.
   push:
     branches:
       - main
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  build: # Work's name (`build`).
+    runs-on: ubuntu-latest # Operating system.
     steps:
-      - uses: actions/checkout@v3
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v3 # Check out the code for further testing.
+      - name: Set up Node.js # The name of the step.
+        uses: actions/setup-node@v3 # Set up the Node.js environment.
         with:
-          node-version: "20"
-      - name: Install dependencies
-        working-directory: ./jasmine-karma-documentation
-        run: npm install
+          node-version: "20" # Node.js version.
+      - name: Install dependencies # The name of the next step.
+        working-directory: ./jasmine-karma-documentation # Move to the specified directory.
+        run: npm install # Install dependencies.
       - name: Run tests
         working-directory: ./jasmine-karma-documentation
-        run: npm run test:ci
+        run: npm run test:ci # Run tests.
