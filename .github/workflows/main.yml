@@ -5,7 +5,7 @@ on: # The action trigger: on `push` in this case. Run the actions when the devel
     branches:
       - main
 jobs:
-  setup: # Work's name (`install`).
+  build: # Work's name (`build`).
     runs-on: ubuntu-latest # Operating system.
     steps:
       - uses: actions/checkout@v3 # Check out the code for further testing.
@@ -13,19 +13,9 @@ jobs:
         uses: actions/setup-node@v3 # Set up the Node.js environment.
         with:
           node-version: "20" # Node.js version.
-
-  install:
-    needs: setup
-    runs-on: ubuntu-latest
-    steps:
-      - name: Install dependencies # The name of the next step.
+      - name: Install dependencies # The next step name.
         working-directory: ./jasmine-karma-documentation # Move to the specified directory.
         run: npm install # Install dependencies.
-
-  test:
-    needs: install # Needs the `install` job to be completed to run.
-    runs-on: ubuntu-latest
-    steps:
       - name: Run tests
         working-directory: ./jasmine-karma-documentation
         run: npm run test:ci # Run tests.
