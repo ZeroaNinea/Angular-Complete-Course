@@ -104,6 +104,15 @@
             "codeCoverage": true,
             "karmaConfig": "karma.conf.js"
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
@@ -111,6 +120,7 @@
   "cli": {
     "analytics": "31e014f1-ed69-441a-9155-bf05dd83ddc4",
     "schematicCollections": [
+      "angular-eslint",
       "@ngrx/schematics"
     ]
   }
