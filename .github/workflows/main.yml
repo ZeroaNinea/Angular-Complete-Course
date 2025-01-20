@@ -16,6 +16,8 @@ jobs:
       - name: Install dependencies # The next step name.
         working-directory: ./jasmine-karma-documentation # Move to the specified directory.
         run: npm install # Install dependencies.
+      - name: Lint code
+        run: npm run lint
       - name: Run tests
         working-directory: ./jasmine-karma-documentation
         run: npm run test:ci # Run tests.
