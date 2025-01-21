@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
-      max-parallel: 2
+      max-parallel: 2 # Maximum number of parallel runs.
       matrix: # The matrix is ​​needed to run code in different versions simultaneously.
         node-version: [20, 18]
 
