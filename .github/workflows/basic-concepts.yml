@@ -8,8 +8,8 @@ jobs:
       - name: Hello World
         run: echo "Hello, World!"
 
-      - name: Simulating Error
-        run: echo "error taking place"; exit 1
+      # - name: Simulating Error
+      #   run: echo "error taking place"; exit 1
 
   job1:
     runs-on: ubuntu-latest
