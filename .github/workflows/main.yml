@@ -20,10 +20,12 @@ jobs:
 
       - name: Run tests with secret
         env:
-          SUPER_SECRET: ${{secrets.SUPER_SECRET}}
+          SUPER_SECRET: ${{ secrets.SUPER_SECRET }}
         run: |
-          echo "Testing the super secret value..."
-          echo $SUPER_SECRET
+          if [ "$SUPER_SECRET" == "girliest secret" ]; then
+            echo "Secret verified successfully!"
+          else
+            echo "Secret verification failed!" && exit 1
 
       - name: Lint code
         working-directory: ./jasmine-karma-documentation
@@ -31,6 +33,4 @@ jobs:
 
       - name: Run tests
         working-directory: ./jasmine-karma-documentation
-        env:
-          SUPER_SECRET: ${{ secrets.SUPER_SECRET }}
         run: npm run test:ci # Run tests.
