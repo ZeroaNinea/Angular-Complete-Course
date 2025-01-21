@@ -18,7 +18,7 @@ jobs:
         working-directory: ./jasmine-karma-documentation # Move to the specified directory.
         run: npm install # Install dependencies.
 
-      - name: Run tests with secret
+      - name: Verify secret usage
         env:
           SUPER_SECRET: ${{ secrets.SUPER_SECRET }}
         run: |
