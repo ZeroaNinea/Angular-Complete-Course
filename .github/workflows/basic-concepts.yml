@@ -10,3 +10,18 @@ jobs:
 
       - name: Simulating Error
         run: echo "error taking place"; exit 1
+
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: job1
+        run: echo "job1"
+
+  job2:
+    needs: job1
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: job1
+        run: echo "job1"
