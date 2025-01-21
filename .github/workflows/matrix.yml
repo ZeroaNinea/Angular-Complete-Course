@@ -1,0 +1,33 @@
+name: Matrix
+run-name: ${{ github.actor }} is testing out Matrix 🚀
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 2
+      matrix: # The matrix is ​​needed to run code in different versions simultaneously.
+        node-version: [20, 18]
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js Version ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        working-directory: ./jasmine-karma-documentation
+        run: npm install
+
+      - name: Lint code
+        working-directory: ./jasmine-karma-documentation
+        run: npm run lint
+
+      - name: Run tests
+        working-directory: ./jasmine-karma-documentation
+        run: npm run test:ci
