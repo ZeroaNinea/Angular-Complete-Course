@@ -20,7 +20,8 @@ jobs:
 
       - name: Verify secret usage
         env:
-          SUPER_SECRET: ${{ secrets.SUPER_SECRET }}
+          SUPER_SECRET: ${{ secrets.SUPER_SECRET }} # Extract the secret.
+          # Terminate the job if the secret is not equal to "grliest secret".
         run: |
           if [ "$SUPER_SECRET" == "girliest secret" ]; then
             echo "Secret verified successfully!"
