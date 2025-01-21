@@ -25,7 +25,7 @@ jobs:
           if [ "$SUPER_SECRET" == "girliest secret" ]; then
             echo "Secret verified successfully!"
           else
-            echo "Secret verification failed!" && exit 1
+            echo "Secret verification failed!"; exit 1
 
       - name: Lint code
         working-directory: ./jasmine-karma-documentation
