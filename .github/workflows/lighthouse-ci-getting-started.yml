@@ -17,6 +17,12 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Install and serve production build
+        working-directory: ./jasmine-karma-documentation
+        run: |
+          npm install -g http-server
+          http-server ./dist/jasmine-karma-documentation -p 4200 &
+
       - name: Install dependencies
         working-directory: ./jasmine-karma-documentation
         run: npm ci
