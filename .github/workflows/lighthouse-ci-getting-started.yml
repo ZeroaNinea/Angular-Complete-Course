@@ -67,10 +67,12 @@ jobs:
           node-version: "20"
 
       - name: npm install, build
+        working-directory: ./jasmine-karma-documentation
         run: |
           npm run build
 
       - name: run Lighthouse CI
+        working-directory: ./jasmine-karma-documentation
         run: |
           npm install -g @lhci/cli
           lhci autorun --upload.target=temporary-public-storage
