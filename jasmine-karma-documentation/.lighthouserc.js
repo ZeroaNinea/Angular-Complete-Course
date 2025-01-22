@@ -9,8 +9,9 @@ module.exports = {
     //   numberOfRuns: 1,
     // },
     collect: {
-      url: ["http://localhost:4200/"],
-      startServerCommand: "rails server -e production",
+      url: ["http://localhost:4200"],
+      startServerCommand:
+        "http-server ./dist/jasmine-karma-documentation -p 4200",
       startServerReadyPattern: "Available on",
       startServerReadyTimeout: 10000,
       numberOfRuns: 1,
