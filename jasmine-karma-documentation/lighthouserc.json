@@ -1,0 +1,15 @@
+{
+  "ci": {
+    "collect": {
+      "startServerCommand": "npm start",
+      "url": ["http://localhost:4200"],
+      "numberOfRuns": 1
+    },
+    "assert": {
+      "preset": "lighthouse:recommended"
+    },
+    "upload": {
+      "target": "temporary-public-storage"
+    }
+  }
+}
