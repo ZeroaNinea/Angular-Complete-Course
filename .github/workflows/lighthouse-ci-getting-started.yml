@@ -66,6 +66,10 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Install dependencies
+        working-directory: ./jasmine-karma-documentation
+        run: npm ci
+
       - name: npm install, build
         working-directory: ./jasmine-karma-documentation
         run: |
