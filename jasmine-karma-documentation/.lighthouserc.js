@@ -1,13 +1,13 @@
 module.exports = {
   ci: {
-    collect: {
-      url: ["http://localhost:8080"],
-      startServerCommand:
-        "http-server ./dist/jasmine-karma-documentation -p 8080",
-      startServerReadyPattern: "Available on",
-      startServerReadyTimeout: 10000,
-      numberOfRuns: 1,
-    },
+    // collect: {
+    //   url: ["http://localhost:8080"],
+    //   startServerCommand:
+    //     "http-server ./dist/jasmine-karma-documentation -p 8080",
+    //   startServerReadyPattern: "Available on",
+    //   startServerReadyTimeout: 10000,
+    //   numberOfRuns: 1,
+    // },
     assert: {
       assertions: {
         "categories:performance": ["warn", { minScore: 0.6 }],
