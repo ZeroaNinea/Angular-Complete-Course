@@ -3,9 +3,9 @@ module.exports = {
     collect: {
       url: ["http://localhost:8080"],
       startServerCommand:
-        "http-server ./dist/jasmine-karma-documentation -p 8080",
+        "http-server ./dist/jasmine-karma-documentation -p 4200",
       startServerReadyPattern: "Available on",
-      startServerReadyTimeout: 10000,
+      startServerReadyTimeout: 20000,
       numberOfRuns: 1,
     },
     assert: {
