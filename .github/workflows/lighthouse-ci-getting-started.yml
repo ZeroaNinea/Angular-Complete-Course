@@ -1,3 +1,52 @@
+# name: Lighthouse CI
+
+# on:
+#   push:
+#     branches:
+#       - main
+#   workflow_dispatch:
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v4
+
+#       - name: Set up Node.js
+#         uses: actions/setup-node@v4
+#         with:
+#           node-version: "20"
+
+#       - name: Install dependencies
+#         working-directory: ./jasmine-karma-documentation
+#         run: npm ci
+
+#       - name: Build Angular app
+#         working-directory: ./jasmine-karma-documentation
+#         run: npm run build -- --configuration production
+
+#       - name: Install and serve production build
+#         working-directory: ./jasmine-karma-documentation
+#         run: |
+#           npm install -g http-server
+#           http-server ./dist/jasmine-karma-documentation -p 4200 &
+
+#       - name: Install Lighthouse CI
+#         working-directory: ./jasmine-karma-documentation
+#         run: npm install -g @lhci/cli
+
+#       - name: Run Lighthouse CI
+#         working-directory: ./jasmine-karma-documentation
+#         env:
+#           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+#         run: |
+#           if [ "$LHCI_GITHUB_APP_TOKEN" ]; then
+#             echo "The GitHub token is specified!"
+#           else
+#             echo "Specify the GitHub token!" && exit 1
+#           fi
+#           lhci autorun
+
 name: Lighthouse CI
 
 on:
@@ -17,32 +66,11 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Install dependencies
-        working-directory: ./jasmine-karma-documentation
-        run: npm ci
-
-      - name: Build Angular app
-        working-directory: ./jasmine-karma-documentation
-        run: npm run build -- --configuration production
-
-      - name: Install and serve production build
-        working-directory: ./jasmine-karma-documentation
+      - name: npm install, build
         run: |
-          npm install -g http-server
-          http-server ./dist/jasmine-karma-documentation -p 4200 &
+          npm run build
 
-      - name: Install Lighthouse CI
-        working-directory: ./jasmine-karma-documentation
-        run: npm install -g @lhci/cli
-
-      - name: Run Lighthouse CI
-        working-directory: ./jasmine-karma-documentation
-        env:
-          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+      - name: run Lighthouse CI
         run: |
-          if [ "$LHCI_GITHUB_APP_TOKEN" ]; then
-            echo "The GitHub token is specified!"
-          else
-            echo "Specify the GitHub token!" && exit 1
-          fi
-          lhci autorun
+          npm install -g @lhci/cli
+          lhci autorun --upload.target=temporary-public-storage
