@@ -18,13 +18,17 @@ jobs:
           node-version: "20"
 
       - name: Install dependencies
-        run: npm run install:ci
+        working-directory: ./jasmine-karma-documentation
+        run: npm ci
 
       - name: Build Angular app
+        working-directory: ./jasmine-karma-documentation
         run: npm run build -- --prod
 
       - name: Install Lighthouse CI
+        working-directory: ./jasmine-karma-documentation
         run: npm install -g @lhci/cli
 
       - name: Run Lighthouse CI
+        working-directory: ./jasmine-karma-documentation
         run: lhci autorun
