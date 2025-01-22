@@ -1,44 +1,3 @@
-# name: Lighthouse CI
-
-# on:
-#   push:
-#     branches:
-#       - main
-#   workflow_dispatch:
-
-# jobs:
-#   build:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v4
-
-#       - name: Set up Node.js
-#         uses: actions/setup-node@v4
-#         with:
-#           node-version: "20"
-
-#       - name: Install and serve production build
-#         working-directory: ./jasmine-karma-documentation
-#         run: |
-#           npm install -g http-server
-#           http-server ./dist/jasmine-karma-documentation -p 4200 &
-
-#       - name: Install dependencies
-#         working-directory: ./jasmine-karma-documentation
-#         run: npm ci
-
-#       - name: Build Angular app
-#         working-directory: ./jasmine-karma-documentation
-#         run: npm run build -- --configuration production
-
-#       - name: Install Lighthouse CI
-#         working-directory: ./jasmine-karma-documentation
-#         run: npm install -g @lhci/cli
-
-#       - name: Run Lighthouse CI
-#         working-directory: ./jasmine-karma-documentation
-#         run: lhci autorun
-
 name: Lighthouse CI
 
 on:
@@ -48,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  lhci:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -58,6 +17,12 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Install and serve production build
+        working-directory: ./jasmine-karma-documentation
+        run: |
+          npm install -g http-server
+          http-server ./dist/jasmine-karma-documentation -p 4200 &
+
       - name: Install dependencies
         working-directory: ./jasmine-karma-documentation
         run: npm ci
@@ -66,8 +31,42 @@ jobs:
         working-directory: ./jasmine-karma-documentation
         run: npm run build -- --configuration production
 
-      - name: install and run Lighthouse CLI
+      - name: Install Lighthouse CI
         working-directory: ./jasmine-karma-documentation
-        run: |
-          npm install -g @lhci/cli
-          lhci autorun --upload.target=temporary-public-storage || echo "LHCI failed!"
+        run: npm install -g @lhci/cli
+
+      - name: Run Lighthouse CI
+        working-directory: ./jasmine-karma-documentation
+        run: lhci autorun
+# name: Lighthouse CI
+
+# on:
+#   push:
+#     branches:
+#       - main
+#   workflow_dispatch:
+
+# jobs:
+#   lhci:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v4
+
+#       - name: Set up Node.js
+#         uses: actions/setup-node@v4
+#         with:
+#           node-version: "20"
+
+#       - name: Install dependencies
+#         working-directory: ./jasmine-karma-documentation
+#         run: npm ci
+
+#       - name: Build Angular app
+#         working-directory: ./jasmine-karma-documentation
+#         run: npm run build -- --configuration production
+
+#       - name: install and run Lighthouse CLI
+#         working-directory: ./jasmine-karma-documentation
+#         run: |
+#           npm install -g @lhci/cli
+#           lhci autorun --upload.target=temporary-public-storage || echo "LHCI failed!"
