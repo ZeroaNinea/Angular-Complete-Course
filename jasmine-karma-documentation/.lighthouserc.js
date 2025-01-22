@@ -1,9 +1,9 @@
 module.exports = {
   ci: {
     collect: {
-      url: ["http://localhost:4300"],
+      url: ["http://localhost:8080"],
       startServerCommand:
-        "http-server ./dist/jasmine-karma-documentation -p 4300",
+        "http-server ./dist/jasmine-karma-documentation -p 8080",
       startServerReadyPattern: "Available on",
       startServerReadyTimeout: 20000,
       numberOfRuns: 1,

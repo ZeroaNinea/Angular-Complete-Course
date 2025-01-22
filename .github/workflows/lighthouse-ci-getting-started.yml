@@ -21,14 +21,11 @@ jobs:
         working-directory: ./jasmine-karma-documentation
         run: npm ci
 
-      - name: Kill existing processes on port 5000
-        run: fuser -k 5000/tcp || true
-
       - name: Install and serve production build
         working-directory: ./jasmine-karma-documentation
         run: |
           npm install -g http-server
-          http-server ./dist/jasmine-karma-documentation -p 5000 &
+          http-server ./dist/jasmine-karma-documentation -p 4200 &
 
       - name: Install Lighthouse CI
         working-directory: ./jasmine-karma-documentation
