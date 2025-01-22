@@ -37,36 +37,6 @@ jobs:
 
       - name: Run Lighthouse CI
         working-directory: ./jasmine-karma-documentation
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: lhci autorun
-# name: Lighthouse CI
-
-# on:
-#   push:
-#     branches:
-#       - main
-#   workflow_dispatch:
-
-# jobs:
-#   lhci:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v4
-
-#       - name: Set up Node.js
-#         uses: actions/setup-node@v4
-#         with:
-#           node-version: "20"
-
-#       - name: Install dependencies
-#         working-directory: ./jasmine-karma-documentation
-#         run: npm ci
-
-#       - name: Build Angular app
-#         working-directory: ./jasmine-karma-documentation
-#         run: npm run build -- --configuration production
-
-#       - name: install and run Lighthouse CLI
-#         working-directory: ./jasmine-karma-documentation
-#         run: |
-#           npm install -g @lhci/cli
-#           lhci autorun --upload.target=temporary-public-storage || echo "LHCI failed!"
