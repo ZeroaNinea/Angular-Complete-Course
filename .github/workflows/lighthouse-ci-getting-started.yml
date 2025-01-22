@@ -23,7 +23,7 @@ jobs:
 
       - name: Build Angular app
         working-directory: ./jasmine-karma-documentation
-        run: npm run build -- --prod
+        run: npm run build -- --configuration production
 
       - name: Install Lighthouse CI
         working-directory: ./jasmine-karma-documentation
