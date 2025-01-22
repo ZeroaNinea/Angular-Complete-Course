@@ -69,7 +69,7 @@ jobs:
       - name: npm install, build
         working-directory: ./jasmine-karma-documentation
         run: |
-          npm run build
+          npm run build -- --configuration production
 
       - name: run Lighthouse CI
         working-directory: ./jasmine-karma-documentation
