@@ -38,5 +38,11 @@ jobs:
       - name: Run Lighthouse CI
         working-directory: ./jasmine-karma-documentation
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+          run: |
+            if [ "$LHCI_GITHUB_APP_TOKEN" ]; then
+              echo "The GitHub token is specified!"
+            else
+              echo "Specify the GitHub token!" && exit 1
+            fi
         run: lhci autorun
