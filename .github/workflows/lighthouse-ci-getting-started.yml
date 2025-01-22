@@ -25,7 +25,7 @@ jobs:
         working-directory: ./jasmine-karma-documentation
         run: |
           npm install -g http-server
-          http-server ./dist/jasmine-karma-documentation -p 4200 &
+          http-server ./dist/jasmine-karma-documentation -p 8080 &
 
       - name: Install Lighthouse CI
         working-directory: ./jasmine-karma-documentation
