@@ -58,6 +58,10 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Install dependencies
+        working-directory: ./jasmine-karma-documentation
+        run: npm ci
+
       - name: Build Angular app
         working-directory: ./jasmine-karma-documentation
         run: ng build --configuration production
