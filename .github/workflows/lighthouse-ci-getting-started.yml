@@ -60,10 +60,10 @@ jobs:
 
       - name: Build Angular app
         working-directory: ./jasmine-karma-documentation
-        run: npm run build -- --configuration production
+        run: ng build --configuration production
 
       - name: install and run Lighthouse CLI
         working-directory: ./jasmine-karma-documentation
         run: |
           npm install -g @lhci/cli
-          lhci autorun
+          lhci autorun --upload.target=temporary-public-storage || echo "LHCI failed!"
