@@ -2,6 +2,7 @@
   "ci": {
     "collect": {
       "startServerCommand": "npm start",
+      "startServerReadyPattern": "listening|ready|open",
       "url": ["http://localhost:4200"],
       "numberOfRuns": 1
     },
