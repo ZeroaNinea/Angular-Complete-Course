@@ -27,9 +27,10 @@ jobs:
 
       - name: Install and serve production build
         working-directory: ./jasmine-karma-documentation
-        run: |
-          npm install -g http-server
-          http-server ./jasmine-karma-documentation -p 4200 &
+        # run: |
+        #   npm install -g http-server
+        #   http-server ./jasmine-karma-documentation -p 4200 &
+        run: npm install -g http-server
 
       - name: Install Lighthouse CI
         working-directory: ./jasmine-karma-documentation
