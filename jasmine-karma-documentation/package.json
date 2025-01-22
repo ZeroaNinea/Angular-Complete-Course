@@ -10,8 +10,7 @@
     "test:coverage": "ng test --code-coverage",
     "test:ci": "set CI=true&& ng test --code-coverage",
     "serve:ssr:jasmine-karma-documentation": "node dist/jasmine-karma-documentation/server/server.mjs",
-    "lint": "ng lint",
-    "install:ci": "npm ci"
+    "lint": "ng lint"
   },
   "private": true,
   "dependencies": {
