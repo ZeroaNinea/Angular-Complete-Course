@@ -5,7 +5,7 @@ module.exports = {
       startServerCommand:
         "http-server ./dist/jasmine-karma-documentation -p 8080",
       startServerReadyPattern: "Available on",
-      startServerReadyTimeout: 20000,
+      startServerReadyTimeout: 10000,
       numberOfRuns: 1,
     },
     assert: {
