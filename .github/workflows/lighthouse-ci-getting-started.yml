@@ -21,6 +21,10 @@ jobs:
         working-directory: ./jasmine-karma-documentation
         run: npm ci
 
+      - name: Build Angular app
+        working-directory: ./jasmine-karma-documentation
+        run: npm run build -- --configuration production
+
       - name: Install and serve production build
         working-directory: ./jasmine-karma-documentation
         run: |
