@@ -6,7 +6,7 @@
       "numberOfRuns": 1
     },
     "assert": {
-      "bf-cache": "warn",
+      "bf-cache": ["warn", "minScore"],
       "preset": "lighthouse:recommended"
     },
     "upload": {
