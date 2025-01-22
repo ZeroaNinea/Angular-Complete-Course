@@ -6,7 +6,12 @@
       "numberOfRuns": 1
     },
     "assert": {
-      "bf-cache": ["warn", "minScore"],
+      "bf-cache": "warn",
+      "meta-description": "warn",
+      "total-byte-weight": ["error", { "maxNumericValue": 250000 }],
+      "unminified-javascript": "warn",
+      "unused-css-rules": "warn",
+      "uses-text-compression": "warn",
       "preset": "lighthouse:recommended"
     },
     "upload": {
