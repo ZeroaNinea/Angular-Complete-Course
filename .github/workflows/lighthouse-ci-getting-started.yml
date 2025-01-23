@@ -55,13 +55,13 @@ jobs:
   lighthouseci:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: "20"
       - name: install dependencies
         working-directory: ./jasmine-karma-documentation
-        run: npm install && npm install -g @lhci/cli@0.13.x
+        run: npm install && npm install -g @lhci/cli
 
       - name: build the project
         working-directory: ./jasmine-karma-documentation
@@ -69,4 +69,4 @@ jobs:
 
       - name: run lighthouse ci
         working-directory: ./jasmine-karma-documentation
-        run: lhci autorun
+        run: lhci autorun --collect.staticDistDir=dist/jasmine-karma-documentation
