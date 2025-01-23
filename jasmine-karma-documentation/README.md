@@ -12,7 +12,7 @@ I wrote Jasmine examples and integrated Jasmine with NgRx and with `@Output` and
 
 I decided to use this project to learn performance testing and DevOps.
 
-## GitHub Actions
+### GitHub Actions
 
 I used this [video tutorial](https://www.youtube.com/watch?v=ylHfetX3QlU) and the [official documentation](https://docs.github.com/en/actions) to learn GitHub Actions. I wrote three files during my learning:
 
@@ -24,7 +24,7 @@ I used this [video tutorial](https://www.youtube.com/watch?v=ylHfetX3QlU) and th
 
 - [`karma.conf.js`](./karma.conf.js)
 
-## Linting
+### Linting
 
 Linting is needed to check unused variables and imports.
 
@@ -44,7 +44,7 @@ npm run lint
 
 - [`eslint.confing.js`](./eslint.config.js)
 
-## Lighthouse CI
+### Lighthouse CI
 
 I wrote the [`lighthouse-ci-getting-started.yml`](../.github/workflows/lighthouse-ci-getting-started.yml) file while learning Lighthouse CI. I used this [official guide](https://github.com/GoogleChrome/lighthouse-ci).
 
