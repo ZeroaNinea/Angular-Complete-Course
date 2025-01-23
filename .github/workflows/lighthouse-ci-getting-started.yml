@@ -19,26 +19,31 @@ jobs:
 
       - name: Install dependencies
         working-directory: ./jasmine-karma-documentation
+        # Install dependencies.
         run: |
           npm i
           npm ci
 
       - name: Build Angular app
         working-directory: ./jasmine-karma-documentation
+        # Build the project.
         run: npm run build -- --configuration production
 
       - name: Install and serve production build
         working-directory: ./jasmine-karma-documentation
+        # Install and run the local server.
         run: |
           npm install -g http-server
           http-server ./dist/jasmine-karma-documentation/browser -p 4200 &
 
       - name: Install Lighthouse CI
         working-directory: ./jasmine-karma-documentation
+        # Install Lighthouse CI
         run: npm install -g @lhci/cli
 
       - name: Run Lighthouse CI
         working-directory: ./jasmine-karma-documentation
+        # Run the Lighthouse CI and provide a GitHub token to it.
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
         run: |
