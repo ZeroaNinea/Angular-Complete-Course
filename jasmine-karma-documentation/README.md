@@ -52,7 +52,7 @@ To run the Lighthouse CI locally use the following commands:
 
 ```bash
 npm ci
-npm run build --configuration --production
+ng build --configuration production
 npm install -g http-server
 http-server ./dist/jasmine-karma-documentation/browser -p 4200 --gzip
 npm install -g @lhci/cli
@@ -66,3 +66,35 @@ lhci autorun
 ## Fixing Lighthouse CI Issues
 
 ### Enable Text Compression
+
+1. Install `compression-webpack-plugin` to enable compression.
+
+```bash
+npm install compression-webpack-plugin --save-dev
+```
+
+2. Install `@angular-builders/custom-webpack` to include custom webpacks:
+
+```bash
+npm install @angular-builders/custom-webpack --save-dev
+```
+
+3. Create the [`webpack.config.js`](./webpack.config.js) file for configuration.
+
+4. Update [`angular.json`](./angular.json) to include the custom Webpack configuration.
+
+Replace `"builder": "@angular-devkit/build-angular:browser",` with `"builder": "@angular-builders/custom-webpack:browser",`, otherwise you will get the `Property customWebpackConfig is not allowed.` error.
+
+```json
+"architect": {
+  "build": {
+    // "builder": "@angular-devkit/build-angular:browser",
+    "builder": "@angular-builders/custom-webpack:browser",
+    "options": {
+      "customWebpackConfig": {
+        "path": "./webpack.config.js"
+      }
+    }
+  }
+}
+```

@@ -20,9 +20,7 @@
             "outputPath": "dist/jasmine-karma-documentation",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -84,10 +82,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -108,10 +103,7 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "src/**/*.ts",
-              "src/**/*.html"
-            ]
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
           }
         }
       }
@@ -119,9 +111,6 @@
   },
   "cli": {
     "analytics": "31e014f1-ed69-441a-9155-bf05dd83ddc4",
-    "schematicCollections": [
-      "angular-eslint",
-      "@ngrx/schematics"
-    ]
+    "schematicCollections": ["angular-eslint", "@ngrx/schematics"]
   }
 }
