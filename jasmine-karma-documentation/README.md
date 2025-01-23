@@ -20,6 +20,30 @@ I used this [video tutorial](https://www.youtube.com/watch?v=ylHfetX3QlU) and th
 - [`basic-concepts.yml`](../.github/workflows/basic-concepts.yml)
 - [`matrix.yml`](../.github/workflows/matrix.yml)
 
+**Configurations:**
+
+- [`karma.conf.js`](./karma.conf.js)
+
+## Linting
+
+Linting is needed to check unused variables and imports.
+
+To install linting in Angular:
+
+```bash
+ng add @angular-eslint/schematics
+```
+
+To run linting locally:
+
+```bash
+npm run lint
+```
+
+**Configurations:**
+
+- [`eslint.confing.js`](./eslint.config.js)
+
 ## Lighthouse CI
 
 I wrote the [`lighthouse-ci-getting-started.yml`](../.github/workflows/lighthouse-ci-getting-started.yml) file while learning Lighthouse CI. I used this official [guide](https://github.com/GoogleChrome/lighthouse-ci).
@@ -28,9 +52,13 @@ To run the Lighthouse CI locally use the following commands:
 
 ```bash
 npm ci
-npm run build -- --configuration --production
+npm run build --configuration --production
 npm install -g http-server
 http-server ./dist/jasmine-karma-documentation/browser -p 4200
 npm install -g @lhci/cli
 lhci autorun
 ```
+
+**Configurations:**
+
+- [`.lighthouserc.js`](./.lighthouserc.js)
