@@ -46,7 +46,7 @@ npm run lint
 
 ## Lighthouse CI
 
-I wrote the [`lighthouse-ci-getting-started.yml`](../.github/workflows/lighthouse-ci-getting-started.yml) file while learning Lighthouse CI. I used this official [guide](https://github.com/GoogleChrome/lighthouse-ci).
+I wrote the [`lighthouse-ci-getting-started.yml`](../.github/workflows/lighthouse-ci-getting-started.yml) file while learning Lighthouse CI. I used this [official guide](https://github.com/GoogleChrome/lighthouse-ci).
 
 To run the Lighthouse CI locally use the following commands:
 
@@ -54,7 +54,7 @@ To run the Lighthouse CI locally use the following commands:
 npm ci
 npm run build --configuration --production
 npm install -g http-server
-http-server ./dist/jasmine-karma-documentation/browser -p 4200
+http-server ./dist/jasmine-karma-documentation/browser -p 4200 --gzip
 npm install -g @lhci/cli
 lhci autorun
 ```
@@ -62,3 +62,7 @@ lhci autorun
 **Configurations:**
 
 - [`.lighthouserc.js`](./.lighthouserc.js)
+
+## Fixing Lighthouse CI Issues
+
+### Enable Text Compression

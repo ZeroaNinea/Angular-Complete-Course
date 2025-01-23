@@ -34,7 +34,7 @@ jobs:
         # Install and run the local server.
         run: |
           npm install -g http-server
-          http-server ./dist/jasmine-karma-documentation/browser -p 4200 &
+          http-server ./dist/jasmine-karma-documentation/browser -p 4200 --gzip &
 
       - name: Install Lighthouse CI
         working-directory: ./jasmine-karma-documentation
