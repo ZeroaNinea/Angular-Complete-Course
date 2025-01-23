@@ -59,6 +59,14 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: npm install && npm install -g @lhci/cli@0.13.x
-      - run: npm run build
-      - run: lhci autorun
+      - name: install dependencies
+        working-directory: ./jasmine-karma-documentation
+        run: npm install && npm install -g @lhci/cli@0.13.x
+
+      - name: build the project
+        working-directory: ./jasmine-karma-documentation
+        run: npm run build
+
+      - name: run lighthouse ci
+        working-directory: ./jasmine-karma-documentation
+        run: lhci autorun
