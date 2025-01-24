@@ -95,5 +95,4 @@ To get a key you should create an account on [app.artillery.io](https://app.arti
 ```bash
 cd jasmine-karma-documentation/performance
 artillery run asciiart-load-test.yml --record --key Use_Your_Key
-
 ```
