@@ -32,12 +32,14 @@ To install linting in Angular:
 
 ```bash
 ng add @angular-eslint/schematics
+
 ```
 
 To run linting locally:
 
 ```bash
 npm run lint
+
 ```
 
 **Configurations:**
@@ -57,8 +59,19 @@ npm install -g http-server
 http-server ./dist/jasmine-karma-documentation/browser -p 4200 --gzip
 npm install -g @lhci/cli
 lhci autorun
+
 ```
 
 **Configurations:**
 
 - [`.lighthouserc.js`](./.lighthouserc.js)
+
+### Artillery
+
+To install Artillery and check the version:
+
+```bash
+npm i -g artillery
+artillery version
+
+```
