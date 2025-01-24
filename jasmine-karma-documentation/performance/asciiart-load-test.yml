@@ -35,3 +35,18 @@ scenarios:
           - get:
               url: "/armadillo"
         count: 100 # The number of times.
+
+### Artillery can change user amount during the same phase.
+# config:
+#   target: http://asciiart.artillery.io:8080
+#   phases:
+#     - duration: 60
+#       arrivalRate: 1
+#     - duration: 300
+#       arrivalRate: 10
+# scenarios:
+#   - flow:
+#       - get:
+#           url: '/dino'
+#       - get:
+#           url: '/armadillo'
