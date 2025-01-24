@@ -75,3 +75,11 @@ npm i -g artillery
 artillery version
 
 ```
+
+To run the `asciiart-load-test.yml` Artillery script:
+
+```bash
+cd jasmine-karma-documentation/performance
+artillery run asciiart-load-test.yml
+
+```

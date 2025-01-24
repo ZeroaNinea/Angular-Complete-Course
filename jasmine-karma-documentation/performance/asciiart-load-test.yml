@@ -1,10 +1,11 @@
-config:
-  target: http://asciiart.artillery.io:8080
+config: # Configulartions.
+  target: http://asciiart.artillery.io:8080 # Target.
   phases:
-    - duration: 60
+    - duration: 60 # The duration of the phase.
+      # `arrivalRate` and `rampTo` — Artillery will create 5 virtual users per second.
       arrivalRate: 1
       rampTo: 5
-      name: Warm up phase
+      name: Warm up phase # The name of the phase.
     - duration: 60
       arrivalRate: 5
       rampTo: 10
@@ -26,10 +27,12 @@ config:
 scenarios:
   - flow:
       - loop:
+          # Loop action to repeat those 3 requests 100 times.
           - get:
+              # Get request to the `/dino` path.
               url: "/dino"
           - get:
               url: "/pony"
           - get:
               url: "/armadillo"
-        count: 100
+        count: 100 # The number of times.
