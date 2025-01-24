@@ -74,6 +74,7 @@ I've created the `performance` folder and these files while learning:
 
 - [`asciiart-load-test.yml`](./performance/asciiart-load-test.yml)
 - [`user-visit-test.yml`](./performance/user-visit-test.yml)
+- [`favicon-load-test.yml`](./performance/favicon-load-test.yml)
 
 ```bash
 npm i -g artillery
