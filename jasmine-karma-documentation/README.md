@@ -68,7 +68,7 @@ lhci autorun
 
 ### Artillery
 
-Artillery is a load-testing tool for performance testing. To install Artillery and check the version:
+Artillery is a load-testing tool for performance testing. I used this [video lesson](https://www.youtube.com/watch?v=8EZg99PdjxQ) and the [official documentation](https://www.artillery.io/docs/get-started/get-artillery) to learn Artillery. To install Artillery and check the version:
 
 I've created the `performance` folder and these files while learning:
 
