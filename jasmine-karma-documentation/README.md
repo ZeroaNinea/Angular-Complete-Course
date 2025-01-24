@@ -88,7 +88,7 @@ artillery run asciiart-load-test.yml
 
 ```
 
-To get a key you should create an account on [app.Artillery.io](https://app.artillery.io). To run Artillery with Artillery Cloud:
+To get a key you should create an account on [app.artillery.io](https://app.artillery.io). To run Artillery with Artillery Cloud:
 
 ```bash
 cd jasmine-karma-documentation/performance
