@@ -1,11 +1,10 @@
 config: # Configulartions.
   target: http://asciiart.artillery.io:8080 # Target.
   phases:
-    - duration: 60 # The duration of the phase.
-      # `arrivalRate` and `rampTo` — Artillery will create 5 virtual users per second.
-      arrivalRate: 1
-      rampTo: 5
-      name: Warm up phase # The name of the phase.
+    - duration: 60 # The length of the phase in seconds.
+      arrivalRate: 1 # The number of virtual users starting per second.
+      rampTo: 5 # Gradually ramps up the number of VUs to this value during the phase.
+      name: Warm up phase # A label for the phase to make reports easier to interpret.
     - duration: 60
       arrivalRate: 5
       rampTo: 10
@@ -15,21 +14,21 @@ config: # Configulartions.
       rampTo: 30
       name: Spike phase
   plugins:
-    ensure: {}
-    apdex: {}
-    metrics-by-endpoint: {}
+    ensure: {} # Adds response-time thresholds to ensure performance expectations are met.
+    apdex: {} # Calculates the Apdex (Application Performance Index), which measures user satisfaction based on response times.
+    metrics-by-endpoint: {} # Collects performance metrics for individual endpoints, providing more detailed insights.
+
   apdex:
-    threshold: 100
+    threshold: 100 # The Apdex threshold (100ms in this case). Responses faster than this are considered "satisfying" for users.
   ensure:
     thresholds:
-      - http.response_time.p99: 100
-      - http.response_time.p95: 75
+      - http.response_time.p99: 100 # 99% of responses should be under 100ms.
+      - http.response_time.p95: 75 # 95% of responses should be under 75ms.
 scenarios:
-  - flow:
-      - loop:
-          # Loop action to repeat those 3 requests 100 times.
+  - flow: # Defines a sequence of actions (like GET requests) each user will perform.
+      - loop: # Repeats the specified actions multiple times.
           - get:
-              # Get request to the `/dino` path.
+              # Specifies an HTTP `GET` request to a particular endpoint (e.g., `/dino`, `/pony`, `/armadillo`).
               url: "/dino"
           - get:
               url: "/pony"
