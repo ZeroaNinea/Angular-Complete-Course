@@ -1,0 +1,27 @@
+config:
+  target: http://localhost:4200/
+  phases:
+    - duration: 30
+      arrivalRate: 5
+      name: Warmup
+    - duration: 60
+      arrivalRate: 10
+      rampTo: 20
+      name: Steady Load
+  plugins:
+    ensure: {}
+    apdex: {}
+    metrics-by-endpoint: {}
+  apdex:
+    threshold: 200
+  ensure:
+    thresholds:
+      - http.response_time.p99: 200
+      - http.response_time.p95: 100
+      - errors: 0
+scenarios:
+  - flow:
+      - get:
+          url: "/"
+      - get:
+          url: "/favicon.ico"
