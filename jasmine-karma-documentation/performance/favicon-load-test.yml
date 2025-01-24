@@ -5,10 +5,8 @@ config:
       arrivalRate: 5
       name: Warmup
     - duration: 60
-      # arrivalRate: 10
-      # rampTo: 20
-      arrivalRate: 2
-      rampTo: 5s
+      arrivalRate: 10
+      rampTo: 20
       name: Steady Load
   plugins:
     ensure: {}
@@ -18,7 +16,7 @@ config:
     threshold: 200
   ensure:
     thresholds:
-      - http.response_time.p99: 300
+      - http.response_time.p99: 200
       - http.response_time.p95: 100
       - errors: 0 # How many requests failed during the test.
 scenarios:
