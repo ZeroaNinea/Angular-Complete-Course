@@ -68,7 +68,7 @@ lhci autorun
 
 ### Artillery
 
-To install Artillery and check the version:
+Artillery is a load-testing tool for performance testing. To install Artillery and check the version:
 
 ```bash
 npm i -g artillery
