@@ -18,7 +18,7 @@ config:
     thresholds:
       - http.response_time.p99: 200
       - http.response_time.p95: 100
-      - errors: 1 # How many requests failed during the test.
+      - errors: 0 # How many requests failed during the test.
 scenarios:
   - flow:
       - get:
