@@ -70,6 +70,10 @@ lhci autorun
 
 Artillery is a load-testing tool for performance testing. To install Artillery and check the version:
 
+I've create the `performance` folder and these files while learning:
+
+- [`asciiart-load-test.yml`](./performance/asciiart-load-test.yml)
+
 ```bash
 npm i -g artillery
 artillery version
