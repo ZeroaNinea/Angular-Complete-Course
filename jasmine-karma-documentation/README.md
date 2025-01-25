@@ -106,7 +106,7 @@ I installed Angular Devtools form [Chrome Webstore](https://chromewebstore.googl
 
 ### Clinic.js
 
-I decided to place Clinic.js in the [`Node.Js-Complete-Course`](https://github.com/ZeroaNinea/Node.Js-Complete-Course) repository.
+I decided to place Clinic.js in the [`Node.Js-Complete-Course`](https://github.com/ZeroaNinea/Node.Js-Complete-Course/tree/main/node-clinic-doctor-examples) repository.
 
 To install Clinic.js:
 
