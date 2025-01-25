@@ -102,3 +102,4 @@ artillery run asciiart-load-test.yml --record --key Use_Your_Key
 I installed Angular Devtools form [Chrome Webstore](https://chromewebstore.google.com/detail/angular-devtools/ienfalfjdbdpebioblfackkekamfmbnh) and I used these sources for learning:
 
 - **DevTools Overview:** https://angular.dev/tools/devtools
+- **Runtime Performance Optimization:** https://angular.dev/best-practices/runtime-performance
