@@ -103,3 +103,14 @@ I installed Angular Devtools form [Chrome Webstore](https://chromewebstore.googl
 
 - **DevTools Overview:** https://angular.dev/tools/devtools
 - **Runtime Performance Optimization:** https://angular.dev/best-practices/runtime-performance
+
+### Clinic.js
+
+I decided to place Clinic.js in the [`Node.Js-Complete-Course`](https://github.com/ZeroaNinea/Node.Js-Complete-Course) repository.
+
+To install Clinic.js:
+
+```bash
+npm install -g clinic
+
+```
