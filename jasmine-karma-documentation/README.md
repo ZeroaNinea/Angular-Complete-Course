@@ -96,3 +96,9 @@ To get a key you should create an account on [app.artillery.io](https://app.arti
 cd jasmine-karma-documentation/performance
 artillery run asciiart-load-test.yml --record --key Use_Your_Key
 ```
+
+### Angular Devtools
+
+I installed Angular Devtools form [Chrome Webstore](https://chromewebstore.google.com/detail/angular-devtools/ienfalfjdbdpebioblfackkekamfmbnh) and I used these sources for learning:
+
+- **DevTools Overview:** https://angular.dev/tools/devtools
