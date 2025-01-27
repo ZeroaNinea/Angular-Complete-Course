@@ -15,4 +15,4 @@ FROM nginx:alpine
 # Copy the built Angular app from the previous step
 COPY --from=build /app/dist/jasmine-karma-documentation /usr/share/nginx/html
 # Replace the default NGINX configuration with your own, if necessary
-# COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/conf.d/default.conf
