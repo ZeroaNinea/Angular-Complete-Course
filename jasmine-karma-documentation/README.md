@@ -123,3 +123,25 @@ I created these files during studying:
 
 - [Dockerfile](./Dockerfile)
 - [docker-compose.yml](./docker-compose.yml)
+
+Start and stop Docker container:
+
+```bash
+docker start CONTAINER_NAME
+docker stop CONTAINER_NAME
+
+```
+
+Run Docker image on port 8080 without an account:
+
+```bash
+docker run -d -p 8080:80 jasmine-karma-documentation
+
+```
+
+Run docker image on port 8080 with an account:
+
+```bash
+docker run -d -p 8080:80 zeroaninea/jasmine-karma-documentation
+
+```
