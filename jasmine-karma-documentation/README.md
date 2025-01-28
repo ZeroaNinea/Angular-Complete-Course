@@ -171,7 +171,7 @@ node -e 'console.log("Hello world!")'
 
 ```
 
-Commit changes:
+Commit changes in the terminal, not in the Docker terminal:
 
 ```bash
 docker container commit -m "Add node" base-container node-base
