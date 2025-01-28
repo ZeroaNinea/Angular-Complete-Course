@@ -233,3 +233,10 @@ Run the app:
 docker run sample-app
 
 ```
+
+Remove the `app-container`:
+
+```bash
+docker rm -f app-container
+
+```
