@@ -177,3 +177,10 @@ Commit changes in the terminal, not in the Docker terminal:
 docker container commit -m "Add node" base-container node-base
 
 ```
+
+Show the container's history:
+
+```bash
+docker image history node-base
+
+```
