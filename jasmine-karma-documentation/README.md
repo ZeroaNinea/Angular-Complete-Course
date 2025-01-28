@@ -145,3 +145,11 @@ Run docker image on port 8080 with an account:
 docker run -d -p 8080:80 zeroaninea/jasmine-karma-documentation
 
 ```
+
+Use Docker Compose; create and remove:
+
+```bash
+docker compose up -d --build
+docker compose down --volumes
+
+```
