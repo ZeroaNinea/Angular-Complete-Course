@@ -170,3 +170,10 @@ apt update && apt install -y nodejs
 node -e 'console.log("Hello world!")'
 
 ```
+
+Commit changes:
+
+```bash
+docker container commit -m "Add node" base-container node-base
+
+```
