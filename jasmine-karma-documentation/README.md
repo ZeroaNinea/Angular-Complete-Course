@@ -114,3 +114,12 @@ To install Clinic.js:
 npm install -g clinic
 
 ```
+
+### Docker & Kubernetes
+
+I used the [official Docker documentation]() to learn Docker.
+
+I created these files during studying:
+
+- [Dockerfile](./Dockerfile)
+- [docker-compose.yml](./docker-compose.yml)
