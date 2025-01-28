@@ -191,3 +191,10 @@ Start a new container using the new image:
 docker run node-base node -e "console.log('Hello again')"
 
 ```
+
+Remove the `base-container`:
+
+```bash
+docker rm -f base-container
+
+```
