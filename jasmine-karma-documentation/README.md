@@ -220,9 +220,16 @@ docker container commit -c "CMD node app.js" -m "Add app" app-container sample-a
 
 ```
 
-See updated history
+See updated history:
 
 ```bash
 docker image history sample-app
+
+```
+
+Run the app:
+
+```bash
+docker run sample-app
 
 ```
