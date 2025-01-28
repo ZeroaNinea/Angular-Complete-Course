@@ -1,5 +1,7 @@
 # Step 1: Build the Angular app.
+# Specifies the base image that the build will extend.
 FROM node:20-alpine AS build
+# Specifies the working directory.
 WORKDIR /app
 # Copy `package.json` and `package-lock.json` to install dependencies.
 COPY package.json package-lock.json ./
