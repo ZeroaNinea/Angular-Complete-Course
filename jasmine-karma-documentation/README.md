@@ -198,3 +198,10 @@ Remove the `base-container`:
 docker rm -f base-container
 
 ```
+
+Start new container using the `node-base` image:
+
+```bash
+docker run --name=app-container -ti node-base
+
+```
