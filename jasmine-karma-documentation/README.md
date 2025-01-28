@@ -153,3 +153,18 @@ docker compose up -d --build
 docker compose down --volumes
 
 ```
+
+Create a new container to install Node.js on it:
+
+```bash
+docker run --name=base-container -ti ubuntu
+
+```
+
+Install and test Node.js in the container:
+
+```bash
+apt update && apt install -y nodejs
+node -e 'console.log("Hello world!")'
+
+```
