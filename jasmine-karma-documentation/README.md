@@ -212,3 +212,10 @@ Create the `app.js` file in the `app-container`:
 echo 'console.log("Hello from an app")' > app.js
 
 ```
+
+Save this container's changes as a new image:
+
+```bash
+docker container commit -c "CMD node app.js" -m "Add app" app-container sample-app
+
+```
