@@ -205,3 +205,10 @@ Start new container using the `node-base` image:
 docker run --name=app-container -ti node-base
 
 ```
+
+Create the `app.js` file in the `app-container`:
+
+```bash
+echo 'console.log("Hello from an app")' > app.js
+
+```
