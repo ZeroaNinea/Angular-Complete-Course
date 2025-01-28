@@ -219,3 +219,10 @@ Save this container's changes as a new image:
 docker container commit -c "CMD node app.js" -m "Add app" app-container sample-app
 
 ```
+
+See updated history
+
+```bash
+docker image history sample-app
+
+```
