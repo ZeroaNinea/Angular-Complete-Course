@@ -154,6 +154,8 @@ docker compose down --volumes
 
 ```
 
+#### Install Node.js in Docker Container
+
 Create a new container to install Node.js on it:
 
 ```bash
