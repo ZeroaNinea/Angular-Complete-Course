@@ -184,3 +184,10 @@ Show the image's history:
 docker image history node-base
 
 ```
+
+Start a new container using the new image:
+
+```bash
+docker run node-base node -e "console.log('Hello again')"
+
+```
