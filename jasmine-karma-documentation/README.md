@@ -156,14 +156,14 @@ docker compose down --volumes
 
 #### Install Node.js in Docker Container
 
-Create a new container to install Node.js on it:
+Create a new image to install Node.js on it:
 
 ```bash
 docker run --name=base-container -ti ubuntu
 
 ```
 
-Install and test Node.js in the container:
+Install and test Node.js in the image:
 
 ```bash
 apt update && apt install -y nodejs
@@ -178,7 +178,7 @@ docker container commit -m "Add node" base-container node-base
 
 ```
 
-Show the container's history:
+Show the image's history:
 
 ```bash
 docker image history node-base
