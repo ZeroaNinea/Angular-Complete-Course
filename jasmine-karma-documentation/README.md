@@ -124,7 +124,7 @@ I created these files during studying:
 - [Dockerfile](./Dockerfile)
 - [docker-compose.yml](./docker-compose.yml)
 
-How to write a [`Dockerfile`](https://docs.docker.com/reference/dockerfile/)?
+How to write a [`Dockerfile`](https://docs.docker.com/reference/dockerfile/) and a [`docker-compose.yml`](https://docs.docker.com/reference/compose-file/) file?
 
 Start and stop Docker container:
 
