@@ -115,7 +115,7 @@ npm install -g clinic
 
 ```
 
-### Docker & Kubernetes
+### Docker
 
 I used the [official Docker documentation]() to learn Docker.
 
@@ -242,3 +242,5 @@ Remove the `app-container`:
 docker rm -f app-container
 
 ```
+
+### Kubernetes
