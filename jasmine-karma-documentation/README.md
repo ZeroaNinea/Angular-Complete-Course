@@ -245,7 +245,7 @@ docker rm -f app-container
 
 ### Kubernetes
 
-I'm learning Kubernetes using the [official documentation]().
+I'm learning Kubernetes using the [official documentation](https://kubernetes.io/docs/home/).
 
 Install `kubectl` on Windows and check the verison:
 
