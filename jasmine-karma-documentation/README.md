@@ -247,11 +247,12 @@ docker rm -f app-container
 
 I'm learning Kubernetes using the [official documentation](https://kubernetes.io/docs/home/).
 
-Install `kubectl` on Windows and check the verison:
+Install `kubectl` on Windows, check the verison, and check if a cluster is running:
 
 ```bash
 npm i -g curl
 curl.exe -LO "https://dl.k8s.io/release/v1.32.0/bin/windows/amd64/kubectl.exe"
 kubectl version --client
+kubectl cluster-info
 
 ```
