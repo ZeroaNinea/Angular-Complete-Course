@@ -244,3 +244,14 @@ docker rm -f app-container
 ```
 
 ### Kubernetes
+
+I'm learning Kubernetes using the [official documentation]().
+
+Install `kubectl` on Windows and check the verison:
+
+```bash
+npm i -g curl
+curl.exe -LO "https://dl.k8s.io/release/v1.32.0/bin/windows/amd64/kubectl.exe"
+kubectl version --client
+
+```
