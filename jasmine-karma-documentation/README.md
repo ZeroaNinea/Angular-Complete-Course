@@ -256,3 +256,11 @@ kubectl version --client
 kubectl cluster-info
 
 ```
+
+I created the [`deployment.yml`](./deployment.yml) file to deploy the application, and ran these commands to deploy it and check if it's deployed.
+
+```bash
+kubectl apply -f deployment.yml
+kubectl get pods
+
+```
