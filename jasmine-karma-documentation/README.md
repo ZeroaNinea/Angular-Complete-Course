@@ -245,7 +245,7 @@ docker rm -f app-container
 
 ### Kubernetes
 
-I'm learning Kubernetes using the [official documentation](https://kubernetes.io/docs/home/).
+I'm learning Kubernetes using the [official documentation](https://kubernetes.io/docs/home/) and this [video lesson](https://www.youtube.com/watch?v=X48VuDVv0do).
 
 Install `kubectl` on Windows, check the verison, and check if a cluster is running:
 
