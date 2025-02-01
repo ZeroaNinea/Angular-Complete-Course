@@ -264,3 +264,12 @@ kubectl apply -f deployment.yml
 kubectl get pods
 
 ```
+
+Exposing the deployment as a service. I created the [`service.yml`](./service.yml) file. Create a service, check it, and run in on the port.
+
+```bash
+kubectl apply -f service.yml
+kubectl get services
+kubectl port-forward svc/angular-service 8080:80
+
+```
