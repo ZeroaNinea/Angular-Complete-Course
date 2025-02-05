@@ -247,6 +247,12 @@ docker rm -f app-container
 
 I'm learning Kubernetes using the [official documentation](https://kubernetes.io/docs/home/) and this [video lesson](https://www.youtube.com/watch?v=X48VuDVv0do). [`kubernetes-the-hard-way`](https://github.com/kelseyhightower/kubernetes-the-hard-way) GitHub.
 
+I've created these files during the learnig:
+
+- [`nginx-deployment.yaml`](./kubernetes-lessons/nginx-deployment.yaml)
+- [`nginx-service.yaml`](./kubernetes-lessons/nginx-service.yaml)
+- [`nginx-deployment-rusult`](./kubernetes-lessons/nginx-deployment-result)
+
 Install `kubectl` on Windows, check the verison, and check if a cluster is running:
 
 ```bash
