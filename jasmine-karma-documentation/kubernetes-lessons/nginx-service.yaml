@@ -1,11 +1,15 @@
-apiVersion: v1
-kind: Service
+apiVersion: v1 # Uses the v1 API version for Services.
+kind: Service # Defines this as a Service resource.
 metadata:
-  name: nginx-service
+  name: nginx-service # Names the service "nginx-service".
 spec:
   selector:
-    app: nginx
+    app: nginx # The Service selects pods that have the label `app: nginx` (which matches the Deployment's pods).
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: 8080
+      port: 80 # The Service is exposed on port 80.
+      targetPort: 80 # Forwards requests to port 80 inside the pod.
+
+# The Deployment (`nginx-deployment.yaml`) creates two pods running the NGINX container.
+# The Service (`nginx-service.yaml`) makes those pods accessible via port 80.
+# The Service forwards requests from port 80 to port 8080 inside the pods.
