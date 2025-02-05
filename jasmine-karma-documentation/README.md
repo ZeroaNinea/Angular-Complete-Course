@@ -253,6 +253,11 @@ I've created these files during the learnig:
 - [`nginx-service.yaml`](./kubernetes-lessons/nginx-service.yaml)
 - [`nginx-deployment-rusult`](./kubernetes-lessons/nginx-deployment-result)
 
+The deployment files of this project:
+
+- [`deployment.yml`](./deployment.yml)
+- [`service.yml`](./service.yml)
+
 Install `kubectl` on Windows, check the verison, and check if a cluster is running:
 
 ```bash
