@@ -10,11 +10,11 @@ spec:
   template:
     metadata:
       labels:
-        app: nginx # Lables the created pods with "app: nginx".
+        app: nginx # Lables the created pods with `app: nginx``.
     spec:
       containers:
         - name: nginx # Name of the container inside the pod.
-          image: nginx:1.16 # Uses the "nginx:1.16" Docker image.
+          image: nginx:1.16 # Uses the `nginx:1.16` Docker image.
           resources:
             limits: # Sets resourse limits.
               memory: "128Mi" # Max memory 128MB.
