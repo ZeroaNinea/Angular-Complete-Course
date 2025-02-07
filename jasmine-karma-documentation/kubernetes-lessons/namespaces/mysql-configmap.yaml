@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-configmap # Configmap name.
+  # namespace: my-namespace # Assign to namespace.
+data:
+  db_url: mysql-service.database
