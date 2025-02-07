@@ -1,11 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mongodb-express
+  name: mongodb-express # The name of the Deployment.
 spec:
   selector:
     matchLabels:
-      app: mongodb-express
+      app: mongodb-express # Run MongoDB Express.
   template:
     metadata:
       labels:
@@ -13,14 +13,16 @@ spec:
     spec:
       containers:
         - name: mongodb-express
-          image: mongo-express
+          image: mongo-express # Use the MongoDB Express image.
           resources:
             limits:
+              # Memory.
               memory: "128Mi"
               cpu: "500m"
           ports:
             - containerPort: 8081
           env:
+            # Set login and password with environment variables.
             - name: ME_CONFIG_MONGODB_ADMINUSERNAME
               valueFrom:
                 secretKeyRef:
