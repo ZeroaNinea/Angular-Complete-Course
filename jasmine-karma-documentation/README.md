@@ -284,3 +284,8 @@ kubectl get services
 kubectl port-forward svc/angular-service 8080:80
 
 ```
+
+I used Mongo Express to run MongoDB with Kubernetes. I've created these files and folders:
+
+- [`mongodb`](./kubernetes-lessons/mongodb/)
+- [`mongodb-express`](./kubernetes-lessons/mongodb-express/)
