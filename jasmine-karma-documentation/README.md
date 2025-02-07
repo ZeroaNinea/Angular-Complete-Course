@@ -289,3 +289,7 @@ I used Mongo Express to run MongoDB with Kubernetes. I've created these files an
 
 - [`mongodb`](./kubernetes-lessons/mongodb/)
 - [`mongodb-express`](./kubernetes-lessons/mongodb-express/)
+
+The username and the password for the MongoDB Express:
+**Username:** admin
+**Password:** pass
