@@ -303,6 +303,8 @@ iwr -useb get.scoop.sh | iex
 ```
 
 ```sh
+scoop install kubens
+scoop update
 scoop install kubectx
 
 ```
