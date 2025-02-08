@@ -308,3 +308,5 @@ scoop update
 scoop install kubectx
 
 ```
+
+This is the file for namespaces: [`mysql-configmap.yaml`](./kubernetes-lessons/namespaces/mysql-configmap.yaml).
