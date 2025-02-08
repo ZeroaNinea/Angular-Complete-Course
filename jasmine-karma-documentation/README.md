@@ -294,7 +294,7 @@ The username and the password for the MongoDB Express:
 **Username:** admin
 **Password:** pass
 
-Install Scope and `kubectx` with the PowerShell:
+`kubectx` is needed to work with namespaces. Install Scope and `kubectx` with the PowerShell:
 
 ```sh
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
