@@ -293,3 +293,16 @@ I used Mongo Express to run MongoDB with Kubernetes. I've created these files an
 The username and the password for the MongoDB Express:
 **Username:** admin
 **Password:** pass
+
+Install Scope and `kubectx` with the PowerShell:
+
+```sh
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+iwr -useb get.scoop.sh | iex
+
+```
+
+```sh
+scoop install kubectx
+
+```
