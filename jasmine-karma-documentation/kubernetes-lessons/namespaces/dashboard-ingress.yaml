@@ -17,3 +17,7 @@ spec:
                 name: kubernetes-dashboard
                 port:
                   number: 80
+###
+# To access to the Kubernetes Dashboard in the browser.
+# Follow this path: C:\Windows\System32\drivers\etc\hosts
+# Open the hosts file and add this line "127.0.0.1 dashboard.com" at the bottom of the file.
