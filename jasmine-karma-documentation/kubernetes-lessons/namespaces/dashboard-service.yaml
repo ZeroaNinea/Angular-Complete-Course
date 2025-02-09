@@ -6,8 +6,7 @@ metadata:
 spec:
   selector:
     k8s-app: kubernetes-dashboard
-  type: NodePort
+  type: ClusterIP
   ports:
     - port: 443
-      targetPort: 443
-      nodePort: 30002
+      targetPort: 8443
