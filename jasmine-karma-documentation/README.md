@@ -335,9 +335,11 @@ curl -k https://dashboard.local
 
 ```
 
-Get the Access Token:
+Create an account, bind the Service Account to the Cluster Role, get the Access Token:
 
 ```sh
+kubectl create serviceaccount admin-user -n kubernetes-dashboard
+kubectl create clusterrolebinding admin-user-binding --clusterrole=cluster-admin --serviceaccount=kubernetes-dashboard:admin-user
 kubectl -n kubernetes-dashboard create token admin-user
 
 ```
