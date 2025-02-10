@@ -311,6 +311,11 @@ scoop install kubectx
 
 This is the file for namespaces: [`mysql-configmap.yaml`](./kubernetes-lessons/namespaces/mysql-configmap.yaml).
 
+These are the files for Ingress-NGINX deployment.
+
+- [`dashboard-ingress.yaml`](./kubernetes-lessons/namespaces/dashboard-ingress.yaml)
+- [`dashbeard-service.yaml`](./kubernetes-lessons/namespaces/dashboard-service.yaml)
+
 Install Kubernetes Dashboard and NGINX Ingress controller, apply the service and the ingress:
 
 ```sh
