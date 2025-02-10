@@ -117,7 +117,7 @@ npm install -g clinic
 
 ### Docker
 
-I used the [official Docker documentation]() to learn Docker.
+I used the [official Docker documentation](https://docs.docker.com/get-started/) to learn Docker.
 
 I created these files during studying:
 
@@ -310,3 +310,43 @@ scoop install kubectx
 ```
 
 This is the file for namespaces: [`mysql-configmap.yaml`](./kubernetes-lessons/namespaces/mysql-configmap.yaml).
+
+Install Kubernetes Dashboard and NGINX Ingress controller, apply the service and the ingress:
+
+```sh
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/cloud/deploy.yaml
+kubectl apply -f dashboard-service.yaml
+kubectl apply -f dashboard-ingress.yaml
+
+```
+
+Edit the `host` file: C:\Windows\System32\drivers\etc\hosts
+
+```lua
+127.0.0.1  dashboard.local # Add this there.
+
+```
+
+Visit the [Dashboard](https://dashboard.local). Or:
+
+```sh
+curl -k https://dashboard.local
+
+```
+
+Get the Access Token:
+
+```sh
+kubectl -n kubernetes-dashboard create token admin-user
+
+```
+
+Alternatively you can use `kubectl proxy`:
+
+```sh
+kubectl proxy
+
+```
+
+Then just visit this [link](http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/).
