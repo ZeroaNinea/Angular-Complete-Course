@@ -357,3 +357,10 @@ kubectl proxy
 ```
 
 Then just visit this [link](http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/).
+
+Install Helm:
+
+```sh
+scoop install helm
+
+```
