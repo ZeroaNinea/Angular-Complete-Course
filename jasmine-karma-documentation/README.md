@@ -376,3 +376,48 @@ helm repo add jenkins https://charts.jenkins.io
 helm repo update
 
 ```
+
+Create a namespace for Jenkins:
+
+```bash
+kubectl create namespace jenkins
+
+```
+
+Install Jenkins with Helm:
+
+```bash
+helm install jenkins jenkins/jenkins --namespace jenkins
+
+```
+
+Get the Admin password. Use GitBash if you're using Windows, girl:
+
+```bash
+kubectl get secret --namespace jenkins jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode
+
+```
+
+Find the external IP of the Jenkins service:
+
+```bash
+kubectl get svc -n jenkins
+
+```
+
+Run the Jenkins:
+
+```bash
+kubectl port-forward svc/jenkins 8080:8080 -n jenkins
+
+```
+
+Now visit this link: http://localhost:8080
+
+Uninstall and deleted Jenkins namespace:
+
+```bash
+helm uninstall jenkins --namespace jenkins
+kubectl delete namespace jenkins
+
+```
