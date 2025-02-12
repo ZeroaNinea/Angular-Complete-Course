@@ -364,3 +364,15 @@ Install Helm:
 scoop install helm
 
 ```
+
+### Jenkins
+
+I used this [playlist](https://www.youtube.com/playlist?list=PLEiEAq2VkUUKGrfcoNYRgqam5YBERN8xa) and the [official documentation](https://www.jenkins.io/doc/) to learn Jenkins.
+
+Add the official Jenkins Helm chart repository.
+
+```bash
+helm repo add jenkins https://charts.jenkins.io
+helm repo update
+
+```
