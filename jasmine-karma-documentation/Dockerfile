@@ -3,6 +3,8 @@
 FROM node:20-alpine AS build
 # Specifies the working directory.
 WORKDIR /app
+# Install Chrome for CI tests with Jenkins.
+RUN npm install puppeteer --save-dev
 # Copy `package.json` and `package-lock.json` to install dependencies.
 COPY package.json package-lock.json ./
 RUN npm install
