@@ -3,8 +3,6 @@
 FROM node:20-alpine AS build
 # Specifies the working directory.
 WORKDIR /app
-# Install Chrome for CI tests with Jenkins.
-RUN npm install puppeteer --save-dev
 # Copy `package.json` and `package-lock.json` to install dependencies.
 COPY package.json package-lock.json ./
 RUN npm install
@@ -12,7 +10,7 @@ RUN npm install
 # Copy the Angular app's source code.
 COPY . ./
 # Build the Angular app for production.
-RUN npm run build --prod
+RUN npm run build
 
 # Step 2: Use NGINX to serve the built Angular app.
 FROM nginx:alpine
