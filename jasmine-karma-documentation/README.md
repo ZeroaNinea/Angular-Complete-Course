@@ -435,13 +435,18 @@ ng -- test --code-coverage
 
 ```
 
-3. Go to the Container Template section and click advenced. Ingrese the momory:
+3. Go to the Container Template section and click advenced. Increase the momory:
    Go to Dashboard > Manage Jenkins > Clouds > kubernetes > default.
+   <br />
    **Request CPU:** 512m
+   <br />
    **Request Memory:** 1Gi
+   <br />
    **Limit CPU:** 1
+   <br />
    **Limit Memory:** 2Gi
    And now run the tests.
+   <br />
 4. Pull the Cypress images that includes Node.js and Chrome:
 
 ```sh
