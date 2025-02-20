@@ -445,6 +445,7 @@ ng -- test --code-coverage
    **Limit CPU:** 1
    <br />
    **Limit Memory:** 2Gi
+   <br />
    And now run the tests.
    <br />
 4. Pull the Cypress images that includes Node.js and Chrome:
