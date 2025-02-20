@@ -426,6 +426,15 @@ kubectl delete namespace jenkins
 
 1. To run Karma tests on Jenkins install the NodeJS plugin. Go to Dashboard > Manage Jenkins > Plugins to install it. Setup Node.js in Dashboard > Manage Jenkins > Tools.
 2. Create a new free style job. Set Git repository to `https://github.com/ZeroaNinea/Angular-Complete-Course.git`. Set the branch as `*/main`. In Environment section mark the `Provide Node & npm bin/ folder to PATH` checkbox.
+
+```sh
+cd jasmine-karma-documentation
+npm install
+ng -- build
+ng -- test --code-coverage
+
+```
+
 3. Go to the Container Template section and click advenced. Ingrese the momory:
    Go to Dashboard > Manage Jenkins > Clouds > kubernetes > default.
    **Request CPU:** 512m
