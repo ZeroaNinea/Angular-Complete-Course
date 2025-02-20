@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/ZeroaNinea/Angular-Complete-Course.git'
+            }
+        }
+        stage('Install Dependencies') {
+            steps {
+                sh 'cd jasmine-karma-documentation && npm install'
+            }
+        }
+        stage('Run Tests') {
+            steps {
+                sh 'cd jasmine-karma-documentation && ng test --code-coverage --browsers=ChromeHeadless'
+            }
+        }
+    }
+}
