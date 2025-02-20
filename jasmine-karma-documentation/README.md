@@ -422,4 +422,4 @@ kubectl delete namespace jenkins
 
 ```
 
-To run Karma tests on Jenkins install the NodeJS plugin.
+To run Karma tests on Jenkins install the NodeJS plugin. Go to Dashboard > Manage Jenkins > Plugins to install it.
