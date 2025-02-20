@@ -449,8 +449,3 @@ ng -- test --code-coverage
    And now run the tests.
    <br />
 4. Pull the Cypress images that includes Node.js and Chrome:
-
-```sh
-docker pull cypress/included:12.17.0
-
-```
