@@ -421,3 +421,5 @@ helm uninstall jenkins --namespace jenkins
 kubectl delete namespace jenkins
 
 ```
+
+To run Karma tests on Jenkins install the NodeJS plugin.
