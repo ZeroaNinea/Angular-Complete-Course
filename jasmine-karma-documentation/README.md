@@ -433,3 +433,9 @@ kubectl delete namespace jenkins
    **Limit CPU:** 1
    **Limit Memory:** 2Gi
    And now run the tests.
+4. Pull the Cypress images that includes Node.js and Chrome:
+
+```sh
+docker pull cypress/included:12.17.0
+
+```

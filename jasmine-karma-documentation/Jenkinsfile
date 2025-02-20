@@ -1,19 +1,36 @@
 pipeline {
-    agent any
+    agent {
+        kubernetes {
+            label 'karma-tests'
+            defaultContainer 'test-container'
+            yaml """
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    jenkins: karma-tests
+spec:
+  containers:
+    - name: test-container
+      image: cypress/included:12.17.0  # Pre-installed Chrome & Node.js
+      command: ["/bin/sh", "-c"]
+      args:
+        - "npm install && ng test --code-coverage --browsers=ChromeHeadless"
+      volumeMounts:
+        - name: workspace-volume
+          mountPath: /app
+  volumes:
+    - name: workspace-volume
+      emptyDir: {}
+"""
+        }
+    }
     stages {
-        stage('Checkout') {
+        stage('Run Karma Tests') {
             steps {
-                git 'https://github.com/ZeroaNinea/Angular-Complete-Course.git'
-            }
-        }
-        stage('Install Dependencies') {
-            steps {
-                sh 'cd jasmine-karma-documentation && npm install'
-            }
-        }
-        stage('Run Tests') {
-            steps {
-                sh 'cd jasmine-karma-documentation && ng test --code-coverage --browsers=ChromeHeadless'
+                script {
+                    sh 'cd /app && npm install && ng test --code-coverage --browsers=ChromeHeadless'
+                }
             }
         }
     }
