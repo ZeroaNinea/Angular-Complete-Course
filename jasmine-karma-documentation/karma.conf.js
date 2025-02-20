@@ -2,9 +2,6 @@
 // https://karma-runner.github.io/1.0/config/configuration-file.html
 
 // Use `puppeteer` to set the `CHROME_BIN` environment variable for Jenkins tests.
-// npm install puppeteer --save-dev // Install puppeteer.
-// const puppeteer = require("puppeteer");
-// process.env.CHROME_BIN = puppeteer.executablePath();
 
 module.exports = function (config) {
   const isCI = process.env.CI === "true";
