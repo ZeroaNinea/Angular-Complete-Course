@@ -1,37 +1,17 @@
-pipeline {
-    agent {
-        kubernetes {
-            label 'karma-tests'
-            defaultContainer 'test-container'
-            yaml """
-apiVersion: v1
-kind: Pod
-metadata:
-  labels:
-    jenkins: karma-tests
-spec:
-  containers:
-    - name: test-container
-      image: cypress/included:12.17.0  # Pre-installed Chrome & Node.js
-      command: ["/bin/sh", "-c"]
-      args:
-        - "npm install && ng test --code-coverage --browsers=ChromeHeadless"
-      volumeMounts:
-        - name: workspace-volume
-          mountPath: /app
-  volumes:
-    - name: workspace-volume
-      emptyDir: {}
-"""
+stages {
+    stage('Install Dependencies') {
+        steps {
+            script {
+                sh 'cd /app && npm cache clean --force && rm -rf node_modules package-lock.json && npm install'
+            }
         }
     }
-    stages {
-        stage('Run Karma Tests') {
-            steps {
-                script {
-                    sh 'cd /app && npm install && ng test --code-coverage --browsers=ChromeHeadless'
-                }
+    stage('Run Karma Tests') {
+        steps {
+            script {
+                sh 'cd /app && ng test --code-coverage --browsers=ChromeHeadless'
             }
         }
     }
 }
+
