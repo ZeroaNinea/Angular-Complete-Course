@@ -447,3 +447,5 @@ ng -- test --code-coverage
    **Limit Memory:** 2Gi
    <br />
    And now run the tests.
+
+I wrote a [`Jenkinsfile`](./Jenkinsfile) for CI tests.
