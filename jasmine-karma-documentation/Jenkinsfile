@@ -1,17 +1,41 @@
-stages {
-    stage('Install Dependencies') {
-        steps {
-            script {
-                sh 'cd /app && npm cache clean --force && rm -rf node_modules package-lock.json && npm install'
+pipeline {
+    agent any
+
+    stages {
+        stage('Install Dependencies') {
+            steps {
+                script {
+                    dir('jasmine-karma-documentation') {
+                        sh 'npm install'
+                    }
+                }
             }
         }
-    }
-    stage('Run Karma Tests') {
-        steps {
-            script {
-                sh 'cd /app && ng test --code-coverage --browsers=ChromeHeadless'
+
+        stage('Build Angular App') {
+            steps {
+                script {
+                    dir('jasmine-karma-documentation') {
+                        sh 'ng build --configuration=production'
+                    }
+                }
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                script {
+                    dir('jasmine-karma-documentation') {
+                        sh 'ng test --code-coverage --watch=false'
+                    }
+                }
+            }
+        }
+
+        stage('Archive Build Artifacts') {
+            steps {
+                archiveArtifacts artifacts: 'jasmine-karma-documentation/dist/**/*', fingerprint: true
             }
         }
     }
 }
-
