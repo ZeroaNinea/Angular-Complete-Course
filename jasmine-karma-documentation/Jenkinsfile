@@ -38,7 +38,7 @@ pipeline {
 
         stage('Archive Build Artifacts') {
             steps {
-                archiveArtifacts artifacts: 'jasmine-karma-documentation/dist/jasmine-karma-documentation/**', fingerprint: true
+                archiveArtifacts artifacts: 'jasmine-karma-documentation/dist/**/*', fingerprint: true
             }
         }
     }
