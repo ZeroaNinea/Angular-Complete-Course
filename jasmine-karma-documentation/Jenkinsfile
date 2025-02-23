@@ -36,11 +36,11 @@ pipeline {
             }
         }
 
-        stage('Archive Build Artifacts') {
-            steps {
-                archiveArtifacts artifacts: 'dist/jasmine-karma-documentation/browser', fingerprint: true
-            }
-        }
+        // stage('Archive Build Artifacts') {
+        //     steps {
+        //         archiveArtifacts artifacts: 'dist/jasmine-karma-documentation/browser', fingerprint: true
+        //     }
+        // }
     }
 }
 
