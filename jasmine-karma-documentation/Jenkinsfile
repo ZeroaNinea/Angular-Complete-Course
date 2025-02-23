@@ -30,7 +30,7 @@ pipeline {
             steps {
                 script {
                     dir('jasmine-karma-documentation') {
-                        sh 'npx ng test --code-coverage --watch=false'
+                        sh 'ng -- test --code-coverage --watch=false'
                     }
                 }
             }
