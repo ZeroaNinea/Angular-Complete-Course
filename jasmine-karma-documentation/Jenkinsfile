@@ -45,7 +45,11 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'echo Jenkinsfile'
+                script {
+                    dir('jasmine-karma-documentation') {
+                        sh 'npm install'
+                    }
+                }
             }
         }
     }
