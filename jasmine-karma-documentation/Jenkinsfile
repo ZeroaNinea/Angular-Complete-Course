@@ -1,48 +1,48 @@
-// pipeline {
-//     agent {
-//         docker {
-//             image 'node:20'
-//         }
-//     }
+pipeline {
+    agent any
 
-//     stages {
-//         stage('Install Dependencies') {
-//             steps {
-//                 script {
-//                     dir('jasmine-karma-documentation') {
-//                         sh 'npm install'
-//                     }
-//                 }
-//             }
-//         }
+    tools {
+      nodejs "NodeJS 22.13.1"
+    }
 
-//         stage('Build Angular App') {
-//             steps {
-//                 script {
-//                     dir('jasmine-karma-documentation') {
-//                         sh 'npx ng build --configuration=production'
-//                     }
-//                 }
-//             }
-//         }
+    stages {
+        stage('Install Dependencies') {
+            steps {
+                script {
+                    dir('jasmine-karma-documentation') {
+                        sh 'npm install'
+                    }
+                }
+            }
+        }
 
-//         stage('Run Tests') {
-//             steps {
-//                 script {
-//                     dir('jasmine-karma-documentation') {
-//                         sh 'npx ng test --code-coverage --watch=false'
-//                     }
-//                 }
-//             }
-//         }
+        stage('Build Angular App') {
+            steps {
+                script {
+                    dir('jasmine-karma-documentation') {
+                        sh 'npx ng build --configuration=production'
+                    }
+                }
+            }
+        }
 
-//         stage('Archive Build Artifacts') {
-//             steps {
-//                 archiveArtifacts artifacts: 'jasmine-karma-documentation/dist/**/*', fingerprint: true
-//             }
-//         }
-//     }
-// }
+        stage('Run Tests') {
+            steps {
+                script {
+                    dir('jasmine-karma-documentation') {
+                        sh 'npx ng test --code-coverage --watch=false'
+                    }
+                }
+            }
+        }
+
+        stage('Archive Build Artifacts') {
+            steps {
+                archiveArtifacts artifacts: 'jasmine-karma-documentation/dist/**/*', fingerprint: true
+            }
+        }
+    }
+}
 
 
 // pipeline {
@@ -96,18 +96,18 @@
 //     }
 // }
 
-pipeline {
-    agent any
+// pipeline {
+//     agent any
 
-    tools {
-      nodejs "NodeJS 22.13.1"
-    }
+//     tools {
+//       nodejs "NodeJS 22.13.1"
+//     }
 
-    stages {
-        stage('Build') {
-            steps {
-                sh 'node -v'
-            }
-        }
-    }
-}
+//     stages {
+//         stage('Build') {
+//             steps {
+//                 sh 'node -v'
+//             }
+//         }
+//     }
+// }
