@@ -5,6 +5,10 @@ pipeline {
       nodejs "NodeJS 22.13.1"
     }
 
+    cache {
+      paths: ['jasmine-karma-documentation/node_modules/']
+    }
+
     stages {
         stage('Install Dependencies') {
             steps {
@@ -36,78 +40,14 @@ pipeline {
             }
         }
 
-        // stage('Archive Build Artifacts') {
-        //     steps {
-        //         archiveArtifacts artifacts: 'dist/jasmine-karma-documentation/browser', fingerprint: true
-        //     }
-        // }
+        // I've commented this because I'm getting the error: ERROR: No artifacts found that match the file pattern "dist/jasmine-karma-documentation/browser". Configuration error?
+        // And also I don't know why this part of code is needed.
+        stage('Archive Build Artifacts') {
+            dir('jasmine-karma-documentation') {
+              steps {
+                  archiveArtifacts artifacts: 'dist/**', fingerprint: true
+              }
+            }
+        }
     }
 }
-
-
-// pipeline {
-//     agent any
-//     stages {
-//         stage('build') {
-//             steps {
-//                 script {
-//                     dir('jasmine-karma-documentation') {
-//                         sh 'npm install'
-//                     }
-//                 }
-//             }
-//         }
-//     }
-// }
-
-
-// pipeline {
-//     agent {
-//         docker {
-//             image 'node:20'
-//         }
-//     }
-//     stages {
-//         stage('Build') {
-//             steps {
-//                 sh 'node -v'
-//             }
-//         }
-//     }
-// }
-
-
-// pipeline {
-//     agent any
-//     environment {
-//         NODE_VERSION = '20'
-//     }
-//     stages {
-//         stage('Setup Node.js') {
-//             steps {
-//                 sh 'nvm use $NODE_VERSION || echo "Ensure Node.js $NODE_VERSION is installed"'
-//             }
-//         }
-//         stage('Check Node.js Version') {
-//             steps {
-//                 sh 'node -v'
-//             }
-//         }
-//     }
-// }
-
-// pipeline {
-//     agent any
-
-//     tools {
-//       nodejs "NodeJS 22.13.1"
-//     }
-
-//     stages {
-//         stage('Build') {
-//             steps {
-//                 sh 'node -v'
-//             }
-//         }
-//     }
-// }
