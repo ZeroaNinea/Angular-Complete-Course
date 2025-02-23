@@ -40,11 +40,11 @@ pipeline {
         // And also I don't know why this part of code is needed.
         stage('Archive Build Artifacts') {
               steps {
-                  script {
-                      dir('jasmine-karma-documentation') {
-                          archiveArtifacts artifacts: 'dist/**', fingerprint: true
-                      }
-                  }
+                  // script {
+                      // dir('jasmine-karma-documentation') {
+                  archiveArtifacts artifacts: 'jasmine-karma-documentation/dist/**', fingerprint: true
+                      // }
+                  // }
               }
         }
     }
