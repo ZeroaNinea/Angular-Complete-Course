@@ -78,16 +78,21 @@
 
 
 pipeline {
-    agent {
-        docker {
-            image 'node:20'
-        }
+    agent any
+    environment {
+        NODE_VERSION = '20'
     }
     stages {
-        stage('Build') {
+        stage('Setup Node.js') {
+            steps {
+                sh 'nvm use $NODE_VERSION || echo "Ensure Node.js $NODE_VERSION is installed"'
+            }
+        }
+        stage('Check Node.js Version') {
             steps {
                 sh 'node -v'
             }
         }
     }
 }
+
