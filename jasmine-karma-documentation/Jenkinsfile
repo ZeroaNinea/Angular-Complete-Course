@@ -5,10 +5,6 @@ pipeline {
       nodejs "NodeJS 22.13.1"
     }
 
-    cache {
-      paths: ['jasmine-karma-documentation/node_modules/']
-    }
-
     stages {
         stage('Install Dependencies') {
             steps {
