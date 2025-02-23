@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'node:22'
+            image 'node:20'
         }
     }
 
@@ -20,7 +20,7 @@ pipeline {
             steps {
                 script {
                     dir('jasmine-karma-documentation') {
-                        sh 'ng build --configuration=production'
+                        sh 'npx ng build --configuration=production'
                     }
                 }
             }
@@ -30,7 +30,7 @@ pipeline {
             steps {
                 script {
                     dir('jasmine-karma-documentation') {
-                        sh 'ng test --code-coverage --watch=false'
+                        sh 'npx ng test --code-coverage --watch=false'
                     }
                 }
             }
@@ -43,3 +43,4 @@ pipeline {
         }
     }
 }
+
