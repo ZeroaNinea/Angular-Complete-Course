@@ -39,11 +39,13 @@ pipeline {
         // I've commented this because I'm getting the error: ERROR: No artifacts found that match the file pattern "dist/jasmine-karma-documentation/browser". Configuration error?
         // And also I don't know why this part of code is needed.
         stage('Archive Build Artifacts') {
-            dir('jasmine-karma-documentation') {
               steps {
-                  archiveArtifacts artifacts: 'dist/**', fingerprint: true
+                  script {
+                      dir('jasmine-karma-documentation') {
+                          archiveArtifacts artifacts: 'dist/**', fingerprint: true
+                      }
+                  }
               }
-            }
         }
     }
 }
