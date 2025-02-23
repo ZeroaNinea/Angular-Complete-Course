@@ -20,7 +20,7 @@ pipeline {
             steps {
                 script {
                     dir('jasmine-karma-documentation') {
-                        sh 'npx ng build --configuration=production'
+                        sh 'ng -- build --configuration=production'
                     }
                 }
             }
