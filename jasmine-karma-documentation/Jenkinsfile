@@ -98,6 +98,11 @@
 
 pipeline {
     agent any
+
+    tools {
+      nodejs "NodeJS 22.13.1"
+    }
+
     stages {
         stage('Build') {
             steps {
