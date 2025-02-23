@@ -30,7 +30,7 @@ pipeline {
             steps {
                 script {
                     dir('jasmine-karma-documentation') {
-                        sh 'ls -r dist/'
+                        sh 'ls -r **'
                     }
                 }
             }
