@@ -20,21 +20,21 @@ pipeline {
             steps {
                 script {
                     dir('jasmine-karma-documentation') {
-                        sh 'ng -- build --configuration=production'
+                        sh 'ng build --configuration=production --no-aot --base-href ./'
                     }
                 }
             }
         }
 
-        stage('Check building') {
-            steps {
-                script {
-                    dir('jasmine-karma-documentation') {
-                        sh 'cd dist'
-                    }
-                }
-            }
-        }
+        // stage('Check building') {
+        //     steps {
+        //         script {
+        //             dir('jasmine-karma-documentation') {
+        //                 sh 'cd dist'
+        //             }
+        //         }
+        //     }
+        // }
 
         // stage('Run Tests') {
         //     steps {
@@ -48,14 +48,14 @@ pipeline {
 
         // I've commented this because I'm getting the error: ERROR: No artifacts found that match the file pattern "dist/jasmine-karma-documentation/browser". Configuration error?
         // And also I don't know why this part of code is needed.
-        // stage('Archive Build Artifacts') {
-        //       steps {
-        //           // script {
-        //               // dir('jasmine-karma-documentation') {
-        //           archiveArtifacts artifacts: 'jasmine-karma-documentation/dist/**', fingerprint: true
-        //               // }
-        //           // }
-        //       }
-        // }
+        stage('Archive Build Artifacts') {
+              steps {
+                  // script {
+                      // dir('jasmine-karma-documentation') {
+                  archiveArtifacts artifacts: 'jasmine-karma-documentation/dist/jasmine-karma-documentation/browser', fingerprint: true
+                      // }
+                  // }
+              }
+        }
     }
 }
