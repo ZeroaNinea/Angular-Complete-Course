@@ -52,7 +52,7 @@ pipeline {
               steps {
                   script {
                       dir('jasmine-karma-documentation') {
-                        archiveArtifacts artifacts: 'dist/jasmine-karma-documentation/browser', fingerprint: true
+                        archiveArtifacts artifacts: 'dist/**', fingerprint: true
                       }
                   }
               }
