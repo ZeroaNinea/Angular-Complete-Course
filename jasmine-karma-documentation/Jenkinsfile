@@ -26,16 +26,6 @@ pipeline {
             }
         }
 
-        // stage('Check Building') {
-        //     steps {
-        //         script {
-        //             dir('jasmine-karma-documentation') {
-        //                 sh 'cd dist'
-        //             }
-        //         }
-        //     }
-        // }
-
         // stage('Run Tests') {
         //     steps {
         //         script {
@@ -46,8 +36,6 @@ pipeline {
         //     }
         // }
 
-        // I've commented this because I'm getting the error: ERROR: No artifacts found that match the file pattern "dist/jasmine-karma-documentation/browser". Configuration error?
-        // And also I don't know why this part of code is needed.
         stage('Archive Build Artifacts') {
               steps {
                   script {
