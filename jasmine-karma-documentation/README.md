@@ -489,22 +489,24 @@ ng -- test --code-coverage
 4. Increase the memory in the `angular.json` file:
 
 ```json
-"projects": {
-  "jasmine-karma-documentation": {
-    "configurations": {
-      "production": {
-          "budgets": [
-            {
-              "type": "initial",
-              "maximumWarning": "500kB",
-              "maximumError": "2MB"
-            },
-          ],
+{
+  "projects": {
+    "jasmine-karma-documentation": {
+      "configurations": {
+        "production": {
+            "budgets": [
+              {
+                "type": "initial",
+                "maximumWarning": "500kB",
+                "maximumError": "2MB"
+              },
+            ],
+          },
         },
       },
-    },
+    }
   }
-},
+}
 ```
 
 I wrote a [`Jenkinsfile`](./Jenkinsfile) for CI tests.
