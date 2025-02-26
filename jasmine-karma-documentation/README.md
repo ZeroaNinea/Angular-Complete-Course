@@ -422,6 +422,13 @@ kubectl delete namespace jenkins
 
 ```
 
+Deploy Jenkins with Docker and Kubernetes:
+
+I've created these files:
+
+- [`Dockerfile`](./jenkins/Dockerfile)
+- [`values.yaml`](./jenkins/values.yaml)
+
 #### Run Karma Tests
 
 1. To run Karma tests on Jenkins install the NodeJS plugin. Go to Dashboard > Manage Jenkins > Plugins to install it. Setup Node.js in Dashboard > Manage Jenkins > Tools.
