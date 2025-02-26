@@ -494,14 +494,13 @@ ng -- test --code-coverage
     "jasmine-karma-documentation": {
       "configurations": {
         "production": {
-            "budgets": [
-              {
-                "type": "initial",
-                "maximumWarning": "500kB",
-                "maximumError": "2MB"
-              }
-            ]
-          }
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kB",
+              "maximumError": "2MB"
+            }
+          ]
         }
       }
     }
@@ -510,5 +509,3 @@ ng -- test --code-coverage
 ```
 
 I wrote a [`Jenkinsfile`](./Jenkinsfile) for CI tests.
-
-catgirl
