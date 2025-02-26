@@ -10,5 +10,8 @@ RUN apt update && apt install -y wget gnupg \
     && apt update && apt install -y google-chrome-stable \
     && rm -rf /var/lib/apt/lists/*
 
+# Ensure Google Chrome is installed.
+RUN google-chrome --version
+
 # Switch back to Jenkins user.
 USER jenkins
