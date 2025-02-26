@@ -499,14 +499,16 @@ ng -- test --code-coverage
                 "type": "initial",
                 "maximumWarning": "500kB",
                 "maximumError": "2MB"
-              },
-            ],
-          },
-        },
-      },
+              }
+            ]
+          }
+        }
+      }
     }
   }
 }
 ```
 
 I wrote a [`Jenkinsfile`](./Jenkinsfile) for CI tests.
+
+catgirl
