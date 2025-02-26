@@ -492,19 +492,18 @@ ng -- test --code-coverage
 {
   "projects": {
     "jasmine-karma-documentation": {
-          "configurations": {
-            "production": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "2MB"
-                },
-              ],
-            },
+      "configurations": {
+        "production": {
+            "budgets": [
+              {
+                "type": "initial",
+                "maximumWarning": "500kB",
+                "maximumError": "2MB"
+              },
+            ],
           },
         },
-      }
+      },
     }
   },
 }
