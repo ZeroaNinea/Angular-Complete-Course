@@ -398,6 +398,13 @@ kubectl get secret --namespace jenkins jenkins -o jsonpath="{.data.jenkins-admin
 
 ```
 
+Or get Admin password:
+
+```bash
+kubectl exec --namespace jenkins -it svc/jenkins -c jenkins -- /bin/cat /run/secrets/additional/chart-admin-password && echo
+
+```
+
 Find the external IP of the Jenkins service:
 
 ```bash
