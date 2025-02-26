@@ -422,12 +422,34 @@ kubectl delete namespace jenkins
 
 ```
 
-Deploy Jenkins with Docker and Kubernetes:
+**Deploy Jenkins with Docker and Kubernetes:**
 
 I've created these files:
 
 - [`Dockerfile`](./jenkins/Dockerfile)
 - [`values.yaml`](./jenkins/values.yaml)
+
+Build the image:
+
+```sh
+docker build -t jenkins .
+
+```
+
+Tag and push the image:
+
+```sh
+docker tag jenkins zeroaninea/jenkins
+docker push zeroaninea/jenkins
+
+```
+
+Install Jenkins with Helm:
+
+```sh
+helm install jenkins jenkins/jenkins --namespace jenkins -f values.yaml
+
+```
 
 #### Run Karma Tests
 
