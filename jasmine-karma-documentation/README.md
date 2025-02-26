@@ -430,7 +430,10 @@ kubectl delete namespace jenkins
 ```sh
 cd jasmine-karma-documentation
 npm install
-ng -- build
+ng lint
+ng build --configuration=production --no-aot --base-href ./
+ls -d /*
+cd dist/jasmine-karma-documentation/browser
 ng -- test --code-coverage
 
 ```
@@ -447,5 +450,28 @@ ng -- test --code-coverage
    **Limit Memory:** 2Gi
    <br />
    And now run the tests.
+4. Increase the memory in the `angular.json` file:
+
+```json
+{
+  "projects": {
+    "jasmine-karma-documentation": {
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "2MB"
+                },
+              ],
+            },
+          },
+        },
+      }
+    }
+  },
+}
+```
 
 I wrote a [`Jenkinsfile`](./Jenkinsfile) for CI tests.
