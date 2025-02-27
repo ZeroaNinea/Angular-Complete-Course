@@ -13,5 +13,8 @@ RUN apt update && apt install -y wget gnupg \
 # Ensure Google Chrome is installed.
 RUN google-chrome --version
 
+# Add the environment variable for Google.
+ENV CHROME_BIN=/usr/bin/google-chrome
+
 # Switch back to Jenkins user.
 USER jenkins
