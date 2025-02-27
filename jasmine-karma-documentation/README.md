@@ -439,7 +439,7 @@ I've created these files:
 Build the image:
 
 ```sh
-docker build -t jenkins .
+docker build -t zeroaninea/jenkins .
 
 ```
 
