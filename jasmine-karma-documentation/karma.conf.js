@@ -3,6 +3,8 @@
 
 // Use `puppeteer` to set the `CHROME_BIN` environment variable for Jenkins tests.
 
+process.env.CHROME_BIN = "/usr/bin/google-chrome";
+
 module.exports = function (config) {
   const isCI = process.env.CI === "true";
 
