@@ -1,2 +1,5 @@
 controller:
   image: "zeroaninea/jenkins"
+  containerEnv:
+    - name: CHROME_BIN
+      value: "/usr/bin/google-chrome"
