@@ -5,6 +5,10 @@ pipeline {
       nodejs "NodeJS 22.13.1"
     }
 
+    environment {
+      CHROME_BIN="/usr/bin/google-chrome"
+    }
+
     stages {
         stage('Install Dependencies') {
             steps {
@@ -16,34 +20,34 @@ pipeline {
             }
         }
 
-        stage('Build Angular App') {
-            steps {
-                script {
-                    dir('jasmine-karma-documentation') {
-                        sh 'ng build --configuration=production --no-aot --base-href ./'
-                    }
-                }
-            }
-        }
-
-        // stage('Run Tests') {
+        // stage('Build Angular App') {
         //     steps {
         //         script {
         //             dir('jasmine-karma-documentation') {
-        //                 sh 'ng -- test --code-coverage --watch=false'
+        //                 sh 'ng build --configuration=production --no-aot --base-href ./'
         //             }
         //         }
         //     }
         // }
 
-        stage('Archive Build Artifacts') {
-              steps {
-                  script {
-                      dir('jasmine-karma-documentation') {
-                        archiveArtifacts artifacts: 'dist/**', fingerprint: true
-                      }
-                  }
-              }
+        stage('Run Tests') {
+            steps {
+                script {
+                    dir('jasmine-karma-documentation') {
+                        sh 'ng test --watch=false --browsers=ChromeHeadlessNoSandbox'
+                    }
+                }
+            }
         }
+
+        // stage('Archive Build Artifacts') {
+        //       steps {
+        //           script {
+        //               dir('jasmine-karma-documentation') {
+        //                 archiveArtifacts artifacts: 'dist/**', fingerprint: true
+        //               }
+        //           }
+        //       }
+        // }
     }
 }
