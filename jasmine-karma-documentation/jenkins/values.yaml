@@ -2,7 +2,5 @@ controller:
   image:
     registry: docker.io
     repository: zeroaninea/jenkins
-    tag: jenkins
-  containerEnv:
-    - name: CHROME_BIN
-      value: "/usr/bin/google-chrome"
+    tag: custom
+    pullPolicy: Always
