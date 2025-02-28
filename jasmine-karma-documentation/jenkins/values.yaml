@@ -1,5 +1,8 @@
 controller:
-  image: "zeroaninea/jenkins"
+  image:
+    registry: docker.io
+    repository: zeroaninea/jenkins
+    tag: jenkins
   containerEnv:
     - name: CHROME_BIN
       value: "/usr/bin/google-chrome"
