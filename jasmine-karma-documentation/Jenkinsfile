@@ -1,13 +1,29 @@
 pipeline {
-    agent any
+    agent {
+        kubernetes {
+            yaml """
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    jenkins: agent
+spec:
+  containers:
+  - name: node-chrome
+    image: cypress/included:latest
+    command: ["cat"]
+    tty: true
+"""
+        }
+    }
 
     tools {
       nodejs "NodeJS 22.13.1"
     }
 
-    environment {
-      CHROME_BIN="/usr/bin/google-chrome"
-    }
+    // environment {
+    //   CHROME_BIN="/usr/bin/google-chrome"
+    // }
 
     stages {
         stage('Install Dependencies') {
