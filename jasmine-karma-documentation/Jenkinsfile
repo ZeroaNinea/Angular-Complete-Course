@@ -1,21 +1,5 @@
 pipeline {
-    agent {
-        kubernetes {
-            yaml """
-apiVersion: v1
-kind: Pod
-metadata:
-  labels:
-    jenkins: agent
-spec:
-  containers:
-  - name: node-chrome
-    image: angular/ngcontainer:latest
-    command: ["cat"]
-    tty: true
-"""
-        }
-    }
+    agent { label 'built-in' }
 
     tools {
       nodejs "NodeJS 22.13.1"
