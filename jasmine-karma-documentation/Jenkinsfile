@@ -10,7 +10,7 @@ metadata:
 spec:
   containers:
   - name: node-chrome
-    image: cypress/included:latest
+    image: angular/ngcontainer:latest
     command: ["cat"]
     tty: true
 """
@@ -21,9 +21,9 @@ spec:
       nodejs "NodeJS 22.13.1"
     }
 
-    // environment {
-    //   CHROME_BIN="/usr/bin/google-chrome"
-    // }
+    environment {
+      CHROME_BIN="/usr/bin/google-chrome"
+    }
 
     stages {
         stage('Install Dependencies') {
