@@ -10,13 +10,12 @@ pipeline {
     }
 
     stages {
-        stages {
         stage('Test Chrome') {
-                steps {
-                    sh 'google-chrome --version'
-                }
+            steps {
+                sh 'google-chrome --version'
             }
         }
+
         // stage('Install Dependencies') {
         //     steps {
         //         script {
