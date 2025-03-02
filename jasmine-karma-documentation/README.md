@@ -437,18 +437,11 @@ I've created these files:
 - [`Dockerfile`](./jenkins/Dockerfile)
 - [`values.yaml`](./jenkins/values.yaml)
 
-Build the image:
+Build and push the image:
 
 ```sh
-docker build -t zeroaninea/jenkins .
-
-```
-
-Tag and push the image:
-
-```sh
-docker tag jenkins zeroaninea/jenkins
-docker push zeroaninea/jenkins
+docker build -t zeroaninea/jenkins:custom .
+docker push zeroaninea/jenkins:custom
 
 ```
 
