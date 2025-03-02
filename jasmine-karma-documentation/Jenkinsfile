@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'built-in' }
+    agent any
 
     tools {
       nodejs "NodeJS 22.13.1"
