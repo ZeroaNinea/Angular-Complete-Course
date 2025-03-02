@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { label 'built-in' }
 
     tools {
       nodejs "NodeJS 22.13.1"
@@ -12,7 +12,9 @@ pipeline {
     stages {
         stage('Test Chrome') {
             steps {
+                sh 'echo "CHROME_BIN is set to: $CHROME_BIN"'
                 sh 'google-chrome --version'
+                sh 'ng test --watch=false --browsers=ChromeHeadlessNoSandbox'
             }
         }
 
