@@ -13,8 +13,4 @@ controller:
         containers:
         - name: node-chrome
           image: cypress/included:latest
-          command: ["sh", "-c", "apt-get update && apt-get install -y google-chrome-stable && tail -f /dev/null"]
           tty: true
-          env:
-            - name: CHROME_BIN
-              value: "/usr/bin/google-chrome"
