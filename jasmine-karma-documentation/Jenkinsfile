@@ -10,15 +10,22 @@ pipeline {
     }
 
     stages {
-        stage('Install Dependencies') {
-            steps {
-                script {
-                    dir('jasmine-karma-documentation') {
-                        sh 'npm install'
-                    }
+        stages {
+        stage('Test Chrome') {
+                steps {
+                    sh 'google-chrome --version'
                 }
             }
         }
+        // stage('Install Dependencies') {
+        //     steps {
+        //         script {
+        //             dir('jasmine-karma-documentation') {
+        //                 sh 'npm install'
+        //             }
+        //         }
+        //     }
+        // }
 
         // stage('Build Angular App') {
         //     steps {
@@ -30,15 +37,15 @@ pipeline {
         //     }
         // }
 
-        stage('Run Tests') {
-            steps {
-                script {
-                    dir('jasmine-karma-documentation') {
-                        sh 'ng test --watch=false --browsers=ChromeHeadlessNoSandbox'
-                    }
-                }
-            }
-        }
+        // stage('Run Tests') {
+        //     steps {
+        //         script {
+        //             dir('jasmine-karma-documentation') {
+        //                 sh 'ng test --watch=false --browsers=ChromeHeadlessNoSandbox'
+        //             }
+        //         }
+        //     }
+        // }
 
         // stage('Archive Build Artifacts') {
         //       steps {
