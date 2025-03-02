@@ -1,5 +1,22 @@
 pipeline {
-    agent { label 'built-in' }
+    agent {
+        kubernetes {
+            yaml """
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    jenkins: agent-chrome
+spec:
+  containers:
+  - name: test-container
+    image: zeroaninea/jenkins:custom
+    command: ['cat']
+    tty: true
+    env:
+      - name: CHROME_BIN
+        value: "/usr/bin/google-chrome"
+"""
 
     tools {
       nodejs "NodeJS 22.13.1"
