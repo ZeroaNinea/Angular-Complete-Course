@@ -4,6 +4,9 @@ controller:
     repository: zeroaninea/jenkins
     tag: custom
     pullPolicy: Always
+  containerEnv:
+    - name: CHROME_BIN
+      value: "/usr/bin/google-chrome"
 
   # podTemplate:
   #   yaml: |
