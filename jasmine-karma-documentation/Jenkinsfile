@@ -17,6 +17,8 @@ spec:
       - name: CHROME_BIN
         value: "/usr/bin/google-chrome"
 """
+        }
+    }
 
     tools {
       nodejs "NodeJS 22.13.1"
