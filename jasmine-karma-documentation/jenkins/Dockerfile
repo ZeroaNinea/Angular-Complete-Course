@@ -18,9 +18,14 @@ RUN apt update && apt install -y wget gnupg2 curl \
     # && rm -rf /var/lib/apt/lists/* # This line makes `apt-get` read-only.
 
 # Add execution permission for all users.
-RUN chmod +x /usr/bin/google-chrome
+# RUN chmod +x /usr/bin/google-chrome
 
 # Verify that Chrome is installed.
+# RUN google-chrome --version
+
+# Ensure Chrome is accessible.
+RUN ln -s /usr/bin/google-chrome /usr/local/bin/google-chrome
+RUN chmod +x /usr/bin/google-chrome /usr/local/bin/google-chrome
 RUN google-chrome --version
 
 # Set environment variable for Chrome.
