@@ -9,9 +9,9 @@ metadata:
     jenkins: agent-chrome
 spec:
   containers:
-  - name: test-container
+  - name: jenkins-agent
     image: zeroaninea/jenkins:custom
-    command: ['cat']
+    command: ['sleep', '999999']
     tty: true
     env:
       - name: CHROME_BIN
@@ -24,15 +24,22 @@ spec:
       nodejs "NodeJS 22.13.1"
     }
 
-    environment {
-      CHROME_BIN="/usr/bin/google-chrome"
-    }
+    // environment {
+    //   CHROME_BIN="/usr/bin/google-chrome"
+    // }
 
     stages {
-        stage('Test Chrome') {
+        stage('Verify Chrome') {
             steps {
-                sh 'echo "CHROME_BIN is set to: $CHROME_BIN"'
+                sh 'which google-chrome || echo "Google Chrome NOT found!"'
+                sh 'ls -lah /usr/bin/google-chrome || echo "Google Chrome binary missing!"'
                 sh 'google-chrome --version'
+                sh 'echo "CHROME_BIN is set to: $CHROME_BIN"'
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
                 sh 'ng test --watch=false --browsers=ChromeHeadlessNoSandbox'
             }
         }
