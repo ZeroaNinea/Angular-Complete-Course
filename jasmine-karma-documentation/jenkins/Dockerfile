@@ -25,7 +25,6 @@ RUN apt update && apt install -y wget gnupg2 curl \
 
 # Ensure Chrome is accessible.
 RUN ln -s /usr/bin/google-chrome /usr/local/bin/google-chrome
-# RUN ln -s /usr/bin/google-chrome-stable /usr/bin/google-chrome
 RUN chmod +x /usr/bin/google-chrome /usr/local/bin/google-chrome
 RUN google-chrome --version
 
