@@ -17,11 +17,15 @@ USER root
 #     && apt update && apt install -y google-chrome-stable
     # && rm -rf /var/lib/apt/lists/* # This line makes `apt-get` read-only.
 # Use a prebuilt Chrome image
-RUN apt update && apt install -y \
-    wget gnupg2 curl libglib2.0-0 libgconf-2-4 libgtk-3-0 \
-    libxss1 libnss3 libasound2 libatk1.0-0 libpangocairo-1.0-0 \
-    libpango1.0-0 libcups2 && \
-    rm -rf /var/lib/apt/lists/*
+# RUN apt update && apt install -y \
+#     wget gnupg2 curl libglib2.0-0 libgconf-2-4 libgtk-3-0 \
+#     libxss1 libnss3 libasound2 libatk1.0-0 libpangocairo-1.0-0 \
+#     libpango1.0-0 libcups2 libgdk-pixbuf-2.0-0 libgbm1 libxcomposite1 \
+#     libxrandr2 libxi6 libxcursor1 libatk-bridge2.0-0 libxdamage1 libxinerama1 \
+#     && rm -rf /var/lib/apt/lists/*
+RUN apt update && apt install -y curl
+RUN curl -fsSL https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -o chrome.deb && \
+    apt install -y ./chrome.deb && rm -f chrome.deb
 
 # Add execution permission for all users.
 # RUN chmod +x /usr/bin/google-chrome
