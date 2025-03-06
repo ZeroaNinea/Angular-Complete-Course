@@ -23,9 +23,17 @@ USER root
 #     libpango1.0-0 libcups2 libgdk-pixbuf-2.0-0 libgbm1 libxcomposite1 \
 #     libxrandr2 libxi6 libxcursor1 libatk-bridge2.0-0 libxdamage1 libxinerama1 \
 #     && rm -rf /var/lib/apt/lists/*
-RUN apt update && apt install -y curl
-RUN curl -fsSL https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -o chrome.deb && \
-    apt install -y ./chrome.deb && rm -f chrome.deb
+# RUN apt update && apt install -y curl
+# RUN curl -fsSL https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -o chrome.deb && \
+#     apt install -y ./chrome.deb && rm -f chrome.deb
+RUN apt-get update \
+    && apt-get install -y wget gnupg \
+    && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
+    && sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' \
+    && apt-get update \
+    && apt-get install -y google-chrome-stable fonts-ipafont-gothic fonts-wqy-zenhei fonts-thai-tlwg fonts-kacst fonts-freefont-ttf libxss1 \
+      --no-install-recommends \
+    && rm -rf /var/lib/apt/lists/*
 
 # Add execution permission for all users.
 # RUN chmod +x /usr/bin/google-chrome
