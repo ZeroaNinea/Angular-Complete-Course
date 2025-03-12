@@ -8,7 +8,7 @@
 
 // const isJenkins = process.env.JENKINS_HOME !== undefined;
 // if (isJenkins) {
-process.env.CHROME_BIN = require("puppeteer").executablePath();
+// process.env.CHROME_BIN = require("puppeteer").executablePath();
 // }
 
 console.log("CHROME_BIN is set to:", process.env.CHROME_BIN);
